@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Overview | Gizmo Trendz — IT Solutions &amp; Staffing</title>
+  <meta name="description" content="Complete IT services from Gizmo Trendz — hardware, software, networking, rental, AMC, and IT staffing solutions for businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 950:'#1C1917',900:'#292524',800:'#44403C',700:'#C2410C',600:'#EA580C',500:'#F97316',400:'#FB923C',300:'#FDBA74',200:'#FED7AA',100:'#FFEDD5',50:'#FFF7ED' },
+            neutral: { 950:'#030712',900:'#111827',800:'#1F2937',700:'#374151',600:'#4B5563',500:'#6B7280',400:'#9CA3AF',300:'#D1D5DB',200:'#E5E7EB',100:'#F3F4F6',50:'#F9FAFB' }
+          },
+          fontFamily: { display:['"Plus Jakarta Sans"','sans-serif'], body:['Inter','sans-serif'] },
+          boxShadow: {
+            'brand-sm':'0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04)',
+            'brand-md':'0 4px 6px rgba(249,115,22,0.10),0 2px 8px rgba(0,0,0,0.05)',
+            'brand-lg':'0 8px 24px rgba(249,115,22,0.14),0 4px 16px rgba(0,0,0,0.07)',
+            'brand-xl':'0 16px 48px rgba(249,115,22,0.18),0 8px 24px rgba(0,0,0,0.08)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fade-up { animation: fadeUp 0.6s cubic-bezier(0.34,1.2,0.64,1) both; }
+    .delay-100{animation-delay:0.1s} .delay-200{animation-delay:0.2s} .delay-300{animation-delay:0.3s}
+    [aria-current="page"]{color:#F97316;position:relative;}
+    [aria-current="page"]::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#F97316;border-radius:9999px;}
+    .nav-link{font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#374151;transition:color 150ms ease;position:relative;}
+    .nav-link:hover{color:#F97316;}
+    .dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:0.875rem;color:#374151;font-weight:500;transition:background-color 150ms ease,color 150ms ease;text-decoration:none;}
+    .dropdown-item:hover{background-color:#FFF7ED;color:#EA580C;}
+    .card-hover{transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1),box-shadow 200ms ease,border-color 150ms ease;}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(249,115,22,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#FED7AA;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:#F97316;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(249,115,22,0.25),0 2px 8px rgba(0,0,0,0.08);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .btn-primary:hover{background:#FB923C;box-shadow:0 8px 24px rgba(249,115,22,0.30);transform:translateY(-1px);}
+    .btn-primary:active{background:#C2410C;transform:translateY(0);}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9999px;border:1.5px solid #F97316;color:#F97316;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;background:transparent;transition:background-color 150ms ease,border-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .btn-outline:hover{background:#FFF7ED;transform:translateY(-1px);}
+    .btn-light{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:white;color:#EA580C;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .btn-light:hover{box-shadow:0 8px 20px rgba(0,0,0,0.12);transform:translateY(-1px);}
+    .section-overline{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#FFF7ED;border:1px solid #FFEDD5;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#EA580C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .noise-overlay{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.04;pointer-events:none;}
+    .page-hero{position:relative;background:#FFF7ED;padding-top:7rem;padding-bottom:4rem;border-bottom:1px solid #FFEDD5;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(249,115,22,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;}
+    input,textarea,select{font-family:'Inter',sans-serif;}
+  </style>
+</head>
+<body class="bg-white text-neutral-700 antialiased">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(249,115,22,0.06),0 1px 8px rgba(0,0,0,0.04);">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded-sm" style="text-decoration:none;">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#F97316,#C2410C);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg>
+        </div>
+        <span class="font-display font-bold text-lg text-brand-900" style="letter-spacing:-0.02em;">Gizmo Trendz</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 cursor-pointer bg-transparent border-none" style="padding:0;color:#F97316;">Services <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform 200ms ease,color 150ms ease;" class="text-brand-500 group-hover:rotate-180"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white border border-neutral-200 rounded-2xl shadow-brand-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible p-2" style="transition:opacity 200ms ease,visibility 200ms ease;">
+            <a href="hardware.html" class="dropdown-item">Hardware</a>
+            <a href="software.html" class="dropdown-item">Software</a>
+            <a href="networking.html" class="dropdown-item">Networking</a>
+            <a href="rental-amc.html" class="dropdown-item">Rental &amp; AMC</a>
+            <a href="staffing.html" class="dropdown-item">IT Staffing</a>
+          </div>
+        </div>
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 cursor-pointer bg-transparent border-none" style="padding:0;">Industries <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="text-neutral-400 group-hover:text-brand-500" style="transition:transform 200ms ease,color 150ms ease;"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-white border border-neutral-200 rounded-2xl shadow-brand-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible p-2" style="transition:opacity 200ms ease,visibility 200ms ease;">
+            <a href="startups.html" class="dropdown-item">🚀 Startups</a>
+            <a href="mnc.html" class="dropdown-item">🏢 MNCs &amp; Enterprise</a>
+            <a href="government.html" class="dropdown-item">🏛️ Government</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-full text-white text-sm font-semibold" style="background:#F97316;box-shadow:0 2px 8px rgba(249,115,22,0.30);transition:background-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;" onmouseover="this.style.background='#FB923C';this.style.transform='translateY(-1px)';" onmouseout="this.style.background='#F97316';this.style.transform='translateY(0)';">Get a Quote</a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-neutral-500 hover:text-brand-600 hover:bg-brand-50" style="transition:color 150ms ease,background-color 150ms ease;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-neutral-100">
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Home</a>
+        <a href="hardware.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Hardware</a>
+        <a href="software.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Software</a>
+        <a href="networking.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Networking</a>
+        <a href="rental-amc.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Rental &amp; AMC</a>
+        <a href="staffing.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">IT Staffing</a>
+        <a href="startups.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Startups</a>
+        <a href="mnc.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">MNCs &amp; Enterprise</a>
+        <a href="government.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Government</a>
+        <div class="pt-2"><a href="contact.html" class="block text-center px-4 py-3 rounded-xl text-sm font-semibold text-white" style="background:#F97316;">Get a Quote</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero">
+      <div class="noise-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-overline animate-fade-up">Our Services</div>
+        <h1 class="font-display font-bold text-neutral-900 animate-fade-up delay-100" style="font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;max-width:640px;margin-bottom:1rem;">Complete IT Services Under One Roof</h1>
+        <p class="font-body text-neutral-500 text-lg leading-relaxed animate-fade-up delay-200" style="max-width:560px;">From infrastructure to talent acquisition — every IT need your business has, delivered by a single trusted partner.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SERVICES GRID -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="section-overline" style="display:inline-flex;">What We Offer</div>
+          <h2 class="font-display font-bold text-neutral-900 mt-1" style="font-size:clamp(1.75rem,3vw,2.25rem);letter-spacing:-0.025em;">Five Areas of Deep Expertise</h2>
+          <p class="font-body text-neutral-500 mt-3 text-base leading-relaxed mx-auto" style="max-width:520px;">Whether you need a single device or a full enterprise rollout, we have the people and processes to deliver.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Card 1: Hardware Solutions -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="7" width="22" height="14" rx="2" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <path d="M9 21v2m10-2v2M7 23h14" stroke="#F97316" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M8 12h4m-4 3h8" stroke="#FB923C" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.25rem;letter-spacing:-0.015em;">Hardware Solutions</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Sourcing, procurement, and deployment of enterprise-grade hardware from leading global vendors. We handle everything from office workstations to full data center buildouts.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Laptops, desktops &amp; workstations
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Servers, storage &amp; data center equipment
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Printers, peripherals &amp; accessories
+              </li>
+            </ul>
+            <a href="hardware.html" class="btn-primary inline-flex text-sm" style="padding:10px 20px;">Explore Hardware &#8594;</a>
+          </div>
+
+          <!-- Card 2: Software Solutions -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="5" width="22" height="18" rx="2" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <path d="M3 10h22" stroke="#F97316" stroke-width="1.5"/>
+                <path d="M8 15l3 3-3 3m5 0h5" stroke="#FB923C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.25rem;letter-spacing:-0.015em;">Software Solutions</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Licensing, installation, configuration, and lifecycle management of enterprise software. We're vendor-neutral and ensure your software stack is optimized, compliant, and current.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                OS tools, productivity suites &amp; collaboration apps
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Enterprise applications &amp; ERP
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Security software, antivirus &amp; compliance tools
+              </li>
+            </ul>
+            <a href="software.html" class="btn-primary inline-flex text-sm" style="padding:10px 20px;">Explore Software &#8594;</a>
+          </div>
+
+          <!-- Card 3: Networking Services -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="8" r="3" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <circle cx="6" cy="21" r="3" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <circle cx="22" cy="21" r="3" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <path d="M14 11v4M14 15l-5.5 3M14 15l5.5 3" stroke="#FB923C" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.25rem;letter-spacing:-0.015em;">Networking Services</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">End-to-end network design, deployment, and monitoring for offices, campuses, and multi-site enterprises. We build networks that are fast, secure, and built to scale.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                LAN/WAN design &amp; deployment
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Wi-Fi, firewall &amp; VPN setup
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                24/7 network monitoring &amp; support
+              </li>
+            </ul>
+            <a href="networking.html" class="btn-primary inline-flex text-sm" style="padding:10px 20px;">Explore Networking &#8594;</a>
+          </div>
+
+          <!-- Card 4: Rental & AMC -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 8h18v13a2 2 0 01-2 2H7a2 2 0 01-2-2V8z" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <path d="M3 8h22M10 5h8" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M10 14l2 2 4-4" stroke="#FB923C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.25rem;letter-spacing:-0.015em;">Rental &amp; AMC</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Flexible equipment rental for any duration and Annual Maintenance Contracts with guaranteed SLA response times. Keep your IT running without large upfront capital expenditure.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Short &amp; long-term equipment rental
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Preventive maintenance &amp; breakdown support
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                SLA-based response with defined resolution times
+              </li>
+            </ul>
+            <a href="rental-amc.html" class="btn-primary inline-flex text-sm" style="padding:10px 20px;">Explore Rental &amp; AMC &#8594;</a>
+          </div>
+
+          <!-- Card 5: IT Staffing -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="4" stroke="#F97316" stroke-width="1.75" fill="none"/>
+                <path d="M3 23c0-4 3.134-7 7-7s7 3 7 7" stroke="#F97316" stroke-width="1.75" stroke-linecap="round" fill="none"/>
+                <circle cx="20" cy="10" r="3" stroke="#FB923C" stroke-width="1.5" fill="none"/>
+                <path d="M24 23c0-3-1.79-5.5-4-6.3" stroke="#FB923C" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.25rem;letter-spacing:-0.015em;">IT Staffing</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Contract, permanent, and project-based IT staffing services. We source, screen, and deploy skilled IT professionals matched precisely to your technical and cultural requirements.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Engineers, admins, helpdesk &amp; specialist roles
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Contract, permanent &amp; project-based models
+              </li>
+              <li class="flex items-center gap-2 text-sm text-neutral-600">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 7-7" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Fast deployment with full HR support
+              </li>
+            </ul>
+            <a href="staffing.html" class="btn-primary inline-flex text-sm" style="padding:10px 20px;">Explore Staffing &#8594;</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: COMPARISON TABLE -->
+    <section class="py-20" style="background:#FFF7ED;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="section-overline" style="display:inline-flex;">Quick Reference</div>
+          <h2 class="font-display font-bold text-neutral-900 mt-1" style="font-size:clamp(1.75rem,3vw,2.25rem);letter-spacing:-0.025em;">Which Service Is Right for You?</h2>
+          <p class="font-body text-neutral-500 mt-3 text-base leading-relaxed mx-auto" style="max-width:480px;">A quick overview to help you find the right fit.</p>
+        </div>
+        <div class="overflow-x-auto">
+          <div class="rounded-2xl overflow-hidden border border-neutral-200" style="background:white;box-shadow:0 4px 6px rgba(249,115,22,0.10),0 2px 8px rgba(0,0,0,0.05);">
+            <table class="w-full" style="border-collapse:collapse;">
+              <thead>
+                <tr style="background:#FFF7ED;border-bottom:1.5px solid #FFEDD5;">
+                  <th class="font-display font-semibold text-neutral-900 text-sm text-left px-6 py-4" style="letter-spacing:-0.01em;">Service</th>
+                  <th class="font-display font-semibold text-neutral-900 text-sm text-left px-6 py-4" style="letter-spacing:-0.01em;">Key Deliverable</th>
+                  <th class="font-display font-semibold text-neutral-900 text-sm text-left px-6 py-4" style="letter-spacing:-0.01em;">Ideal For</th>
+                  <th class="font-display font-semibold text-neutral-900 text-sm text-left px-6 py-4" style="letter-spacing:-0.01em;">Response Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:white;border-bottom:1px solid #E5E7EB;">
+                  <td class="px-6 py-4">
+                    <span class="font-body font-semibold text-sm text-neutral-900">Hardware</span>
+                  </td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Procurement &amp; deployment</td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">New setups, upgrades</td>
+                  <td class="px-6 py-4">
+                    <span class="font-body text-sm text-neutral-600 inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full inline-block" style="background:#F97316;"></span>
+                      2–5 business days
+                    </span>
+                  </td>
+                </tr>
+                <tr style="background:#F9FAFB;border-bottom:1px solid #E5E7EB;">
+                  <td class="px-6 py-4">
+                    <span class="font-body font-semibold text-sm text-neutral-900">Software</span>
+                  </td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Licensing &amp; configuration</td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">All organizations</td>
+                  <td class="px-6 py-4">
+                    <span class="font-body text-sm text-neutral-600 inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full inline-block" style="background:#F97316;"></span>
+                      Same day – 48 hrs
+                    </span>
+                  </td>
+                </tr>
+                <tr style="background:white;border-bottom:1px solid #E5E7EB;">
+                  <td class="px-6 py-4">
+                    <span class="font-body font-semibold text-sm text-neutral-900">Networking</span>
+                  </td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Design &amp; deployment</td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Offices, campuses</td>
+                  <td class="px-6 py-4">
+                    <span class="font-body text-sm text-neutral-600 inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full inline-block" style="background:#F97316;"></span>
+                      3–7 business days
+                    </span>
+                  </td>
+                </tr>
+                <tr style="background:#F9FAFB;border-bottom:1px solid #E5E7EB;">
+                  <td class="px-6 py-4">
+                    <span class="font-body font-semibold text-sm text-neutral-900">Rental &amp; AMC</span>
+                  </td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Flexible access &amp; maintenance</td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Budget-conscious orgs</td>
+                  <td class="px-6 py-4">
+                    <span class="font-body text-sm text-neutral-600 inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full inline-block" style="background:#F97316;"></span>
+                      Per SLA
+                    </span>
+                  </td>
+                </tr>
+                <tr style="background:white;">
+                  <td class="px-6 py-4">
+                    <span class="font-body font-semibold text-sm text-neutral-900">IT Staffing</span>
+                  </td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Skilled talent deployment</td>
+                  <td class="px-6 py-4 font-body text-sm text-neutral-600">Growing teams</td>
+                  <td class="px-6 py-4">
+                    <span class="font-body text-sm text-neutral-600 inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full inline-block" style="background:#F97316;"></span>
+                      3–10 business days
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CTA BANNER -->
+    <section class="py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#292524 0%,#C2410C 50%,#F97316 100%);">
+      <div class="noise-overlay"></div>
+      <!-- Decorative circles -->
+      <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(251,146,60,0.15);filter:blur(40px);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;border-radius:50%;background:rgba(253,186,116,0.10);filter:blur(50px);pointer-events:none;"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.20);font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;">
+          Let's Work Together
+        </div>
+        <h2 class="font-display font-bold text-white mb-4" style="font-size:clamp(1.75rem,4vw,2.75rem);letter-spacing:-0.03em;">Ready to Get Started?</h2>
+        <p class="font-body text-lg mb-10 mx-auto" style="color:rgba(255,255,255,0.80);max-width:500px;line-height:1.7;">Contact our team and let us design the right solution for your IT needs.</p>
+        <a href="contact.html" class="btn-light" style="font-size:1rem;padding:14px 32px;">Request a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:#1C1917;border-top:1px solid rgba(249,115,22,0.15);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#F97316,#C2410C);"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg></div>
+            <span class="font-display font-bold text-lg" style="color:#FDBA74;letter-spacing:-0.02em;">Gizmo Trendz</span>
+          </div>
+          <p class="font-body text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.55);max-width:240px;">End-to-end IT solutions and staffing for startups, enterprises, and government organizations.</p>
+        </div>
+        <div>
+          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="hardware.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Hardware Solutions</a></li>
+            <li><a href="software.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Software Solutions</a></li>
+            <li><a href="networking.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Networking Services</a></li>
+            <li><a href="rental-amc.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Rental &amp; AMC</a></li>
+            <li><a href="staffing.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">IT Staffing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Industries</h4>
+          <ul class="space-y-3">
+            <li><a href="startups.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Startups</a></li>
+            <li><a href="mnc.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">MNCs &amp; Enterprise</a></li>
+            <li><a href="government.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Government</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Contact</h4>
+          <ul class="space-y-4">
+            <li><a href="mailto:info@gizmotrendz.com" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">info@gizmotrendz.com</a></li>
+            <li><a href="tel:+911234567890" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">+91 12345 67890</a></li>
+            <li><span class="font-body text-sm" style="color:rgba(255,255,255,0.55);">123 Tech Park, Whitefield,<br>Bengaluru, Karnataka 560066</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-top:1px solid rgba(249,115,22,0.15);">
+        <p class="font-body text-xs" style="color:rgba(255,255,255,0.35);">&#169; 2026 Gizmo Trendz. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="font-body text-xs hover:text-white" style="color:rgba(255,255,255,0.35);transition:color 150ms ease;text-decoration:none;">Privacy Policy</a>
+          <a href="#" class="font-body text-xs hover:text-white" style="color:rgba(255,255,255,0.35);transition:color 150ms ease;text-decoration:none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn=document.getElementById('mobile-menu-btn');
+    const menu=document.getElementById('mobile-menu');
+    btn.addEventListener('click',()=>menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>

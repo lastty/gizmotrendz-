@@ -1,0 +1,15 @@
+# Design reference files (not needed on server)
+*.png
+*.jpg
+*.jpeg
+
+# Dev tools
+serve.mjs
+screenshot.mjs
+temporary screenshots/
+
+# Spec/planning docs
+*.md
+
+# macOS
+.DS_Store
