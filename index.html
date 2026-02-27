@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gizmo Trendz — IT Solutions & Staffing</title>
-  <meta name="description" content="Gizmo Trendz provides end-to-end IT solutions — hardware, software, networking, rental, AMC, and staffing services for startups, MNCs, and government organizations.">
+  <title>Gizmo Trendz, IT Solutions & Staffing</title>
+  <meta name="description" content="Gizmo Trendz provides end-to-end IT solutions, hardware, software, networking, rental, AMC, and staffing services for startups, MNCs, and government organizations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -127,7 +127,7 @@
     .btn-primary:hover { background: #D4E830; box-shadow: 0 8px 24px rgba(0,0,0,0.20); transform: translateY(-1px); }
     .btn-primary:focus-visible { outline: 2px solid #E9FF35; outline-offset: 3px; }
     .btn-primary:active { background: #C6D820; transform: translateY(0); }
-    /* DARK: Black with white text — used on yellow backgrounds */
+    /* DARK: Black with white text, used on yellow backgrounds */
     .btn-dark {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 28px; border-radius: 8px;
@@ -198,6 +198,90 @@
     }
     /* Process step connector */
     .process-step { position: relative; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.65s cubic-bezier(0.34,1.1,0.64,1), transform 0.65s cubic-bezier(0.34,1.1,0.64,1);
+    }
+    .reveal-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity 0.65s cubic-bezier(0.34,1.1,0.64,1), transform 0.65s cubic-bezier(0.34,1.1,0.64,1);
+    }
+    .reveal-right {
+      opacity: 0; transform: translateX(40px);
+      transition: opacity 0.65s cubic-bezier(0.34,1.1,0.64,1), transform 0.65s cubic-bezier(0.34,1.1,0.64,1);
+    }
+    .reveal-scale {
+      opacity: 0; transform: scale(0.90);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible {
+      opacity: 1; transform: none;
+    }
+    .rd-1 { transition-delay: 0.08s; }
+    .rd-2 { transition-delay: 0.17s; }
+    .rd-3 { transition-delay: 0.26s; }
+    .rd-4 { transition-delay: 0.35s; }
+    .rd-5 { transition-delay: 0.44s; }
+    .rd-6 { transition-delay: 0.53s; }
+
+    /* ===== HERO FLOATING CARDS ===== */
+    @keyframes floatA {
+      0%,100% { transform: translateY(0px);  }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes floatB {
+      0%,100% { transform: translateY(0px); }
+      50%      { transform: translateY(-7px);  }
+    }
+    @keyframes floatC {
+      0%,100% { transform: translateY(0px);  }
+      50%      { transform: translateY(-12px); }
+    }
+    .float-a { animation: floatA 4.4s ease-in-out infinite; }
+    .float-b { animation: floatB 5.2s ease-in-out infinite 1.0s; }
+    .float-c { animation: floatC 3.9s ease-in-out infinite 1.8s; }
+
+    /* ===== MARQUEE (brand logos) ===== */
+    .marquee-outer { overflow: hidden; }
+    .marquee-track {
+      display: flex; align-items: center;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== CTA PULSE RING ===== */
+    @keyframes pulseRing {
+      0%   { transform: scale(1);    opacity: 0.55; }
+      100% { transform: scale(1.65); opacity: 0;    }
+    }
+    .btn-pulse { position: relative; isolation: isolate; }
+    .btn-pulse::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 8px;
+      background: #E9FF35;
+      animation: pulseRing 2.2s cubic-bezier(0.4,0,0.6,1) 2;
+      z-index: -1;
+    }
+
+    /* ===== STAT COUNT-UP ===== */
+    .stat-num { display: inline-block; }
+
+    /* ===== UNDERLINE GROW on section h2 ===== */
+    .heading-line {
+      display: block; width: 0; height: 3px;
+      background: #E9FF35; border-radius: 9999px;
+      margin-top: 10px;
+      transition: width 0.6s cubic-bezier(0.34,1.1,0.64,1);
+    }
+    .visible .heading-line, .heading-line.visible { width: 48px; }
   </style>
 </head>
 <body class="bg-white text-neutral-700 antialiased">
@@ -305,11 +389,11 @@
 
   <main class="pt-16">
 
-    <!-- ============================================================ 1. HERO (full-bleed — image fills entire section, content overlaid, cards at bottom) -->
+    <!-- ============================================================ 1. HERO (full-bleed, image fills entire section, content overlaid, cards at bottom) -->
     <section class="relative overflow-hidden" style="min-height: 92vh; display: flex; flex-direction: column;">
       <div class="noise-overlay" style="opacity:0.03;"></div>
 
-      <!-- Full-bleed background — IT professionals in modern enterprise environment -->
+      <!-- Full-bleed background, IT professionals in modern enterprise environment -->
       <div class="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&q=85&auto=format&fit=crop"
@@ -320,7 +404,7 @@
         <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,13,13,0.86) 0%, rgba(13,13,13,0.55) 48%, rgba(13,13,13,0.90) 100%);"></div>
       </div>
 
-      <!-- Upper block — headline + CTAs centered over the image -->
+      <!-- Upper block, headline + CTAs centered over the image -->
       <div class="relative z-10 flex-1 flex items-center justify-center">
         <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style="padding-top:5rem; padding-bottom:2rem;">
 
@@ -338,12 +422,12 @@
 
           <!-- Sub -->
           <p class="animate-fade-up delay-200 font-body" style="color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.8; max-width: 560px; margin: 0 auto 2.5rem; text-shadow: 0 1px 8px rgba(0,0,0,0.55);">
-            From early-stage startups to large enterprises and government organizations — we deliver hardware, networking, staffing, and lifecycle support built for real growth.
+            From early-stage startups to large enterprises and government organizations, we deliver hardware, networking, staffing, and lifecycle support built for real growth.
           </p>
 
           <!-- CTAs -->
           <div class="animate-fade-up delay-300 flex flex-wrap gap-4 justify-center">
-            <a href="contact.html" class="btn-primary">
+            <a href="contact.html" class="btn-primary btn-pulse">
               Get a Free Consultation
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -352,12 +436,12 @@
         </div>
       </div>
 
-      <!-- Lower block — three floating stat cards at the bottom of the hero, overlaid on the image -->
+      <!-- Lower block, three floating stat cards at the bottom of the hero, overlaid on the image -->
       <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div class="animate-fade-up delay-400 grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-          <!-- Card 1 — white -->
-          <div class="flex items-center gap-4 rounded-2xl px-6 py-5" style="background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.30);">
+          <!-- Card 1, white -->
+          <div class="float-a flex items-center gap-4 rounded-2xl px-6 py-5" style="background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.30);">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E9FF35;">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="#0D0D0D" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -367,8 +451,8 @@
             </div>
           </div>
 
-          <!-- Card 2 — yellow -->
-          <div class="flex items-center gap-4 rounded-2xl px-6 py-5" style="background: #E9FF35; box-shadow: 0 8px 32px rgba(0,0,0,0.22);">
+          <!-- Card 2, yellow -->
+          <div class="float-b flex items-center gap-4 rounded-2xl px-6 py-5" style="background: #E9FF35; box-shadow: 0 8px 32px rgba(0,0,0,0.22);">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,0,0,0.10);">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#0D0D0D" stroke-width="1.75"/><path d="M9 6v3l2 2" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
@@ -378,8 +462,8 @@
             </div>
           </div>
 
-          <!-- Card 3 — white -->
-          <div class="flex items-center gap-4 rounded-2xl px-6 py-5" style="background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.30);">
+          <!-- Card 3, white -->
+          <div class="float-c flex items-center gap-4 rounded-2xl px-6 py-5" style="background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.30);">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E9FF35;">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9h10M4 5.5h8M4 12.5h6" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
@@ -394,7 +478,7 @@
     </section>
 
     <!-- ============================================================ BRANDS STRIP -->
-    <section style="background: #0D0D0D; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 44px 0;">
+    <section id="brands" style="background: #0D0D0D; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 44px 0;">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Heading with line separators so it reads clearly on dark bg -->
         <div class="flex items-center gap-5 mb-10">
@@ -402,16 +486,34 @@
           <p class="font-body uppercase flex-shrink-0" style="font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.42); letter-spacing: 0.14em;">Technologies &amp; Brands We Work With</p>
           <div style="flex:1; height:1px; background:rgba(255,255,255,0.10);"></div>
         </div>
-        <!-- Logos — /ffffff CDN param renders white SVG directly, no CSS filter needed -->
-        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-7 lg:gap-x-14">
-          <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/hp/ffffff" alt="HP" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/dell/ffffff" alt="Dell" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/amazonaws/ffffff" alt="AWS" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/microsoft/ffffff" alt="Microsoft" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/arubanetworks/ffffff" alt="Aruba Networks" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
-          <img src="https://cdn.simpleicons.org/cisco/ffffff" alt="Cisco" style="height:26px; width:auto; opacity:0.42;" loading="lazy">
+        <!-- Logos, infinite marquee. Set duplicated so scroll loops seamlessly -->
+        <div class="marquee-outer" style="mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);">
+          <div class="marquee-track" aria-hidden="true">
+            <!-- Set A -->
+            <img src="https://cdn.simpleicons.org/nvidia/ffffff" alt="Nvidia" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/amazonaws/ffffff" alt="AWS" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/microsoft/ffffff" alt="Microsoft" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="Adobe" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/zoho/ffffff" alt="Zoho" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/hp/ffffff" alt="HP" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/lenovo/ffffff" alt="Lenovo" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="Google Cloud" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/microsoftazure/ffffff" alt="Azure" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <!-- Set B, duplicate for seamless loop -->
+            <img src="https://cdn.simpleicons.org/nvidia/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/amazonaws/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/microsoft/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/adobe/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/zoho/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/google/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/hp/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/apple/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/lenovo/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+            <img src="https://cdn.simpleicons.org/microsoftazure/ffffff" alt="" style="height:26px; width:auto; opacity:0.5; margin:0 40px; flex-shrink:0;" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
@@ -434,24 +536,24 @@
       </div>
     </section>
 
-    <!-- ============================================================ 3. STATS SECTION (yellow background — HONE reference) -->
+    <!-- ============================================================ 3. STATS SECTION (yellow background, HONE reference) -->
     <section style="background: #E9FF35; padding: 80px 0; border-bottom: 1px solid rgba(0,0,0,0.08);">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4">
-          <div class="text-center px-8 py-4 md:border-r border-black/10">
-            <div class="font-display font-extrabold mb-2" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">10+</div>
+          <div class="reveal text-center px-8 py-4 md:border-r border-black/10">
+            <div class="font-display font-extrabold mb-2 stat-num" data-target="10" data-suffix="+" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">10+</div>
             <div class="font-body text-sm font-semibold uppercase tracking-wide" style="color:rgba(0,0,0,0.50); letter-spacing: 0.07em;">Years Experience</div>
           </div>
-          <div class="text-center px-8 py-4 md:border-r border-black/10">
-            <div class="font-display font-extrabold mb-2" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">500+</div>
+          <div class="reveal rd-1 text-center px-8 py-4 md:border-r border-black/10">
+            <div class="font-display font-extrabold mb-2 stat-num" data-target="500" data-suffix="+" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">500+</div>
             <div class="font-body text-sm font-semibold uppercase tracking-wide" style="color:rgba(0,0,0,0.50); letter-spacing: 0.07em;">Projects Delivered</div>
           </div>
-          <div class="text-center px-8 py-4 md:border-r border-black/10">
-            <div class="font-display font-extrabold mb-2" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">3</div>
+          <div class="reveal rd-2 text-center px-8 py-4 md:border-r border-black/10">
+            <div class="font-display font-extrabold mb-2 stat-num" data-target="3" data-suffix="" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">3</div>
             <div class="font-body text-sm font-semibold uppercase tracking-wide" style="color:rgba(0,0,0,0.50); letter-spacing: 0.07em;">Industries Served</div>
           </div>
-          <div class="text-center px-8 py-4">
-            <div class="font-display font-extrabold mb-2" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">50+</div>
+          <div class="reveal rd-3 text-center px-8 py-4">
+            <div class="font-display font-extrabold mb-2 stat-num" data-target="50" data-suffix="+" style="font-size: clamp(3rem,5vw,4.5rem); color: #0D0D0D; letter-spacing: -0.05em; line-height: 1;">50+</div>
             <div class="font-body text-sm font-semibold uppercase tracking-wide" style="color:rgba(0,0,0,0.50); letter-spacing: 0.07em;">IT Experts Onboard</div>
           </div>
         </div>
@@ -461,7 +563,7 @@
     <!-- ============================================================ 4. SERVICES OVERVIEW -->
     <section class="bg-white py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="reveal text-center mb-16">
           <div class="section-overline" style="display:inline-flex;">Our Services</div>
           <h2 class="font-display font-bold text-neutral-900" style="font-size: clamp(1.8rem,3.5vw,2.8rem); letter-spacing:-0.04em; margin-bottom:1rem;">Everything Your IT Operations Need</h2>
           <p class="font-body text-neutral-500 text-lg leading-relaxed max-w-2xl mx-auto">From hardware procurement to specialist staffing, we deliver complete IT solutions tailored to your scale and budget.</p>
@@ -470,27 +572,27 @@
         <!-- 3 + 2 layout -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
           <!-- Hardware -->
-          <a href="hardware.html" class="group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <a href="hardware.html" class="reveal group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110" style="background: #E9FF35; transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1);">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="13" rx="2" stroke="#0D0D0D" stroke-width="1.75"/><path d="M7 5V3.5A1.5 1.5 0 018.5 2h5A1.5 1.5 0 0115 3.5V5" stroke="#0D0D0D" stroke-width="1.75"/><path d="M7 12h8M7 15.5h4" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1.1rem; letter-spacing:-0.02em;">Hardware Solutions</h3>
-            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Enterprise-grade laptops, servers, storage, printers, and data center equipment — procured and deployed.</p>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Enterprise-grade laptops, servers, storage, printers, and data center equipment, procured and deployed.</p>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold font-body group-hover:gap-3" style="color:#0D0D0D; transition: gap 200ms ease;">Learn More <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
 
           <!-- Software -->
-          <a href="software.html" class="group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <a href="software.html" class="reveal rd-1 group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110" style="background: #E9FF35; transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1);">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#0D0D0D" stroke-width="1.75"/><path d="M7 8l3 3-3 3M13 14h3" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1.1rem; letter-spacing:-0.02em;">Software Solutions</h3>
-            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">OS tools, enterprise apps, security software, and licensing management — all configured and maintained.</p>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">OS tools, enterprise apps, security software, and licensing management, all configured and maintained.</p>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold font-body group-hover:gap-3" style="color:#0D0D0D; transition: gap 200ms ease;">Learn More <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
 
           <!-- Networking -->
-          <a href="networking.html" class="group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <a href="networking.html" class="reveal rd-2 group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110" style="background: #E9FF35; transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1);">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#0D0D0D" stroke-width="1.75"/><path d="M11 2.5C11 2.5 7.5 6 7.5 11s3.5 8.5 3.5 8.5M11 2.5C11 2.5 14.5 6 14.5 11s-3.5 8.5-3.5 8.5M2.5 11h17" stroke="#0D0D0D" stroke-width="1.75"/></svg>
             </div>
@@ -503,7 +605,7 @@
         <!-- Bottom 2 centered -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
           <!-- Rental & AMC -->
-          <a href="rental-amc.html" class="group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <a href="rental-amc.html" class="reveal group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110" style="background: #E9FF35; transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1);">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="3" width="18" height="16" rx="2" stroke="#0D0D0D" stroke-width="1.75"/><path d="M2 8h18M7 3V1M15 3V1" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/><path d="M7 13h2.5M12 13h3" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
@@ -513,12 +615,12 @@
           </a>
 
           <!-- IT Staffing -->
-          <a href="staffing.html" class="group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <a href="staffing.html" class="reveal rd-1 group block bg-white border border-neutral-200 rounded-2xl p-8 card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110" style="background: #E9FF35; transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1);">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="8.5" cy="6.5" r="3.5" stroke="#0D0D0D" stroke-width="1.75"/><path d="M2 19.5c0-4 2.91-7.5 6.5-7.5M14.5 13l2 2 4-4" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1.1rem; letter-spacing:-0.02em;">IT Staffing</h3>
-            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Contract, permanent, and project-based IT staffing — engineers, admins, helpdesk, and specialists.</p>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed mb-5">Contract, permanent, and project-based IT staffing, engineers, admins, helpdesk, and specialists.</p>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold font-body group-hover:gap-3" style="color:#0D0D0D; transition: gap 200ms ease;">Learn More <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
         </div>
@@ -532,7 +634,7 @@
     <!-- ============================================================ 5. INDUSTRIES -->
     <section style="background:#F8F8F8;" class="py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="reveal text-center mb-16">
           <div class="section-overline" style="display:inline-flex;">Industries We Serve</div>
           <h2 class="font-display font-bold text-neutral-900" style="font-size: clamp(1.8rem,3.5vw,2.8rem); letter-spacing:-0.04em; margin-bottom:1rem;">Tailored IT for Every Sector</h2>
           <p class="font-body text-neutral-500 text-lg leading-relaxed max-w-xl mx-auto">Specialized solutions built around the unique compliance, scale, and budget needs of each sector.</p>
@@ -540,7 +642,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <!-- Startups -->
-          <a href="startups.html" class="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <a href="startups.html" class="reveal group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
             <div class="relative h-40 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80&auto=format&fit=crop" alt="Indian startup team in Bengaluru tech hub" class="w-full h-full object-cover group-hover:scale-105" style="transition: transform 400ms ease;">
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,13,13,0.25) 0%, rgba(13,13,13,0.70) 100%);"></div>
@@ -570,7 +672,7 @@
           </a>
 
           <!-- MNCs -->
-          <a href="mnc.html" class="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <a href="mnc.html" class="reveal rd-1 group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
             <div class="relative h-40 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=800&q=80&auto=format&fit=crop" alt="Mumbai Bandra Kurla Complex corporate district" class="w-full h-full object-cover group-hover:scale-105" style="transition: transform 400ms ease;">
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,13,13,0.25) 0%, rgba(13,13,13,0.70) 100%);"></div>
@@ -600,9 +702,9 @@
           </a>
 
           <!-- Government -->
-          <a href="government.html" class="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <a href="government.html" class="reveal rd-2 group block bg-white border border-neutral-200 rounded-2xl overflow-hidden card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2" style="text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
             <div class="relative h-40 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80&auto=format&fit=crop" alt="India Gate New Delhi — Government sector" class="w-full h-full object-cover group-hover:scale-105" style="transition: transform 400ms ease;">
+              <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80&auto=format&fit=crop" alt="India Gate New Delhi, Government sector" class="w-full h-full object-cover group-hover:scale-105" style="transition: transform 400ms ease;">
               <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,13,13,0.25) 0%, rgba(13,13,13,0.70) 100%);"></div>
               <div class="absolute inset-0 flex items-center justify-center">
                 <span class="font-display font-bold text-white text-xl" style="letter-spacing:-0.02em;">Government</span>
@@ -632,19 +734,19 @@
       </div>
     </section>
 
-    <!-- ============================================================ 6. PROCESS SECTION — /01 /02 /03 /04 numbered dark cards (HONE reference) -->
+    <!-- ============================================================ 6. PROCESS SECTION, /01 /02 /03 /04 numbered dark cards (HONE reference) -->
     <section style="background: #E9FF35; padding: 96px 0;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-16">
+        <div class="reveal-left mb-16">
           <div class="section-overline" style="display:inline-flex;">How We Work</div>
           <h2 class="font-display font-extrabold" style="font-size: clamp(2rem,4vw,3.2rem); color:#0D0D0D; letter-spacing:-0.045em; line-height:1.08;">How We Deliver IT Excellence</h2>
           <p class="font-body mt-4" style="color:rgba(0,0,0,0.55); font-size:1.05rem; max-width:520px; line-height:1.7;">A structured 4-step engagement model built for speed, precision, and long-term performance.</p>
         </div>
 
-        <!-- 4 dark numbered cards — matches HONE /01 /02 /03 /04 layout -->
+        <!-- 4 dark numbered cards, matches HONE /01 /02 /03 /04 layout -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- /01 -->
-          <div class="rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
+          <div class="reveal rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
             <div class="flex items-start justify-between mb-auto">
               <span class="font-display font-bold" style="font-size:0.78rem; color:#E9FF35; letter-spacing:0.06em;">/01</span>
               <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:rgba(233,255,53,0.10);">
@@ -658,7 +760,7 @@
           </div>
 
           <!-- /02 -->
-          <div class="rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
+          <div class="reveal rd-1 rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
             <div class="flex items-start justify-between mb-auto">
               <span class="font-display font-bold" style="font-size:0.78rem; color:#E9FF35; letter-spacing:0.06em;">/02</span>
               <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:rgba(233,255,53,0.10);">
@@ -672,7 +774,7 @@
           </div>
 
           <!-- /03 -->
-          <div class="rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
+          <div class="reveal rd-2 rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
             <div class="flex items-start justify-between mb-auto">
               <span class="font-display font-bold" style="font-size:0.78rem; color:#E9FF35; letter-spacing:0.06em;">/03</span>
               <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:rgba(233,255,53,0.10);">
@@ -686,7 +788,7 @@
           </div>
 
           <!-- /04 -->
-          <div class="rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
+          <div class="reveal rd-3 rounded-2xl p-7 flex flex-col" style="background:#0D0D0D; min-height:260px;">
             <div class="flex items-start justify-between mb-auto">
               <span class="font-display font-bold" style="font-size:0.78rem; color:#E9FF35; letter-spacing:0.06em;">/04</span>
               <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:rgba(233,255,53,0.10);">
@@ -707,14 +809,14 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="rounded-3xl overflow-hidden" style="background: #0D0D0D; box-shadow: 0 16px 48px rgba(0,0,0,0.20);">
           <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-            <!-- Left — text -->
-            <div class="p-10 lg:p-14 flex flex-col justify-center">
+            <!-- Left, text -->
+            <div class="reveal-left p-10 lg:p-14 flex flex-col justify-center">
               <div class="section-overline-yellow" style="display:inline-flex;">
                 <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#E9FF35;"></span>
                 Recent Deployment Snapshot
               </div>
               <h2 class="font-display font-extrabold text-white mb-4" style="font-size: clamp(1.7rem,3vw,2.5rem); letter-spacing:-0.04em; line-height:1.10;">Full Office IT Rollout<br>Delivered in 21 Days</h2>
-              <p class="font-body mb-10 leading-relaxed" style="color:rgba(255,255,255,0.50); font-size:0.95rem;">A complete infrastructure deployment — hardware, networking, and AMC — for a 400-seat enterprise campus, on time and under budget.</p>
+              <p class="font-body mb-10 leading-relaxed" style="color:rgba(255,255,255,0.50); font-size:0.95rem;">A complete infrastructure deployment, hardware, networking, and AMC, for a 400-seat enterprise campus, on time and under budget.</p>
 
               <div class="grid grid-cols-2 gap-6 mb-10">
                 <div>
@@ -738,7 +840,7 @@
               <a href="contact.html" class="btn-primary self-start">Start Your Project</a>
             </div>
 
-            <!-- Right — image -->
+            <!-- Right, image -->
             <div class="relative min-h-64 lg:min-h-0">
               <img
                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop"
@@ -764,7 +866,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <!-- Left statement -->
-          <div class="lg:col-span-4">
+          <div class="reveal-left lg:col-span-4">
             <div class="section-overline" style="display:inline-flex;">Why Gizmo Trendz</div>
             <h2 class="font-display font-bold text-neutral-900 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.6rem); letter-spacing:-0.04em;">Built to Serve.<br>Designed to Scale.</h2>
             <p class="font-body text-neutral-500 leading-relaxed mb-8" style="line-height:1.75;">We go beyond box-moving. Every engagement is backed by deep expertise, vendor-neutral recommendations, and a commitment to your long-term success.</p>
@@ -774,9 +876,9 @@
             </a>
           </div>
 
-          <!-- Right — 2×3 feature grid -->
+          <!-- Right, 2×3 feature grid -->
           <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-1 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l4 4 10-8" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
@@ -784,7 +886,7 @@
               <p class="font-body text-neutral-500 text-sm leading-relaxed">One partner for hardware, software, networking, maintenance, and staffing.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-2 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#0D0D0D" stroke-width="1.75"/><path d="M7 10l2 2 4-4" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
@@ -792,15 +894,15 @@
               <p class="font-body text-neutral-500 text-sm leading-relaxed">We recommend what's truly best for your requirements, not what we're incentivized to sell.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-3 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M3 10h14" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
               </div>
               <h4 class="font-display font-semibold text-neutral-900 mb-1.5" style="font-size:0.975rem; letter-spacing:-0.01em;">Scalable Infrastructure</h4>
-              <p class="font-body text-neutral-500 text-sm leading-relaxed">Solutions designed to grow with you — from 5-person startups to enterprise-wide deployments.</p>
+              <p class="font-body text-neutral-500 text-sm leading-relaxed">Solutions designed to grow with you, from 5-person startups to enterprise-wide deployments.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-4 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l1.9 3.8 4.1.6-3 2.9.7 4.2L10 11.8l-3.7 1.7.7-4.2-3-2.9 4.1-.6z" stroke="#0D0D0D" stroke-width="1.75" stroke-linejoin="round"/></svg>
               </div>
@@ -808,7 +910,7 @@
               <p class="font-body text-neutral-500 text-sm leading-relaxed">Preventive maintenance and rapid response SLAs to keep your IT running without interruption.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-5 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="7" r="3" stroke="#0D0D0D" stroke-width="1.75"/><path d="M3 17c0-3.314 2.239-6 5-6M14 11l2 2 3-3" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
@@ -816,12 +918,12 @@
               <p class="font-body text-neutral-500 text-sm leading-relaxed">Contract, permanent, and project-based IT talent deployed fast and matched precisely to your needs.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div class="reveal rd-6 bg-white rounded-2xl p-6 border border-neutral-200" style="box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#E9FF35;">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3C6.13 3 3 6.13 3 10s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="#0D0D0D" stroke-width="1.75"/><path d="M10 7v3l2.5 2.5" stroke="#0D0D0D" stroke-width="1.75" stroke-linecap="round"/></svg>
               </div>
               <h4 class="font-display font-semibold text-neutral-900 mb-1.5" style="font-size:0.975rem; letter-spacing:-0.01em;">Fast Turnaround</h4>
-              <p class="font-body text-neutral-500 text-sm leading-relaxed">Rapid procurement, deployment, and onboarding timelines — so your business isn't kept waiting.</p>
+              <p class="font-body text-neutral-500 text-sm leading-relaxed">Rapid procurement, deployment, and onboarding timelines, so your business isn't kept waiting.</p>
             </div>
           </div>
         </div>
@@ -831,7 +933,7 @@
     <!-- ============================================================ 9. TESTIMONIALS -->
     <section class="bg-white py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="reveal text-center mb-16">
           <div class="section-overline" style="display:inline-flex;">Client Reviews</div>
           <h2 class="font-display font-bold text-neutral-900" style="font-size: clamp(1.8rem,3.5vw,2.6rem); letter-spacing:-0.04em; margin-bottom:1rem;">What Our Clients Say</h2>
           <p class="font-body text-neutral-500 text-lg leading-relaxed max-w-xl mx-auto">Real feedback from businesses we've helped build better IT operations.</p>
@@ -839,7 +941,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Review 1 -->
-          <div class="bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div class="reveal rd-1 bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <div class="flex gap-0.5 mb-6">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
@@ -847,7 +949,7 @@
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
             </div>
-            <p class="font-body text-neutral-700 leading-relaxed mb-8 text-sm flex-1" style="line-height:1.75;">"Gizmo Trendz handled our entire office IT setup — networking, workstations, and software — in under a week. The team was professional and the systems have been rock-solid since day one."</p>
+            <p class="font-body text-neutral-700 leading-relaxed mb-8 text-sm flex-1" style="line-height:1.75;">"Gizmo Trendz handled our entire office IT setup, networking, workstations, and software, in under a week. The team was professional and the systems have been rock-solid since day one."</p>
             <div class="flex items-center gap-3 pt-6" style="border-top: 1px solid #F3F4F6;">
               <div class="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0 font-display" style="background: #0D0D0D;">R</div>
               <div>
@@ -859,7 +961,7 @@
           </div>
 
           <!-- Review 2 -->
-          <div class="bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div class="reveal rd-2 bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <div class="flex gap-0.5 mb-6">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
@@ -879,7 +981,7 @@
           </div>
 
           <!-- Review 3 -->
-          <div class="bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div class="reveal rd-3 bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <div class="flex gap-0.5 mb-6">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
@@ -887,13 +989,13 @@
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="#0D0D0D"><path d="M8 1.5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 11l-3.7 2 .7-4.2L2 5.9l4.1-.6z"/></svg>
             </div>
-            <p class="font-body text-neutral-700 leading-relaxed mb-8 text-sm flex-1" style="line-height:1.75;">"Their staffing team placed two senior network engineers within 10 days. Both were exactly what we needed. Gizmo Trendz clearly understands technical roles — not just resumes."</p>
+            <p class="font-body text-neutral-700 leading-relaxed mb-8 text-sm flex-1" style="line-height:1.75;">"Their staffing team placed two senior network engineers within 10 days. Both were exactly what we needed. Gizmo Trendz clearly understands technical roles, not just resumes."</p>
             <div class="flex items-center gap-3 pt-6" style="border-top: 1px solid #F3F4F6;">
               <div class="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0 font-display" style="background: #0D0D0D;">A</div>
               <div>
                 <div class="font-display font-bold text-neutral-900 text-sm">Anand Krishnan</div>
                 <div class="font-body text-neutral-500 text-xs mt-0.5">Director IT · NexGen Government Systems</div>
-                <div class="font-body text-xs mt-0.5 font-semibold" style="color:#0D0D0D;">IT Staffing — Government Sector</div>
+                <div class="font-body text-xs mt-0.5 font-semibold" style="color:#0D0D0D;">IT Staffing, Government Sector</div>
               </div>
             </div>
           </div>
@@ -901,11 +1003,11 @@
       </div>
     </section>
 
-    <!-- ============================================================ 10. STRONG CTA (yellow bg — HONE reference) -->
+    <!-- ============================================================ 10. STRONG CTA (yellow bg, HONE reference) -->
     <section class="relative overflow-hidden" style="background: #E9FF35; padding: 100px 0;">
       <div class="absolute inset-0 pointer-events-none" style="background-image:radial-gradient(rgba(0,0,0,0.04) 1px,transparent 1px);background-size:32px 32px;"></div>
 
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal-scale relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="section-overline" style="display:inline-flex; margin-bottom:24px;">
           <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#0D0D0D;"></span>
           Get Started Today
@@ -1011,6 +1113,51 @@
       hamburgerIcon.classList.toggle('hidden', !isHidden);
       closeIcon.classList.toggle('hidden', isHidden);
     });
+
+    // ── SCROLL REVEAL ──────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      .forEach(el => revealObserver.observe(el));
+
+    // ── STAT COUNTER ───────────────────────────────────────────────
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = target !== Math.floor(target);
+      const duration = 1600;
+      const steps = 60;
+      const interval = duration / steps;
+      let current = 0;
+      const increment = target / steps;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+      }, interval);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num[data-target]')
+      .forEach(el => counterObserver.observe(el));
   </script>
 </body>
 </html>
