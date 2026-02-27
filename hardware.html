@@ -7,22 +7,22 @@
   <meta name="description" content="Enterprise hardware solutions from Gizmo Trendz, procurement, deployment and support for laptops, servers, storage, printers and data center equipment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { 950:'#1C1917',900:'#292524',800:'#44403C',700:'#C2410C',600:'#EA580C',500:'#F97316',400:'#FB923C',300:'#FDBA74',200:'#FED7AA',100:'#FFEDD5',50:'#FFF7ED' },
+            brand: { 950:'#0F172A',900:'#1E3A5F',800:'#1E40AF',700:'#1D4ED8',600:'#2563EB',500:'#3B82F6',400:'#60A5FA',300:'#93C5FD',200:'#BFDBFE',100:'#DBEAFE',50:'#EFF6FF' },
             neutral: { 950:'#030712',900:'#111827',800:'#1F2937',700:'#374151',600:'#4B5563',500:'#6B7280',400:'#9CA3AF',300:'#D1D5DB',200:'#E5E7EB',100:'#F3F4F6',50:'#F9FAFB' }
           },
-          fontFamily: { display:['"Plus Jakarta Sans"','sans-serif'], body:['Inter','sans-serif'] },
+          fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'] },
           boxShadow: {
-            'brand-sm':'0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04)',
-            'brand-md':'0 4px 6px rgba(249,115,22,0.10),0 2px 8px rgba(0,0,0,0.05)',
-            'brand-lg':'0 8px 24px rgba(249,115,22,0.14),0 4px 16px rgba(0,0,0,0.07)',
-            'brand-xl':'0 16px 48px rgba(249,115,22,0.18),0 8px 24px rgba(0,0,0,0.08)',
+            'brand-sm':'0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04)',
+            'brand-md':'0 4px 6px rgba(37,99,235,0.10),0 2px 8px rgba(0,0,0,0.05)',
+            'brand-lg':'0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07)',
+            'brand-xl':'0 16px 48px rgba(37,99,235,0.18),0 8px 24px rgba(0,0,0,0.08)',
           }
         }
       }
@@ -30,29 +30,29 @@
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     .animate-fade-up { animation: fadeUp 0.6s cubic-bezier(0.34,1.2,0.64,1) both; }
     .delay-100{animation-delay:0.1s} .delay-200{animation-delay:0.2s} .delay-300{animation-delay:0.3s}
-    [aria-current="page"]{color:#F97316;position:relative;}
-    [aria-current="page"]::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#F97316;border-radius:9999px;}
+    [aria-current="page"]{color:#2563EB;position:relative;}
+    [aria-current="page"]::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#2563EB;border-radius:9999px;}
     .nav-link{font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#374151;transition:color 150ms ease;position:relative;}
-    .nav-link:hover{color:#F97316;}
+    .nav-link:hover{color:#2563EB;}
     .dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:0.875rem;color:#374151;font-weight:500;transition:background-color 150ms ease,color 150ms ease;text-decoration:none;}
-    .dropdown-item:hover{background-color:#FFF7ED;color:#EA580C;}
+    .dropdown-item:hover{background-color:#EFF6FF;color:#1D4ED8;}
     .card-hover{transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1),box-shadow 200ms ease,border-color 150ms ease;}
-    .card-hover:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(249,115,22,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#FED7AA;}
-    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:#F97316;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(249,115,22,0.25),0 2px 8px rgba(0,0,0,0.08);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
-    .btn-primary:hover{background:#FB923C;box-shadow:0 8px 24px rgba(249,115,22,0.30);transform:translateY(-1px);}
-    .btn-primary:active{background:#C2410C;transform:translateY(0);}
-    .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9999px;border:1.5px solid #F97316;color:#F97316;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;background:transparent;transition:background-color 150ms ease,border-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
-    .btn-outline:hover{background:#FFF7ED;transform:translateY(-1px);}
-    .btn-light{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:white;color:#EA580C;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#BFDBFE;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:#2563EB;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(37,99,235,0.25),0 2px 8px rgba(0,0,0,0.08);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .btn-primary:hover{background:#3B82F6;box-shadow:0 8px 24px rgba(37,99,235,0.30);transform:translateY(-1px);}
+    .btn-primary:active{background:#1E40AF;transform:translateY(0);}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9999px;border:1.5px solid #2563EB;color:#2563EB;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;background:transparent;transition:background-color 150ms ease,border-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
+    .btn-outline:hover{background:#EFF6FF;transform:translateY(-1px);}
+    .btn-light{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:white;color:#2563EB;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;}
     .btn-light:hover{box-shadow:0 8px 20px rgba(0,0,0,0.12);transform:translateY(-1px);}
-    .section-overline{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#FFF7ED;border:1px solid #FFEDD5;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#EA580C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .section-overline{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#1D4ED8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
     .noise-overlay{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.04;pointer-events:none;}
-    .page-hero{position:relative;background:#FFF7ED;padding-top:7rem;padding-bottom:4rem;border-bottom:1px solid #FFEDD5;overflow:hidden;}
-    .page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(249,115,22,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;}
+    .page-hero{position:relative;background:#EFF6FF;padding-top:7rem;padding-bottom:4rem;border-bottom:1px solid #DBEAFE;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,99,235,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;}
     input,textarea,select{font-family:'Inter',sans-serif;}
     .step-connector{display:none;}
     @media(min-width:768px){.step-connector{display:block;}}
@@ -61,10 +61,10 @@
 <body class="bg-white text-neutral-700 antialiased">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(249,115,22,0.06),0 1px 8px rgba(0,0,0,0.04);">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(37,99,235,0.06),0 1px 8px rgba(0,0,0,0.04);">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded-sm" style="text-decoration:none;">
-        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#F97316,#C2410C);">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#2563EB,#1E40AF);">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg>
         </div>
         <span class="font-display font-bold text-lg text-brand-900" style="letter-spacing:-0.02em;">Gizmo Trendz</span>
@@ -72,9 +72,9 @@
       <div class="hidden lg:flex items-center gap-8">
         <a href="index.html" class="nav-link">Home</a>
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1 cursor-pointer bg-transparent border-none" style="padding:0;color:#F97316;">Services <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform 200ms ease,color 150ms ease;" class="text-brand-500 group-hover:rotate-180"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="nav-link flex items-center gap-1 cursor-pointer bg-transparent border-none" style="padding:0;color:#2563EB;">Services <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform 200ms ease,color 150ms ease;" class="text-brand-500 group-hover:rotate-180"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white border border-neutral-200 rounded-2xl shadow-brand-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible p-2" style="transition:opacity 200ms ease,visibility 200ms ease;">
-            <a href="hardware.html" class="dropdown-item" style="background:#FFF7ED;color:#EA580C;">Hardware</a>
+            <a href="hardware.html" class="dropdown-item" style="background:#EFF6FF;color:#1D4ED8;">Hardware</a>
             <a href="software.html" class="dropdown-item">Software</a>
             <a href="networking.html" class="dropdown-item">Networking</a>
             <a href="rental-amc.html" class="dropdown-item">Rental &amp; AMC</a>
@@ -92,7 +92,7 @@
         <a href="contact.html" class="nav-link">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-full text-white text-sm font-semibold" style="background:#F97316;box-shadow:0 2px 8px rgba(249,115,22,0.30);transition:background-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;" onmouseover="this.style.background='#FB923C';this.style.transform='translateY(-1px)';" onmouseout="this.style.background='#F97316';this.style.transform='translateY(0)';">Get a Quote</a>
+        <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-full text-white text-sm font-semibold" style="background:#2563EB;box-shadow:0 2px 8px rgba(37,99,235,0.30);transition:background-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;" onmouseover="this.style.background='#3B82F6';this.style.transform='translateY(-1px)';" onmouseout="this.style.background='#2563EB';this.style.transform='translateY(0)';">Get a Quote</a>
         <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-neutral-500 hover:text-brand-600 hover:bg-brand-50" style="transition:color 150ms ease,background-color 150ms ease;">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
         </button>
@@ -101,7 +101,7 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-neutral-100">
       <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
         <a href="index.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Home</a>
-        <a href="hardware.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-white" style="background:#F97316;transition:background-color 150ms ease,color 150ms ease;">Hardware</a>
+        <a href="hardware.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-white" style="background:#2563EB;transition:background-color 150ms ease,color 150ms ease;">Hardware</a>
         <a href="software.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Software</a>
         <a href="networking.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Networking</a>
         <a href="rental-amc.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Rental &amp; AMC</a>
@@ -109,7 +109,7 @@
         <a href="startups.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Startups</a>
         <a href="mnc.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">MNCs &amp; Enterprise</a>
         <a href="government.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600" style="transition:background-color 150ms ease,color 150ms ease;">Government</a>
-        <div class="pt-2"><a href="contact.html" class="block text-center px-4 py-3 rounded-xl text-sm font-semibold text-white" style="background:#F97316;">Get a Quote</a></div>
+        <div class="pt-2"><a href="contact.html" class="block text-center px-4 py-3 rounded-xl text-sm font-semibold text-white" style="background:#2563EB;">Get a Quote</a></div>
       </div>
     </div>
   </header>
@@ -145,8 +145,8 @@
             <p class="font-body text-neutral-600 text-base leading-relaxed mb-8" style="max-width:560px;">We work with all major brands, Dell, HP, Lenovo, Apple, Cisco, and more. Our vendor-neutral approach means we recommend what's genuinely best for your requirements and budget, not what we're commissioned to sell. From procurement through installation to post-install support, we own the entire process.</p>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF7ED;border:1.5px solid #FFEDD5;">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EFF6FF;border:1.5px solid #DBEAFE;">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div>
                   <span class="font-body font-semibold text-sm text-neutral-900">Vendor-neutral sourcing from 20+ certified partners</span>
@@ -154,8 +154,8 @@
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF7ED;border:1.5px solid #FFEDD5;">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EFF6FF;border:1.5px solid #DBEAFE;">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div>
                   <span class="font-body font-semibold text-sm text-neutral-900">On-site installation and configuration included</span>
@@ -163,8 +163,8 @@
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF7ED;border:1.5px solid #FFEDD5;">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EFF6FF;border:1.5px solid #DBEAFE;">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 6-6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div>
                   <span class="font-body font-semibold text-sm text-neutral-900">Warranty management and post-install support</span>
@@ -175,7 +175,7 @@
           </div>
           <!-- Right: 40% -->
           <div class="lg:col-span-2">
-            <img src="https://images.unsplash.com/photo-1591405351990-4726e331f141?w=1000&q=80&auto=format&fit=crop" alt="Enterprise hardware server equipment" class="rounded-2xl w-full" style="box-shadow:0 8px 24px rgba(249,115,22,0.14),0 4px 16px rgba(0,0,0,0.07);">
+            <img src="https://images.unsplash.com/photo-1591405351990-4726e331f141?w=1000&q=80&auto=format&fit=crop" alt="Enterprise hardware server equipment" class="rounded-2xl w-full" style="box-shadow:0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07);">
             <!-- Brand badges -->
             <div class="mt-6 flex flex-wrap gap-2">
               <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full border border-neutral-200 text-neutral-600" style="background:white;">Dell</span>
@@ -191,7 +191,7 @@
     </section>
 
     <!-- SECTION 3: OFFERINGS GRID -->
-    <section class="py-20" style="background:#FFF7ED;">
+    <section class="py-20" style="background:#EFF6FF;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <div class="section-overline" style="display:inline-flex;">Product Categories</div>
@@ -201,11 +201,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
           <!-- Card 1: Laptops & Desktops -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="5" width="20" height="13" rx="2" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                <path d="M7 18v2m10-2v2M5 20h14" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="2" y="5" width="20" height="13" rx="2" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                <path d="M7 18v2m10-2v2M5 20h14" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Laptops &amp; Desktops</h3>
@@ -213,14 +213,14 @@
           </div>
 
           <!-- Card 2: Servers & Storage -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="4" width="20" height="5" rx="1.5" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                <rect x="2" y="11" width="20" height="5" rx="1.5" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                <rect x="2" y="18" width="20" height="3" rx="1.5" stroke="#FB923C" stroke-width="1.25" fill="none"/>
-                <circle cx="19" cy="6.5" r="1" fill="#F97316"/>
-                <circle cx="19" cy="13.5" r="1" fill="#F97316"/>
+                <rect x="2" y="4" width="20" height="5" rx="1.5" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                <rect x="2" y="11" width="20" height="5" rx="1.5" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                <rect x="2" y="18" width="20" height="3" rx="1.5" stroke="#3B82F6" stroke-width="1.25" fill="none"/>
+                <circle cx="19" cy="6.5" r="1" fill="#2563EB"/>
+                <circle cx="19" cy="13.5" r="1" fill="#2563EB"/>
               </svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Servers &amp; Storage</h3>
@@ -228,13 +228,13 @@
           </div>
 
           <!-- Card 3: Printers & Peripherals -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 7V4h12v3" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
-                <rect x="3" y="7" width="18" height="10" rx="2" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                <path d="M7 13h10M7 16h6" stroke="#FB923C" stroke-width="1.25" stroke-linecap="round"/>
-                <path d="M6 17v3h12v-3" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M6 7V4h12v3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="3" y="7" width="18" height="10" rx="2" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                <path d="M7 13h10M7 16h6" stroke="#3B82F6" stroke-width="1.25" stroke-linecap="round"/>
+                <path d="M6 17v3h12v-3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Printers &amp; Peripherals</h3>
@@ -242,14 +242,14 @@
           </div>
 
           <!-- Card 4: Data Center Equipment -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="2" width="16" height="20" rx="2" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                <path d="M4 8h16M4 14h16" stroke="#FB923C" stroke-width="1.25"/>
-                <circle cx="17" cy="5" r="1" fill="#F97316"/>
-                <circle cx="17" cy="11" r="1" fill="#F97316"/>
-                <path d="M7 17h5" stroke="#FB923C" stroke-width="1.25" stroke-linecap="round"/>
+                <rect x="4" y="2" width="16" height="20" rx="2" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                <path d="M4 8h16M4 14h16" stroke="#3B82F6" stroke-width="1.25"/>
+                <circle cx="17" cy="5" r="1" fill="#2563EB"/>
+                <circle cx="17" cy="11" r="1" fill="#2563EB"/>
+                <path d="M7 17h5" stroke="#3B82F6" stroke-width="1.25" stroke-linecap="round"/>
               </svg>
             </div>
             <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Data Center Equipment</h3>
@@ -270,33 +270,33 @@
         </div>
         <div class="relative">
           <!-- Connector line (desktop only) -->
-          <div class="hidden md:block absolute top-6 left-0 right-0 h-0.5 z-0" style="background:linear-gradient(to right,transparent 6%,#FFEDD5 10%,#FFEDD5 90%,transparent 94%);top:24px;"></div>
+          <div class="hidden md:block absolute top-6 left-0 right-0 h-0.5 z-0" style="background:linear-gradient(to right,transparent 6%,#DBEAFE 10%,#DBEAFE 90%,transparent 94%);top:24px;"></div>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
 
             <!-- Step 1 -->
             <div class="flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#F97316;box-shadow:0 4px 12px rgba(249,115,22,0.35);">1</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.35);">1</div>
               <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Requirement Analysis</h3>
               <p class="font-body text-neutral-500 text-sm leading-relaxed">We assess your current setup and document exact hardware specifications.</p>
             </div>
 
             <!-- Step 2 -->
             <div class="flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#F97316;box-shadow:0 4px 12px rgba(249,115,22,0.35);">2</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.35);">2</div>
               <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Vendor Recommendation</h3>
               <p class="font-body text-neutral-500 text-sm leading-relaxed">We source quotes from our certified partner network and recommend the best fit.</p>
             </div>
 
             <!-- Step 3 -->
             <div class="flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#F97316;box-shadow:0 4px 12px rgba(249,115,22,0.35);">3</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.35);">3</div>
               <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Procurement &amp; Delivery</h3>
               <p class="font-body text-neutral-500 text-sm leading-relaxed">We handle purchase, logistics, and delivery directly to your site.</p>
             </div>
 
             <!-- Step 4 -->
             <div class="flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#F97316;box-shadow:0 4px 12px rgba(249,115,22,0.35);">4</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 font-display font-bold text-white text-lg" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.35);">4</div>
               <h3 class="font-display font-semibold text-neutral-900 mb-2" style="font-size:1rem;letter-spacing:-0.01em;">Installation &amp; Support</h3>
               <p class="font-body text-neutral-500 text-sm leading-relaxed">Our team installs, configures, and verifies every device before handover.</p>
             </div>
@@ -307,7 +307,7 @@
     </section>
 
     <!-- SECTION 5: USE CASES -->
-    <section class="py-16" style="background:#FFF7ED;">
+    <section class="py-16" style="background:#EFF6FF;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
           <div class="section-overline" style="display:inline-flex;">Common Scenarios</div>
@@ -316,7 +316,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Use Case 1 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
             <div class="text-3xl mb-4">&#127970;</div>
             <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.1rem;letter-spacing:-0.01em;">New Office Setup</h3>
             <p class="font-body text-neutral-500 text-sm leading-relaxed">Complete workstation setup for new offices including desktops, monitors, printers, networking hardware, and server room setup.</p>
@@ -326,7 +326,7 @@
           </div>
 
           <!-- Use Case 2 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
             <div class="text-3xl mb-4">&#128260;</div>
             <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.1rem;letter-spacing:-0.01em;">Infrastructure Upgrades</h3>
             <p class="font-body text-neutral-500 text-sm leading-relaxed">Planned upgrades to aging hardware with minimal downtime, full data migration support, and disposal of old equipment.</p>
@@ -336,7 +336,7 @@
           </div>
 
           <!-- Use Case 3 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(249,115,22,0.06),0 1px 4px rgba(0,0,0,0.04);">
+          <div class="bg-white border border-neutral-200 rounded-2xl p-7 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
             <div class="text-3xl mb-4">&#128200;</div>
             <h3 class="font-display font-semibold text-neutral-900 mb-3" style="font-size:1.1rem;letter-spacing:-0.01em;">Business Expansion</h3>
             <p class="font-body text-neutral-500 text-sm leading-relaxed">Rapidly scale hardware capacity for new branches, team expansions, or project-based requirements.</p>
@@ -350,7 +350,7 @@
     </section>
 
     <!-- SECTION 6: CTA BANNER -->
-    <section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#292524 0%,#C2410C 50%,#F97316 100%);">
+    <section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#292524 0%,#1E40AF 50%,#2563EB 100%);">
       <div class="noise-overlay"></div>
       <!-- Decorative circles -->
       <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;background:rgba(251,146,60,0.15);filter:blur(50px);pointer-events:none;"></div>
@@ -368,20 +368,20 @@
   </main>
 
   <!-- FOOTER -->
-  <footer style="background:#1C1917;border-top:1px solid rgba(249,115,22,0.15);">
+  <footer style="background:#0F172A;border-top:1px solid rgba(37,99,235,0.20);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
         <div class="lg:col-span-1">
           <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#F97316,#C2410C);"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg></div>
-            <span class="font-display font-bold text-lg" style="color:#FDBA74;letter-spacing:-0.02em;">Gizmo Trendz</span>
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#2563EB,#1E40AF);"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg></div>
+            <span class="font-display font-bold text-lg" style="color:#93C5FD;letter-spacing:-0.02em;">Gizmo Trendz</span>
           </div>
           <p class="font-body text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.55);max-width:240px;">End-to-end IT solutions and staffing for startups, enterprises, and government organizations.</p>
         </div>
         <div>
-          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Services</h4>
+          <h4 style="color:#BFDBFE;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Services</h4>
           <ul class="space-y-3">
-            <li><a href="hardware.html" class="font-body text-sm" style="color:#FDBA74;text-decoration:none;font-weight:600;">Hardware Solutions</a></li>
+            <li><a href="hardware.html" class="font-body text-sm" style="color:#93C5FD;text-decoration:none;font-weight:600;">Hardware Solutions</a></li>
             <li><a href="software.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Software Solutions</a></li>
             <li><a href="networking.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Networking Services</a></li>
             <li><a href="rental-amc.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Rental &amp; AMC</a></li>
@@ -389,7 +389,7 @@
           </ul>
         </div>
         <div>
-          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Industries</h4>
+          <h4 style="color:#BFDBFE;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Industries</h4>
           <ul class="space-y-3">
             <li><a href="startups.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">Startups</a></li>
             <li><a href="mnc.html" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">MNCs &amp; Enterprise</a></li>
@@ -397,7 +397,7 @@
           </ul>
         </div>
         <div>
-          <h4 style="color:#FED7AA;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Contact</h4>
+          <h4 style="color:#BFDBFE;letter-spacing:0.05em;text-transform:uppercase;font-size:0.7rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Contact</h4>
           <ul class="space-y-4">
             <li><a href="mailto:info@gizmotrendz.com" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">info@gizmotrendz.com</a></li>
             <li><a href="tel:+911234567890" class="font-body text-sm hover:text-white" style="color:rgba(255,255,255,0.55);transition:color 150ms ease;text-decoration:none;">+91 12345 67890</a></li>
@@ -405,7 +405,7 @@
           </ul>
         </div>
       </div>
-      <div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-top:1px solid rgba(249,115,22,0.15);">
+      <div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-top:1px solid rgba(37,99,235,0.20);">
         <p class="font-body text-xs" style="color:rgba(255,255,255,0.35);">&#169; 2026 Gizmo Trendz. All rights reserved.</p>
         <div class="flex gap-6">
           <a href="#" class="font-body text-xs hover:text-white" style="color:rgba(255,255,255,0.35);transition:color 150ms ease;text-decoration:none;">Privacy Policy</a>
