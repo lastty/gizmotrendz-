@@ -400,26 +400,22 @@
   <main class="pt-16">
 
     <!-- ============================================================ 1. HERO -->
-    <section style="position:relative; overflow:hidden; min-height:680px; background:#FAFAFA;">
+    <section style="position:relative; overflow:hidden; min-height:680px; background:#0D1117;">
 
-      <!-- Background image (full-bleed) -->
+      <!-- Background image (full-bleed, all screen sizes) -->
       <img
         src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&q=85&auto=format&fit=crop"
         alt=""
         aria-hidden="true"
-        class="hidden lg:block"
-        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; display:block; z-index:0;"
+        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; z-index:0;"
       >
 
-      <!-- Gradient overlay: cream on left fades to transparent on right -->
-      <div class="hidden lg:block" style="position:absolute; inset:0; z-index:1;
+      <!-- Dark overlay across entire image for text legibility -->
+      <div style="position:absolute; inset:0; z-index:1;
         background: linear-gradient(to right,
-          #FAFAFA 0%,
-          #FAFAFA 38%,
-          rgba(250,250,250,0.92) 50%,
-          rgba(250,250,250,0.55) 65%,
-          rgba(250,250,250,0.10) 80%,
-          transparent 100%
+          rgba(13,17,23,0.78) 0%,
+          rgba(13,17,23,0.65) 50%,
+          rgba(13,17,23,0.45) 100%
         );"></div>
 
       <!-- Content -->
@@ -427,19 +423,19 @@
         <div style="max-width:560px;">
 
           <!-- Overline -->
-          <div class="animate-fade-up section-overline" style="display:inline-flex; margin-bottom:24px;">
-            <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#0D0D0D;"></span>
+          <div class="animate-fade-up section-overline" style="display:inline-flex; margin-bottom:24px; background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.22); color:rgba(255,255,255,0.90);">
+            <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#ffffff;"></span>
             End-to-End IT Infrastructure
           </div>
 
           <!-- Headline -->
-          <h1 class="animate-fade-up delay-100 font-display" style="font-size: clamp(3.2rem,6vw,6rem); line-height:1.04; letter-spacing:-0.03em; font-weight:700; color:#0D1117; margin-bottom:1.5rem;">
+          <h1 class="animate-fade-up delay-100 font-display" style="font-size: clamp(3.2rem,6vw,6rem); line-height:1.04; letter-spacing:-0.03em; font-weight:700; color:#ffffff; margin-bottom:1.5rem;">
             IT Infrastructure<br>That Scales<br>
-            <span style="color:#2563EB;">With You.</span>
+            <span style="color:#60A5FA;">With You.</span>
           </h1>
 
           <!-- Subheading -->
-          <p class="animate-fade-up delay-200 font-body" style="color:#374151; font-size:1.1rem; line-height:1.8; max-width:500px; margin-bottom:2.5rem;">
+          <p class="animate-fade-up delay-200 font-body" style="color:rgba(255,255,255,0.78); font-size:1.1rem; line-height:1.8; max-width:500px; margin-bottom:2.5rem;">
             From early-stage startups to large enterprises and government organizations, we deliver hardware, networking, staffing, and lifecycle support built for real growth.
           </p>
 
@@ -449,7 +445,7 @@
               Get a Free Consultation
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="services.html" class="btn-outline">Explore Services</a>
+            <a href="services.html" class="btn-outline" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.35); color:#ffffff;">Explore Services</a>
           </div>
 
           <!-- Inline stat cards -->
