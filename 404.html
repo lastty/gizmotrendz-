@@ -88,23 +88,129 @@
           </div>
         </div>
 
-        <!-- RIGHT: Puppy -->
+        <!-- RIGHT: Illustrated Puppy -->
         <div class="lg:w-1/2 flex flex-col items-center">
-          <div class="puppy-img" style="position:relative; max-width:380px; width:100%;">
-            <div style="border-radius:24px; overflow:hidden; box-shadow:0 24px 64px rgba(37,99,235,0.15), 0 8px 24px rgba(0,0,0,0.10);">
-              <img
-                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=760&q=85&auto=format&fit=crop&crop=faces"
-                alt="Lost puppy with big sad eyes"
-                style="width:100%; height:380px; object-fit:cover; object-position:center top; display:block;">
-              <!-- Soft vignette -->
-              <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(37,99,235,0.08) 100%);pointer-events:none;border-radius:24px;"></div>
+
+          <!-- Comic speech bubble -->
+          <div style="position:relative; margin-bottom:18px;">
+            <div style="background:#ffffff; border:2.5px solid #1D4ED8; border-radius:20px; padding:12px 22px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1rem; color:#1D4ED8; box-shadow:4px 4px 0px #BFDBFE; white-space:nowrap;">
+              🐾 Where did the page go?!
             </div>
-            <!-- Speech bubble -->
-            <div style="position:absolute; top:-18px; right:-10px; background:#2563EB; color:white; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.8rem; padding:8px 14px; border-radius:20px 20px 20px 4px; box-shadow:0 4px 16px rgba(37,99,235,0.35); white-space:nowrap;">
-              Where did the page go? :(
-            </div>
+            <!-- Bubble tail pointing down-left toward puppy -->
+            <svg width="28" height="20" viewBox="0 0 28 20" fill="none" style="position:absolute; bottom:-18px; left:32px;">
+              <path d="M0 0 L10 20 L28 0" fill="#ffffff" stroke="#1D4ED8" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M1 0 L10 18 L27 0" fill="#ffffff"/>
+            </svg>
           </div>
-          <p class="font-body text-xs mt-5" style="color:#9CA3AF; letter-spacing:0.04em;">Even our office pup couldn't find it.</p>
+
+          <!-- SVG Puppy illustration -->
+          <div class="puppy-img">
+            <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sad cartoon puppy with big eyes">
+
+              <!-- Shadow -->
+              <ellipse cx="150" cy="285" rx="70" ry="10" fill="#DBEAFE" opacity="0.7"/>
+
+              <!-- Body -->
+              <ellipse cx="150" cy="220" rx="62" ry="52" fill="#FCD9A0"/>
+              <ellipse cx="150" cy="220" rx="62" ry="52" fill="url(#bodyShade)" opacity="0.3"/>
+
+              <!-- Tail -->
+              <path d="M210 230 Q240 200 230 170 Q225 155 215 165 Q220 185 200 210 Z" fill="#F5A623"/>
+
+              <!-- Left ear (floppy, drooping sadly) -->
+              <path d="M88 110 Q60 90 55 140 Q55 165 80 172 Q95 155 98 130 Z" fill="#F5A623"/>
+              <path d="M88 110 Q65 95 62 140 Q62 158 80 165 Q93 150 96 128 Z" fill="#E8943A" opacity="0.5"/>
+
+              <!-- Right ear (floppy, drooping sadly) -->
+              <path d="M212 110 Q240 90 245 140 Q245 165 220 172 Q205 155 202 130 Z" fill="#F5A623"/>
+              <path d="M212 110 Q238 95 238 140 Q238 158 220 165 Q207 150 204 128 Z" fill="#E8943A" opacity="0.5"/>
+
+              <!-- Head -->
+              <circle cx="150" cy="130" r="75" fill="#FCD9A0"/>
+
+              <!-- Head shading -->
+              <circle cx="150" cy="130" r="75" fill="url(#headShade)" opacity="0.2"/>
+
+              <!-- Forehead fur patch -->
+              <ellipse cx="150" cy="72" rx="28" ry="18" fill="#F5A623" opacity="0.7"/>
+
+              <!-- Left eye white -->
+              <ellipse cx="118" cy="125" rx="22" ry="24" fill="white"/>
+              <!-- Left iris (big, watery) -->
+              <ellipse cx="118" cy="128" rx="16" ry="18" fill="#3B2F1E"/>
+              <!-- Left iris colour -->
+              <ellipse cx="118" cy="128" rx="13" ry="15" fill="#7B4F2E"/>
+              <!-- Left pupil -->
+              <ellipse cx="118" cy="130" rx="8" ry="9" fill="#1A120A"/>
+              <!-- Left eye glaze highlight 1 -->
+              <ellipse cx="112" cy="122" rx="4" ry="5" fill="white" opacity="0.9"/>
+              <!-- Left eye glaze highlight 2 (teary shimmer) -->
+              <ellipse cx="124" cy="133" rx="2" ry="2.5" fill="white" opacity="0.6"/>
+              <!-- Left eye outline -->
+              <ellipse cx="118" cy="125" rx="22" ry="24" stroke="#C17D3A" stroke-width="2" fill="none"/>
+              <!-- Left tear -->
+              <path d="M102 142 Q100 152 104 158" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="104" cy="159" rx="3" ry="4" fill="#BFDBFE" opacity="0.8"/>
+
+              <!-- Right eye white -->
+              <ellipse cx="182" cy="125" rx="22" ry="24" fill="white"/>
+              <!-- Right iris -->
+              <ellipse cx="182" cy="128" rx="16" ry="18" fill="#3B2F1E"/>
+              <!-- Right iris colour -->
+              <ellipse cx="182" cy="128" rx="13" ry="15" fill="#7B4F2E"/>
+              <!-- Right pupil -->
+              <ellipse cx="182" cy="130" rx="8" ry="9" fill="#1A120A"/>
+              <!-- Right eye glaze highlight 1 -->
+              <ellipse cx="176" cy="122" rx="4" ry="5" fill="white" opacity="0.9"/>
+              <!-- Right eye glaze highlight 2 -->
+              <ellipse cx="188" cy="133" rx="2" ry="2.5" fill="white" opacity="0.6"/>
+              <!-- Right eye outline -->
+              <ellipse cx="182" cy="125" rx="22" ry="24" stroke="#C17D3A" stroke-width="2" fill="none"/>
+              <!-- Right tear -->
+              <path d="M198 142 Q200 152 196 158" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="196" cy="159" rx="3" ry="4" fill="#BFDBFE" opacity="0.8"/>
+
+              <!-- Eyebrows (sad, angled inward) -->
+              <path d="M100 102 Q110 95 128 100" stroke="#C17D3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <path d="M200 102 Q190 95 172 100" stroke="#C17D3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+              <!-- Nose -->
+              <ellipse cx="150" cy="157" rx="14" ry="9" fill="#3B2F1E"/>
+              <ellipse cx="145" cy="154" rx="4" ry="3" fill="white" opacity="0.35"/>
+
+              <!-- Sad mouth -->
+              <path d="M132 170 Q142 164 150 166 Q158 164 168 170" stroke="#C17D3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+              <!-- Front paws -->
+              <ellipse cx="118" cy="270" rx="24" ry="14" fill="#FCD9A0"/>
+              <ellipse cx="182" cy="270" rx="24" ry="14" fill="#FCD9A0"/>
+              <!-- Paw toes left -->
+              <ellipse cx="104" cy="273" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+              <ellipse cx="118" cy="277" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+              <ellipse cx="132" cy="273" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+              <!-- Paw toes right -->
+              <ellipse cx="168" cy="273" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+              <ellipse cx="182" cy="277" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+              <ellipse cx="196" cy="273" rx="6" ry="5" fill="#F5A623" opacity="0.5"/>
+
+              <!-- Belly patch -->
+              <ellipse cx="150" cy="225" rx="35" ry="30" fill="#FFF3DC" opacity="0.7"/>
+
+              <!-- Gradients -->
+              <defs>
+                <radialGradient id="headShade" cx="40%" cy="35%" r="60%">
+                  <stop offset="0%" stop-color="white"/>
+                  <stop offset="100%" stop-color="#C17D3A"/>
+                </radialGradient>
+                <radialGradient id="bodyShade" cx="40%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="white"/>
+                  <stop offset="100%" stop-color="#C17D3A"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <p class="font-body text-sm mt-2 font-medium" style="color:#93C5FD; letter-spacing:0.03em;">Even our office pup couldn't find it. 🐾</p>
         </div>
 
       </div>
