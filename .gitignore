@@ -3,6 +3,10 @@
 *.jpg
 *.jpeg
 
+# But keep the Logos folder tracked
+!Logos/
+!Logos/*
+
 # Dev tools
 serve.mjs
 screenshot.mjs
