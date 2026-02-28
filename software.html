@@ -33,6 +33,9 @@
     .page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,99,235,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;}
     .check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
     .check-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .category-row{transition:background-color 150ms ease;cursor:default;}
+    .category-row:hover{background-color:#F5F9FF !important;}
   </style>
 </head>
 <body class="bg-white text-neutral-700 antialiased">
@@ -90,162 +93,236 @@
 
   <main class="pt-16">
 
-    <!-- SECTION 1: PAGE HERO -->
-    <section class="page-hero">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl animate-fade-up">
-          <div class="section-overline">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" fill="#1D4ED8"/><rect x="7" y="1" width="4" height="4" rx="1" fill="#1D4ED8"/><rect x="1" y="7" width="4" height="4" rx="1" fill="#1D4ED8"/><rect x="7" y="7" width="4" height="4" rx="1" fill="#1D4ED8"/></svg>
-            Software Solutions
+    <!-- SECTION 1: CENTERED HERO + STATS STRIP + MARQUEE -->
+    <section style="background:linear-gradient(175deg,#0F172A 0%,#1A2744 55%,#1E293B 100%);padding-top:6rem;padding-bottom:0;position:relative;overflow:hidden;">
+      <!-- Top center glow -->
+      <div style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:800px;height:500px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(37,99,235,0.22) 0%,transparent 65%);filter:blur(90px);pointer-events:none;"></div>
+      <!-- Dot grid -->
+      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>
+
+      <!-- Centered text block -->
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style="padding-bottom:4rem;">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 mb-6" style="font-size:0.8rem;">
+          <a href="index.html" style="color:rgba(255,255,255,0.32);text-decoration:none;font-family:'Inter',sans-serif;">Home</a>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="rgba(255,255,255,0.18)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="services.html" style="color:rgba(255,255,255,0.32);text-decoration:none;font-family:'Inter',sans-serif;">Services</a>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="rgba(255,255,255,0.18)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span style="color:#93C5FD;font-family:'Inter',sans-serif;font-weight:500;">Software Solutions</span>
+        </nav>
+        <!-- Overline pill -->
+        <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:9999px;background:rgba(37,99,235,0.18);border:1px solid rgba(96,165,250,0.22);font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#93C5FD;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:24px;">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="0.5" y="0.5" width="3.5" height="3.5" rx="0.75" fill="#93C5FD"/><rect x="6" y="0.5" width="3.5" height="3.5" rx="0.75" fill="#93C5FD"/><rect x="0.5" y="6" width="3.5" height="3.5" rx="0.75" fill="#93C5FD"/><rect x="6" y="6" width="3.5" height="3.5" rx="0.75" fill="#93C5FD"/></svg>
+          Software Solutions
+        </div>
+        <!-- Big centered H1 -->
+        <h1 class="font-display font-bold animate-fade-up" style="font-size:clamp(2.2rem,5vw,3.75rem);letter-spacing:-0.04em;line-height:1.08;margin-bottom:1.5rem;color:white;">
+          Enterprise Software,<br><span style="background:linear-gradient(100deg,#60A5FA 10%,#A78BFA 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Procured &amp; Managed</span><br>End-to-End
+        </h1>
+        <!-- Subtitle -->
+        <p class="animate-fade-up delay-100" style="font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.80;color:rgba(255,255,255,0.52);max-width:560px;margin:0 auto 2.25rem;">
+          From choosing the right licences to keeping every seat patched, compliant, and productive — we handle every step of your software lifecycle.
+        </p>
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3 justify-center animate-fade-up delay-200">
+          <a href="contact.html" class="btn-primary">Get a Software Quote <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#software-categories" style="display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9999px;border:1.5px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.68);font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;text-decoration:none;transition:border-color 150ms ease,color 150ms ease;" onmouseover="this.style.borderColor='rgba(255,255,255,0.38)';this.style.color='white';" onmouseout="this.style.borderColor='rgba(255,255,255,0.14)';this.style.color='rgba(255,255,255,0.68)';">View Categories <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 3v8M3 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Stats strip — flat bottom connects to marquee -->
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,0.07);border-bottom:none;border-radius:20px 20px 0 0;overflow:hidden;background:rgba(255,255,255,0.03);">
+          <div style="padding:28px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
+            <div class="font-display" style="font-size:2.5rem;font-weight:700;color:white;letter-spacing:-0.04em;line-height:1;">200+</div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-top:9px;">Software Deployments</div>
           </div>
-          <h1 class="font-display font-bold text-4xl sm:text-5xl leading-tight mb-5" style="color:#1C1917;letter-spacing:-0.02em;">
-            Software That Works,<br>Licensed and Managed Right
-          </h1>
-          <p class="text-lg leading-relaxed" style="color:#4B5563;max-width:600px;">
-            We handle software procurement, deployment, configuration, and lifecycle management, so you stay compliant, current, and productive.
-          </p>
+          <div style="padding:28px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
+            <div class="font-display" style="font-size:2.5rem;font-weight:700;color:#60A5FA;letter-spacing:-0.04em;line-height:1;">50+</div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-top:9px;">Certified Vendors</div>
+          </div>
+          <div style="padding:28px 24px;text-align:center;">
+            <div class="font-display" style="font-size:2.5rem;font-weight:700;color:#34D399;letter-spacing:-0.04em;line-height:1;">98%</div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-top:9px;">Compliance Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling vendor marquee -->
+      <div style="overflow:hidden;background:rgba(255,255,255,0.018);border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;">
+        <div style="display:flex;width:max-content;animation:marquee 32s linear infinite;">
+          <div style="display:flex;align-items:center;gap:44px;padding:0 22px;flex-shrink:0;">
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Microsoft 365</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Adobe Creative Cloud</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Google Workspace</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Oracle Database</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">SAP Business Suite</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Cisco Webex</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Zoom</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Slack</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Kaspersky</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Symantec</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Autodesk</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Tally ERP</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div style="display:flex;align-items:center;gap:44px;padding:0 22px;flex-shrink:0;" aria-hidden="true">
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Microsoft 365</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Adobe Creative Cloud</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Google Workspace</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Oracle Database</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">SAP Business Suite</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Cisco Webex</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Zoom</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Slack</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Kaspersky</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Symantec</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Autodesk</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.27);letter-spacing:0.03em;white-space:nowrap;">Tally ERP</span><span style="color:rgba(255,255,255,0.09);line-height:1;">•</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: 2-COL INTRO -->
+    <!-- SECTION 2: NUMBERED FEATURE ROWS -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center gap-14">
-          <!-- Left: 60% -->
-          <div class="lg:w-3/5">
-            <div class="section-overline">Our Approach</div>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl mb-5 leading-tight" style="color:#1C1917;letter-spacing:-0.02em;">
-              Complete Software Lifecycle Management
-            </h2>
-            <p class="text-base leading-relaxed mb-8" style="color:#4B5563;">
-              From procuring the right licenses to keeping software updated, compliant, and performing, we manage your entire software environment. We work with all major vendors including Microsoft, Adobe, Oracle, Cisco, and niche enterprise applications, ensuring you get the right tools at the right price.
-            </p>
-            <div>
-              <div class="check-item">
-                <div class="check-icon">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <span class="text-sm leading-relaxed" style="color:#374151;">License procurement at competitive rates with full compliance</span>
-              </div>
-              <div class="check-item">
-                <div class="check-icon">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <span class="text-sm leading-relaxed" style="color:#374151;">Installation, configuration, and user onboarding</span>
-              </div>
-              <div class="check-item">
-                <div class="check-icon">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <span class="text-sm leading-relaxed" style="color:#374151;">Ongoing patch management, updates, and support</span>
-              </div>
-            </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="section-overline" style="display:inline-flex;">Our Approach</div>
+          <h2 class="font-display font-bold" style="font-size:clamp(1.75rem,3vw,2.25rem);letter-spacing:-0.025em;color:#1C1917;margin-top:6px;">Complete Software Lifecycle Management</h2>
+          <p class="font-body text-neutral-500 mt-3 text-base leading-relaxed mx-auto" style="max-width:500px;">From procuring the right licences to keeping software updated, compliant, and performing — we own the entire process.</p>
+        </div>
+        <!-- Row 1 -->
+        <div style="display:flex;align-items:flex-start;gap:24px;padding:32px 0;border-top:1px solid #F3F4F6;">
+          <div class="font-display" style="font-size:3.5rem;font-weight:800;color:#EFF6FF;line-height:1;flex-shrink:0;width:72px;letter-spacing:-0.04em;user-select:none;">01</div>
+          <div style="width:48px;height:48px;border-radius:12px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 11h10M4 16h7" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
           </div>
-          <!-- Right: 40% -->
-          <div class="lg:w-2/5 w-full">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1000&q=80&auto=format&fit=crop" alt="Software development and coding" class="rounded-2xl w-full" style="box-shadow:0 8px 24px rgba(37,99,235,0.14);">
+          <div style="flex:1;">
+            <h3 class="font-display font-semibold" style="font-size:1.1rem;color:#1C1917;margin-bottom:8px;">License Procurement</h3>
+            <p class="font-body text-sm leading-relaxed" style="color:#6B7280;max-width:560px;">Competitive pricing from 20+ certified vendors. We source the right licences for your team size and budget, complete with compliance documentation and renewal tracking built in from day one.</p>
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div style="display:flex;align-items:flex-start;gap:24px;padding:32px 0;border-top:1px solid #F3F4F6;">
+          <div class="font-display" style="font-size:3.5rem;font-weight:800;color:#EFF6FF;line-height:1;flex-shrink:0;width:72px;letter-spacing:-0.04em;user-select:none;">02</div>
+          <div style="width:48px;height:48px;border-radius:12px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="12" rx="2" stroke="#2563EB" stroke-width="1.75" fill="none"/><path d="M7 19h8M11 15v4" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 class="font-display font-semibold" style="font-size:1.1rem;color:#1C1917;margin-bottom:8px;">Deployment &amp; Onboarding</h3>
+            <p class="font-body text-sm leading-relaxed" style="color:#6B7280;max-width:560px;">Installation, configuration, and user onboarding across all devices. Your team is up and running from day one with role-based access, training resources, and minimal disruption to ongoing operations.</p>
+          </div>
+        </div>
+        <!-- Row 3 -->
+        <div style="display:flex;align-items:flex-start;gap:24px;padding:32px 0;border-top:1px solid #F3F4F6;border-bottom:1px solid #F3F4F6;">
+          <div class="font-display" style="font-size:3.5rem;font-weight:800;color:#EFF6FF;line-height:1;flex-shrink:0;width:72px;letter-spacing:-0.04em;user-select:none;">03</div>
+          <div style="width:48px;height:48px;border-radius:12px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3C6.58 3 3 6.58 3 11s3.58 8 8 8 8-3.58 8-8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/><path d="M15 3l4 4-4 4" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 class="font-display font-semibold" style="font-size:1.1rem;color:#1C1917;margin-bottom:8px;">Patch &amp; Renewal Management</h3>
+            <p class="font-body text-sm leading-relaxed" style="color:#6B7280;max-width:560px;">Proactive patch management, renewal reminders, and audit-ready compliance reports. No surprises, no gaps in your software estate — every licence tracked and every update applied on schedule.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: OFFERINGS GRID -->
-    <section class="py-20" style="background:#EFF6FF;">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- SECTION 3: SOFTWARE CATEGORIES AS LIST ROWS -->
+    <section id="software-categories" class="py-20" style="background:#EFF6FF;">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <div class="section-overline" style="display:inline-flex;">What We Offer</div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl" style="color:#1C1917;letter-spacing:-0.02em;">Software Categories We Cover</h2>
+          <h2 class="font-display font-bold" style="font-size:clamp(1.75rem,3vw,2.25rem);letter-spacing:-0.025em;color:#1C1917;margin-top:6px;">Software Categories We Cover</h2>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <!-- Card 1 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#EFF6FF;">
+        <div style="background:white;border-radius:20px;overflow:hidden;border:1px solid #DBEAFE;box-shadow:0 4px 6px rgba(37,99,235,0.05),0 1px 4px rgba(0,0,0,0.04);">
+          <div class="category-row" style="display:flex;align-items:center;gap:20px;padding:22px 28px;border-bottom:1px solid #EFF6FF;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="13" rx="2" stroke="#2563EB" stroke-width="1.75"/><path d="M8 21h8M12 16v5" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">OS &amp; Productivity</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Windows, macOS, Ubuntu, Microsoft 365, Google Workspace, and collaboration tools.</p>
+            <div style="flex:1;">
+              <div class="font-display font-semibold" style="font-size:0.97rem;color:#1C1917;margin-bottom:3px;">OS &amp; Productivity</div>
+              <div class="font-body text-sm" style="color:#9CA3AF;">Windows, macOS, Ubuntu, Microsoft 365, Google Workspace, collaboration tools</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:#BFDBFE;"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <!-- Card 2 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#EFF6FF;">
+          <div class="category-row" style="display:flex;align-items:center;gap:20px;padding:22px 28px;border-bottom:1px solid #EFF6FF;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 10h16M4 14h10M4 18h7" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Enterprise Applications</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">ERP, CRM, project management, HR software, and industry-specific platforms.</p>
+            <div style="flex:1;">
+              <div class="font-display font-semibold" style="font-size:0.97rem;color:#1C1917;margin-bottom:3px;">Enterprise Applications</div>
+              <div class="font-body text-sm" style="color:#9CA3AF;">ERP, CRM, project management, HR software, and industry-specific platforms</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:#BFDBFE;"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <!-- Card 3 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#EFF6FF;">
+          <div class="category-row" style="display:flex;align-items:center;gap:20px;padding:22px 28px;border-bottom:1px solid #EFF6FF;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.418-3.582 8-8 8s-8-3.582-8-8V7l8-4z" stroke="#2563EB" stroke-width="1.75" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Security Software</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Antivirus, endpoint protection, SIEM, DLP, and compliance tools for all scales.</p>
+            <div style="flex:1;">
+              <div class="font-display font-semibold" style="font-size:0.97rem;color:#1C1917;margin-bottom:3px;">Security Software</div>
+              <div class="font-body text-sm" style="color:#9CA3AF;">Antivirus, endpoint protection, SIEM, DLP, and compliance tools for all scales</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:#BFDBFE;"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <!-- Card 4 -->
-          <div class="bg-white border border-neutral-200 rounded-2xl p-6 card-hover" style="box-shadow:0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04);">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#EFF6FF;">
+          <div class="category-row" style="display:flex;align-items:center;gap:20px;padding:22px 28px;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#2563EB" stroke-width="1.75"/><path d="M8 9h8M8 13h5" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Licensing Management</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Software asset management, license audits, renewal tracking, and compliance reporting.</p>
+            <div style="flex:1;">
+              <div class="font-display font-semibold" style="font-size:0.97rem;color:#1C1917;margin-bottom:3px;">Licensing Management</div>
+              <div class="font-body text-sm" style="color:#9CA3AF;">Software asset management, licence audits, renewal tracking, and compliance reporting</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:#BFDBFE;"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: SOFTWARE LIFECYCLE TIMELINE -->
+    <!-- SECTION 4: VERTICAL PROCESS TIMELINE -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
           <div class="section-overline" style="display:inline-flex;">Our Process</div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl" style="color:#1C1917;letter-spacing:-0.02em;">The Software Lifecycle We Manage</h2>
+          <h2 class="font-display font-bold" style="font-size:clamp(1.75rem,3vw,2.25rem);letter-spacing:-0.025em;color:#1C1917;margin-top:6px;">The Software Lifecycle We Manage</h2>
         </div>
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-
+        <!-- Vertical timeline -->
+        <div style="position:relative;max-width:680px;margin:0 auto;" class="px-2">
+          <!-- Connecting line -->
+          <div style="position:absolute;left:20px;top:0;bottom:40px;width:2px;background:linear-gradient(180deg,#2563EB 0%,#BFDBFE 100%);"></div>
           <!-- Step 1 -->
-          <div class="flex-1 flex flex-col items-center text-center">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg mb-4 flex-shrink-0" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.30);">1</div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">License Acquisition</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Identify the right licenses and procure at competitive rates with full compliance documentation.</p>
+          <div style="position:relative;padding-left:64px;padding-bottom:40px;">
+            <div style="position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;box-shadow:0 4px 12px rgba(37,99,235,0.30);">1</div>
+            <div style="border:1px solid #EFF6FF;border-radius:16px;padding:24px;background:#F8FBFF;">
+              <h3 class="font-display font-semibold" style="font-size:1.05rem;color:#1C1917;margin-bottom:8px;">License Acquisition</h3>
+              <p class="font-body text-sm leading-relaxed" style="color:#6B7280;">Identify the right licences and procure at competitive rates with full compliance documentation and a clear audit trail.</p>
+            </div>
           </div>
-
-          <!-- Arrow -->
-          <div class="hidden md:flex items-center justify-center flex-shrink-0 px-2" style="color:#BFDBFE;">
-            <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="#BFDBFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-
           <!-- Step 2 -->
-          <div class="flex-1 flex flex-col items-center text-center">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg mb-4 flex-shrink-0" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.30);">2</div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Deployment &amp; Config</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Install, configure, and onboard users across all devices and platforms with minimal disruption.</p>
+          <div style="position:relative;padding-left:64px;padding-bottom:40px;">
+            <div style="position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;box-shadow:0 4px 12px rgba(37,99,235,0.30);">2</div>
+            <div style="border:1px solid #EFF6FF;border-radius:16px;padding:24px;background:#F8FBFF;">
+              <h3 class="font-display font-semibold" style="font-size:1.05rem;color:#1C1917;margin-bottom:8px;">Deployment &amp; Config</h3>
+              <p class="font-body text-sm leading-relaxed" style="color:#6B7280;">Install, configure, and onboard users across all devices and platforms with minimal disruption to ongoing work.</p>
+            </div>
           </div>
-
-          <!-- Arrow -->
-          <div class="hidden md:flex items-center justify-center flex-shrink-0 px-2">
-            <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="#BFDBFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-
           <!-- Step 3 -->
-          <div class="flex-1 flex flex-col items-center text-center">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg mb-4 flex-shrink-0" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.30);">3</div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Patch &amp; Updates</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Proactively manage patches, security updates, and version upgrades to keep systems current.</p>
+          <div style="position:relative;padding-left:64px;padding-bottom:40px;">
+            <div style="position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;box-shadow:0 4px 12px rgba(37,99,235,0.30);">3</div>
+            <div style="border:1px solid #EFF6FF;border-radius:16px;padding:24px;background:#F8FBFF;">
+              <h3 class="font-display font-semibold" style="font-size:1.05rem;color:#1C1917;margin-bottom:8px;">Patch &amp; Updates</h3>
+              <p class="font-body text-sm leading-relaxed" style="color:#6B7280;">Proactively manage patches, security updates, and version upgrades to keep every system current and protected.</p>
+            </div>
           </div>
-
-          <!-- Arrow -->
-          <div class="hidden md:flex items-center justify-center flex-shrink-0 px-2">
-            <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="#BFDBFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-
           <!-- Step 4 -->
-          <div class="flex-1 flex flex-col items-center text-center">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg mb-4 flex-shrink-0" style="background:#2563EB;box-shadow:0 4px 12px rgba(37,99,235,0.30);">4</div>
-            <h3 class="font-display font-semibold text-base mb-2" style="color:#1C1917;">Renewal &amp; Audit</h3>
-            <p class="text-sm leading-relaxed" style="color:#6B7280;">Track renewals, conduct software audits, and ensure ongoing compliance and cost optimisation.</p>
+          <div style="position:relative;padding-left:64px;">
+            <div style="position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;box-shadow:0 4px 12px rgba(37,99,235,0.30);">4</div>
+            <div style="border:1px solid #EFF6FF;border-radius:16px;padding:24px;background:#F8FBFF;">
+              <h3 class="font-display font-semibold" style="font-size:1.05rem;color:#1C1917;margin-bottom:8px;">Renewal &amp; Audit</h3>
+              <p class="font-body text-sm leading-relaxed" style="color:#6B7280;">Track renewals, conduct software audits, and ensure ongoing compliance and cost optimisation with detailed reporting.</p>
+            </div>
           </div>
-
         </div>
       </div>
     </section>
