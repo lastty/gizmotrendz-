@@ -13,18 +13,18 @@
     tailwind.config = {
       theme: { extend: {
         colors: {
-          brand: { 950:'#0F172A', 900:'#1E3A5F', 800:'#1E40AF', 700:'#1D4ED8',
-                   600:'#2563EB', 500:'#3B82F6', 400:'#60A5FA', 300:'#93C5FD',
-                   200:'#BFDBFE', 100:'#DBEAFE', 50:'#EFF6FF' },
+          brand: { 950:'#052E16', 900:'#14532D', 800:'#166534', 700:'#15803D',
+                   600:'#16A34A', 500:'#22C55E', 400:'#4ADE80', 300:'#86EFAC',
+                   200:'#BBF7D0', 100:'#DCFCE7', 50:'#F0FDF4' },
           neutral: { 900:'#111827', 700:'#374151', 500:'#6B7280',
                      300:'#D1D5DB', 200:'#E5E7EB', 100:'#F3F4F6', 50:'#F9FAFB' }
         },
         fontFamily: { display:['"Plus Jakarta Sans"'], body:['Inter'] },
         boxShadow: {
-          'brand-sm': '0 1px 2px rgba(37,99,235,0.06),0 1px 4px rgba(0,0,0,0.04)',
-          'brand-md': '0 4px 6px rgba(37,99,235,0.10),0 2px 8px rgba(0,0,0,0.05)',
-          'brand-lg': '0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07)',
-          'brand-xl': '0 16px 48px rgba(37,99,235,0.18),0 8px 24px rgba(0,0,0,0.08)',
+          'brand-sm': '0 1px 2px rgba(22,163,74,0.06),0 1px 4px rgba(0,0,0,0.04)',
+          'brand-md': '0 4px 6px rgba(22,163,74,0.10),0 2px 8px rgba(0,0,0,0.05)',
+          'brand-lg': '0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07)',
+          'brand-xl': '0 16px 48px rgba(22,163,74,0.18),0 8px 24px rgba(0,0,0,0.08)',
         }
       }}
     }
@@ -34,31 +34,31 @@
     .font-display { font-family:'Plus Jakarta Sans',sans-serif; }
 
     .nav-link { font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#374151;transition:color 150ms ease; }
-    .nav-link:hover { color:#2563EB; }
+    .nav-link:hover { color:#16A34A; }
     .dropdown-item { display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:0.875rem;color:#374151;font-weight:500;transition:background-color 150ms ease,color 150ms ease;text-decoration:none; }
-    .dropdown-item:hover { background-color:#EFF6FF;color:#1D4ED8; }
+    .dropdown-item:hover { background-color:#F0FDF4;color:#15803D; }
 
-    .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:#2563EB;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(37,99,235,0.25);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
-    .btn-primary:hover { background:#3B82F6;box-shadow:0 8px 24px rgba(37,99,235,0.30);transform:translateY(-1px); }
-    .btn-outline { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:transparent;color:#1D4ED8;border:1.5px solid #93C5FD;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;transition:background-color 150ms ease,border-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
-    .btn-outline:hover { background:#EFF6FF;border-color:#2563EB;transform:translateY(-1px); }
-    .btn-light { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:white;color:#1D4ED8;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
+    .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:#16A34A;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(22,163,74,0.25);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
+    .btn-primary:hover { background:#22C55E;box-shadow:0 8px 24px rgba(22,163,74,0.30);transform:translateY(-1px); }
+    .btn-outline { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:transparent;color:#15803D;border:1.5px solid #86EFAC;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;transition:background-color 150ms ease,border-color 150ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
+    .btn-outline:hover { background:#F0FDF4;border-color:#16A34A;transform:translateY(-1px); }
+    .btn-light { display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:9999px;background:white;color:#15803D;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none; }
     .btn-light:hover { box-shadow:0 8px 20px rgba(0,0,0,0.12);transform:translateY(-1px); }
 
-    .section-overline { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#1D4ED8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px; }
+    .section-overline { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#15803D;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px; }
     .card-hover { transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1),box-shadow 200ms ease,border-color 150ms ease; }
-    .card-hover:hover { transform:translateY(-4px);box-shadow:0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#BFDBFE; }
+    .card-hover:hover { transform:translateY(-4px);box-shadow:0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#BBF7D0; }
 
     /* Model cards */
     .model-card { border-radius:20px;padding:32px;border:1.5px solid #E5E7EB;background:white;transition:border-color 200ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1); }
-    .model-card:hover { border-color:#BFDBFE;box-shadow:0 8px 24px rgba(37,99,235,0.14),0 4px 16px rgba(0,0,0,0.07);transform:translateY(-3px); }
+    .model-card:hover { border-color:#BBF7D0;box-shadow:0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07);transform:translateY(-3px); }
 
     /* Role items */
     .role-item { background:white;border-radius:16px;padding:24px;border:1px solid #F3F4F6;transition:border-color 200ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1); }
-    .role-item:hover { border-color:#BFDBFE;box-shadow:0 6px 20px rgba(37,99,235,0.12),0 3px 10px rgba(0,0,0,0.05);transform:translateY(-2px); }
+    .role-item:hover { border-color:#BBF7D0;box-shadow:0 6px 20px rgba(22,163,74,0.12),0 3px 10px rgba(0,0,0,0.05);transform:translateY(-2px); }
 
     /* Process step connector */
-    .step-line { position:absolute;top:20px;left:calc(50% + 20px);width:calc(100% - 40px);height:2px;background:linear-gradient(90deg,#BFDBFE,#EFF6FF); }
+    .step-line { position:absolute;top:20px;left:calc(50% + 20px);width:calc(100% - 40px);height:2px;background:linear-gradient(90deg,#BBF7D0,#F0FDF4); }
 
     /* Screening rows */
     .screen-row { display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid #F3F4F6; }
@@ -67,10 +67,10 @@
     /* FAQ */
     .faq-item { border-bottom:1px solid #F3F4F6; }
     .faq-btn { width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;background:none;border:none;text-align:left;gap:16px; }
-    .faq-q { font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:#1E3A5F;transition:color 150ms ease; }
-    .faq-btn:hover .faq-q { color:#2563EB; }
-    .faq-icon { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#EFF6FF;border:1px solid #DBEAFE;display:flex;align-items:center;justify-content:center;transition:background 150ms ease,transform 200ms ease; }
-    .faq-item.open .faq-icon { background:#2563EB;transform:rotate(45deg); }
+    .faq-q { font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:#14532D;transition:color 150ms ease; }
+    .faq-btn:hover .faq-q { color:#16A34A; }
+    .faq-icon { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F0FDF4;border:1px solid #DCFCE7;display:flex;align-items:center;justify-content:center;transition:background 150ms ease,transform 200ms ease; }
+    .faq-item.open .faq-icon { background:#16A34A;transform:rotate(45deg); }
     .faq-answer { display:none;padding:0 0 20px 0;font-size:0.9375rem;line-height:1.75;color:#4B5563;max-width:700px; }
     .faq-item.open .faq-answer { display:block; }
 
@@ -83,10 +83,10 @@
 <body class="bg-white text-neutral-700 antialiased">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(37,99,235,0.06),0 1px 8px rgba(0,0,0,0.04);">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(22,163,74,0.06),0 1px 8px rgba(0,0,0,0.04);">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2" style="text-decoration:none;">
-        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#2563EB,#1E40AF);">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#16A34A,#166534);">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg>
         </div>
         <span class="font-display font-bold text-lg" style="color:#1C1917;letter-spacing:-0.02em;">Gizmo Trendz</span>
@@ -118,7 +118,7 @@
         <a href="contact.html" class="nav-link">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="contact.html" class="hidden lg:inline-flex items-center px-5 py-2 rounded-full text-white text-sm font-semibold" style="background:#2563EB;text-decoration:none;">Get a Quote</a>
+        <a href="contact.html" class="hidden lg:inline-flex items-center px-5 py-2 rounded-full text-white text-sm font-semibold" style="background:#16A34A;text-decoration:none;">Get a Quote</a>
         <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-neutral-500 hover:bg-brand-50">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
         </button>
@@ -135,7 +135,7 @@
         <a href="startups.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600">Startups</a>
         <a href="mnc.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600">MNCs &amp; Enterprise</a>
         <a href="government.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 hover:bg-brand-50 hover:text-brand-600">Government</a>
-        <div class="pt-2"><a href="contact.html" class="block text-center px-4 py-3 rounded-xl text-sm font-semibold text-white" style="background:#2563EB;">Get a Quote</a></div>
+        <div class="pt-2"><a href="contact.html" class="block text-center px-4 py-3 rounded-xl text-sm font-semibold text-white" style="background:#16A34A;">Get a Quote</a></div>
       </div>
     </div>
   </header>
@@ -145,19 +145,19 @@
     <!-- ====================================================
          SECTION 1: HERO
          ==================================================== -->
-    <section style="background:#EFF6FF;padding-top:5rem;padding-bottom:5rem;border-bottom:1px solid #DBEAFE;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:-120px;right:-100px;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,99,235,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;"></div>
+    <section style="background:#F0FDF4;padding-top:5rem;padding-bottom:5rem;border-bottom:1px solid #DCFCE7;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-120px;right:-100px;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(22,163,74,0.08) 0%,transparent 70%);filter:blur(60px);pointer-events:none;"></div>
       <div style="position:absolute;bottom:-100px;left:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(ellipse,rgba(96,165,250,0.06) 0%,transparent 70%);filter:blur(50px);pointer-events:none;"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center mb-14 animate-fade-up">
           <div class="section-overline" style="display:inline-flex;">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2.5" stroke="#1D4ED8" stroke-width="1.25"/><path d="M1 10c0-2.761 2.239-4 5-4s5 1.239 5 4" stroke="#1D4ED8" stroke-width="1.25" stroke-linecap="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2.5" stroke="#15803D" stroke-width="1.25"/><path d="M1 10c0-2.761 2.239-4 5-4s5 1.239 5 4" stroke="#15803D" stroke-width="1.25" stroke-linecap="round"/></svg>
             IT Staffing
           </div>
           <h1 class="font-display font-bold leading-tight mb-5" style="color:#1C1917;letter-spacing:-0.02em;font-size:clamp(2.25rem,5vw,3.5rem);">
             Right IT Talent —<br>
-            <span style="background:linear-gradient(100deg,#2563EB 20%,#60A5FA 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Right When You Need It</span>
+            <span style="background:linear-gradient(100deg,#16A34A 20%,#4ADE80 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Right When You Need It</span>
           </h1>
           <p class="text-lg leading-relaxed mb-10" style="color:#6B7280;max-width:580px;margin:0 auto 2.5rem;">
             From contract engineers to permanent hires — we source, screen, and deploy skilled IT professionals who fit your technical requirements and company culture. Matched profiles in 48 hours.
@@ -172,16 +172,16 @@
 
         <!-- 3 trust badges -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto animate-fade-up delay-200">
-          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DBEAFE;text-align:center;">
-            <div class="font-display font-bold text-2xl" style="color:#2563EB;letter-spacing:-0.02em;">48<span style="font-size:1rem;">hr</span></div>
+          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DCFCE7;text-align:center;">
+            <div class="font-display font-bold text-2xl" style="color:#16A34A;letter-spacing:-0.02em;">48<span style="font-size:1rem;">hr</span></div>
             <div style="font-size:0.8rem;color:#6B7280;margin-top:4px;">Matched profiles delivered</div>
           </div>
-          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DBEAFE;text-align:center;">
-            <div class="font-display font-bold text-2xl" style="color:#2563EB;letter-spacing:-0.02em;">500<span style="color:#60A5FA;">+</span></div>
+          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DCFCE7;text-align:center;">
+            <div class="font-display font-bold text-2xl" style="color:#16A34A;letter-spacing:-0.02em;">500<span style="color:#4ADE80;">+</span></div>
             <div style="font-size:0.8rem;color:#6B7280;margin-top:4px;">IT professionals placed</div>
           </div>
-          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DBEAFE;text-align:center;">
-            <div class="font-display font-bold text-2xl" style="color:#2563EB;letter-spacing:-0.02em;">90<span style="font-size:1rem;">day</span></div>
+          <div style="background:white;border-radius:14px;padding:16px 20px;border:1px solid #DCFCE7;text-align:center;">
+            <div class="font-display font-bold text-2xl" style="color:#16A34A;letter-spacing:-0.02em;">90<span style="font-size:1rem;">day</span></div>
             <div style="font-size:0.8rem;color:#6B7280;margin-top:4px;">Replacement guarantee</div>
           </div>
         </div>
@@ -202,90 +202,90 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <div class="model-card">
-            <div style="width:52px;height:52px;border-radius:14px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M9 12h8M9 16h5M5 3h16a2 2 0 012 2v16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
+            <div style="width:52px;height:52px;border-radius:14px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M9 12h8M9 16h5M5 3h16a2 2 0 012 2v16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
-            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;margin-bottom:8px;">Model 01</div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#16A34A;margin-bottom:8px;">Model 01</div>
             <h3 class="font-display font-bold text-xl mb-3" style="color:#1C1917;letter-spacing:-0.01em;">Contract Staffing</h3>
             <p class="text-sm mb-6" style="color:#6B7280;line-height:1.75;">Skilled IT professionals on short or long-term contract. Perfect for project work, peak demand, or specialist expertise without permanent headcount.</p>
             <ul class="space-y-3 mb-6">
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" flex-shrink="0"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" flex-shrink="0"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Flexible contract duration (weeks to years)
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Quick deployment — as fast as 3–5 days
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 All payroll, HR &amp; compliance handled
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Extend, reduce, or convert to permanent
               </li>
             </ul>
-            <div style="padding:12px 14px;background:#EFF6FF;border-radius:10px;font-size:0.8rem;color:#1D4ED8;border:1px solid #DBEAFE;">Best for: <strong>Project work, peak demand periods, or specialist gaps</strong></div>
+            <div style="padding:12px 14px;background:#F0FDF4;border-radius:10px;font-size:0.8rem;color:#15803D;border:1px solid #DCFCE7;">Best for: <strong>Project work, peak demand periods, or specialist gaps</strong></div>
           </div>
 
-          <div class="model-card" style="border-color:#2563EB;box-shadow:0 16px 48px rgba(37,99,235,0.16),0 6px 20px rgba(0,0,0,0.08);">
+          <div class="model-card" style="border-color:#16A34A;box-shadow:0 16px 48px rgba(22,163,74,0.16),0 6px 20px rgba(0,0,0,0.08);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
-              <div style="width:52px;height:52px;border-radius:14px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="9" r="4.5" stroke="#2563EB" stroke-width="1.75"/><path d="M4 22c0-4.418 4.03-8 9-8s9 3.582 9 8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
+              <div style="width:52px;height:52px;border-radius:14px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="9" r="4.5" stroke="#16A34A" stroke-width="1.75"/><path d="M4 22c0-4.418 4.03-8 9-8s9 3.582 9 8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg>
               </div>
-              <div style="padding:3px 10px;border-radius:9999px;background:#2563EB;font-size:0.65rem;font-weight:700;color:white;letter-spacing:0.05em;text-transform:uppercase;">Most Requested</div>
+              <div style="padding:3px 10px;border-radius:9999px;background:#16A34A;font-size:0.65rem;font-weight:700;color:white;letter-spacing:0.05em;text-transform:uppercase;">Most Requested</div>
             </div>
-            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;margin-bottom:8px;">Model 02</div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#16A34A;margin-bottom:8px;">Model 02</div>
             <h3 class="font-display font-bold text-xl mb-3" style="color:#1C1917;letter-spacing:-0.01em;">Permanent Hiring</h3>
             <p class="text-sm mb-6" style="color:#6B7280;line-height:1.75;">End-to-end recruitment for full-time IT roles — we source, screen, assess, and place the right person while you focus on your business.</p>
             <ul class="space-y-3 mb-6">
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Deep technical &amp; cultural fit screening
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Background &amp; reference verification
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 90-day free replacement guarantee
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Offer negotiation &amp; onboarding support
               </li>
             </ul>
-            <div style="padding:12px 14px;background:#EFF6FF;border-radius:10px;font-size:0.8rem;color:#1D4ED8;border:1px solid #DBEAFE;">Best for: <strong>Building a long-term team or replacing a critical role</strong></div>
+            <div style="padding:12px 14px;background:#F0FDF4;border-radius:10px;font-size:0.8rem;color:#15803D;border:1px solid #DCFCE7;">Best for: <strong>Building a long-term team or replacing a critical role</strong></div>
           </div>
 
           <div class="model-card">
-            <div style="width:52px;height:52px;border-radius:14px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="#2563EB" stroke-width="1.75"/><rect x="15" y="3" width="8" height="8" rx="2" stroke="#2563EB" stroke-width="1.75"/><rect x="3" y="15" width="8" height="8" rx="2" stroke="#2563EB" stroke-width="1.75"/><path d="M15 19h8M19 15v8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg>
+            <div style="width:52px;height:52px;border-radius:14px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="#16A34A" stroke-width="1.75"/><rect x="15" y="3" width="8" height="8" rx="2" stroke="#16A34A" stroke-width="1.75"/><rect x="3" y="15" width="8" height="8" rx="2" stroke="#16A34A" stroke-width="1.75"/><path d="M15 19h8M19 15v8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg>
             </div>
-            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;margin-bottom:8px;">Model 03</div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#16A34A;margin-bottom:8px;">Model 03</div>
             <h3 class="font-display font-bold text-xl mb-3" style="color:#1C1917;letter-spacing:-0.01em;">Project-Based Hiring</h3>
             <p class="text-sm mb-6" style="color:#6B7280;line-height:1.75;">A purpose-built team for a specific initiative — technology rollouts, infrastructure upgrades, migrations, or digital transformation projects.</p>
             <ul class="space-y-3 mb-6">
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Full team assembled and managed
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Scaled up or down as project evolves
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Project manager included on request
               </li>
               <li style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#374151;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EFF6FF"/><path d="M5 8l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#F0FDF4"/><path d="M5 8l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Handover docs &amp; knowledge transfer
               </li>
             </ul>
-            <div style="padding:12px 14px;background:#EFF6FF;border-radius:10px;font-size:0.8rem;color:#1D4ED8;border:1px solid #DBEAFE;">Best for: <strong>ERP rollouts, network build-outs, data centre migrations</strong></div>
+            <div style="padding:12px 14px;background:#F0FDF4;border-radius:10px;font-size:0.8rem;color:#15803D;border:1px solid #DCFCE7;">Best for: <strong>ERP rollouts, network build-outs, data centre migrations</strong></div>
           </div>
 
         </div>
@@ -295,7 +295,7 @@
     <!-- ====================================================
          SECTION 3: ROLES WE PLACE
          ==================================================== -->
-    <section id="roles-section" style="padding:80px 0;background:#EFF6FF;">
+    <section id="roles-section" style="padding:80px 0;background:#F0FDF4;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
           <div class="section-overline" style="display:inline-flex;">Roles We Place</div>
@@ -306,105 +306,105 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 10h10M3 15h6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><path d="M16 13l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 10h10M3 15h6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/><path d="M16 13l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">IT Engineers</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">Systems engineers, cloud architects, DevOps, infrastructure engineers</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">AWS</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Azure</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Linux</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">VMware</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">AWS</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Azure</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Linux</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">VMware</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#2563EB" stroke-width="1.5"/><path d="M7 11a4 4 0 018 0" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><path d="M9 11a2 2 0 014 0" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="1" fill="#2563EB"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#16A34A" stroke-width="1.5"/><path d="M7 11a4 4 0 018 0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/><path d="M9 11a2 2 0 014 0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="1" fill="#16A34A"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Network Admins</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">Network design, configuration, monitoring, and security</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Cisco CCNA</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Juniper</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">SD-WAN</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Cisco CCNA</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Juniper</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">SD-WAN</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M18 8h-1V5a5 5 0 00-10 0v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2zm-6 7a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3.1-7H8.9V5a3.1 3.1 0 016.2 0v3z" stroke="#2563EB" stroke-width="1.25" fill="none"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M18 8h-1V5a5 5 0 00-10 0v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2zm-6 7a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3.1-7H8.9V5a3.1 3.1 0 016.2 0v3z" stroke="#16A34A" stroke-width="1.25" fill="none"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Security Specialists</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">Cybersecurity analysts, SOC engineers, penetration testers, compliance</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">CISSP</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">CEH</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">SIEM</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">CISSP</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">CEH</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">SIEM</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 10h14M4 14h10M4 18h8" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 10h14M4 14h10M4 18h8" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Helpdesk &amp; Support</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">L1/L2/L3 support, ITSM, ticketing, troubleshooting, end-user management</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">ServiceNow</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Jira</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">ITIL</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">ServiceNow</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Jira</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">ITIL</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="12" rx="2" stroke="#2563EB" stroke-width="1.5"/><path d="M6 9h10M6 12.5h6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="12" rx="2" stroke="#16A34A" stroke-width="1.5"/><path d="M6 9h10M6 12.5h6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Server &amp; Storage Admins</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">Windows/Linux server management, storage administration, backup &amp; recovery</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Windows Server</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">SAN/NAS</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Windows Server</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">SAN/NAS</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#16A34A" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">ERP &amp; Database Admins</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">ERP implementation, DBA, SQL/Oracle/MySQL administration, data migration</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">SAP</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Oracle</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">MS SQL</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">SAP</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Oracle</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">MS SQL</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="6" r="3" stroke="#2563EB" stroke-width="1.5"/><circle cx="4" cy="16" r="3" stroke="#2563EB" stroke-width="1.5"/><circle cx="18" cy="16" r="3" stroke="#2563EB" stroke-width="1.5"/><path d="M11 9v4M11 13l-4 1M11 13l4 1" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="6" r="3" stroke="#16A34A" stroke-width="1.5"/><circle cx="4" cy="16" r="3" stroke="#16A34A" stroke-width="1.5"/><circle cx="18" cy="16" r="3" stroke="#16A34A" stroke-width="1.5"/><path d="M11 9v4M11 13l-4 1M11 13l4 1" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">IT Managers &amp; CIOs</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">IT heads, infrastructure managers, CTO/CIO level for larger organisations</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Leadership</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">ITIL v4</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">PMP</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Leadership</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">ITIL v4</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">PMP</span>
             </div>
           </div>
 
           <div class="role-item">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6c0-1.105.895-2 2-2h12c1.105 0 2 .895 2 2v8c0 1.105-.895 2-2 2H5c-1.105 0-2-.895-2-2V6z" stroke="#2563EB" stroke-width="1.5"/><path d="M8 18h6M11 16v2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><path d="M7 10l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6c0-1.105.895-2 2-2h12c1.105 0 2 .895 2 2v8c0 1.105-.895 2-2 2H5c-1.105 0-2-.895-2-2V6z" stroke="#16A34A" stroke-width="1.5"/><path d="M8 18h6M11 16v2" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/><path d="M7 10l2 2 4-4" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Surveillance &amp; Access Control</h4>
             <p class="text-sm" style="color:#6B7280;line-height:1.65;">CCTV installation, biometric system specialists, access control technicians</p>
             <div class="mt-3" style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">Hikvision</span>
-              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#EFF6FF;border:1px solid #DBEAFE;color:#1D4ED8;">ZKTeco</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">Hikvision</span>
+              <span style="font-size:0.68rem;padding:2px 7px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;color:#15803D;">ZKTeco</span>
             </div>
           </div>
 
@@ -415,42 +415,42 @@
     <!-- ====================================================
          SECTION 4: HOW WE SCREEN (deep-dive)
          ==================================================== -->
-    <section style="padding:80px 0;background:#0F172A;">
+    <section style="padding:80px 0;background:#052E16;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           <div>
-            <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.30);font-size:0.7rem;font-weight:600;color:#93C5FD;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;">Screening &amp; Vetting</div>
+            <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:rgba(22,163,74,0.15);border:1px solid rgba(22,163,74,0.30);font-size:0.7rem;font-weight:600;color:#86EFAC;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;">Screening &amp; Vetting</div>
             <h2 class="font-display font-bold mb-6" style="color:white;letter-spacing:-0.02em;font-size:clamp(1.75rem,3.5vw,2.75rem);line-height:1.2;">
               Only the Top 10% Reach You.
-              <span style="background:linear-gradient(100deg,#60A5FA 20%,#93C5FD 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"> We Filter the Rest.</span>
+              <span style="background:linear-gradient(100deg,#4ADE80 20%,#86EFAC 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"> We Filter the Rest.</span>
             </h2>
             <p style="color:rgba(255,255,255,0.60);font-size:0.9375rem;line-height:1.75;margin-bottom:20px;">Every candidate we present has passed our five-stage screening process. We don't flood your inbox with CVs — we send you pre-qualified professionals you can hire with confidence.</p>
             <p style="color:rgba(255,255,255,0.60);font-size:0.9375rem;line-height:1.75;">For IT roles especially, we test practical skills — not just review certificates. A network administrator we recommend has demonstrated they can configure a switch, not just claim they can.</p>
           </div>
 
-          <div style="background:rgba(255,255,255,0.04);border-radius:24px;padding:32px;border:1px solid rgba(37,99,235,0.20);">
+          <div style="background:rgba(255,255,255,0.04);border-radius:24px;padding:32px;border:1px solid rgba(22,163,74,0.20);">
             <h3 class="font-display font-semibold text-lg mb-2" style="color:white;">Our 5-Stage Screening Process</h3>
             <p style="color:rgba(255,255,255,0.40);font-size:0.8rem;margin-bottom:20px;">Applied to every candidate, every time.</p>
             <div>
               <div class="screen-row">
-                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">1</span></div>
+                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">1</span></div>
                 <div><div class="font-semibold text-sm" style="color:white;">CV &amp; Background Review</div><p class="text-sm mt-1" style="color:rgba(255,255,255,0.45);">Work history validation, employment gap assessment, qualification verification.</p></div>
               </div>
               <div class="screen-row">
-                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">2</span></div>
+                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">2</span></div>
                 <div><div class="font-semibold text-sm" style="color:white;">Technical Skills Assessment</div><p class="text-sm mt-1" style="color:rgba(255,255,255,0.45);">Role-specific practical tests and scenario-based questions designed by our internal IT team.</p></div>
               </div>
               <div class="screen-row">
-                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">3</span></div>
+                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">3</span></div>
                 <div><div class="font-semibold text-sm" style="color:white;">Structured Interview</div><p class="text-sm mt-1" style="color:rgba(255,255,255,0.45);">Behavioral and situational interview — assessing communication, problem-solving, and attitude.</p></div>
               </div>
               <div class="screen-row">
-                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">4</span></div>
+                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">4</span></div>
                 <div><div class="font-semibold text-sm" style="color:white;">Reference Checks</div><p class="text-sm mt-1" style="color:rgba(255,255,255,0.45);">Direct calls to previous managers or clients — not just email forms — for honest feedback.</p></div>
               </div>
               <div class="screen-row">
-                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">5</span></div>
+                <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;"><span class="font-display font-bold text-white text-sm">5</span></div>
                 <div><div class="font-semibold text-sm" style="color:white;">Client Requirement Matching</div><p class="text-sm mt-1" style="color:rgba(255,255,255,0.45);">Final alignment with your specific technical stack, team size, culture, and engagement type.</p></div>
               </div>
             </div>
@@ -474,25 +474,25 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
           <div class="text-center relative">
-            <div style="width:60px;height:60px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(37,99,235,0.30);"><span class="font-display font-bold text-white text-xl">1</span></div>
+            <div style="width:60px;height:60px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(22,163,74,0.30);"><span class="font-display font-bold text-white text-xl">1</span></div>
             <h4 class="font-display font-semibold mb-3" style="color:#1C1917;font-size:1rem;">Define Requirements</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">We hold a discovery call to understand the role, skills, team culture, timeline, and whether it's contract or permanent.</p>
           </div>
 
           <div class="text-center">
-            <div style="width:60px;height:60px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(37,99,235,0.30);"><span class="font-display font-bold text-white text-xl">2</span></div>
+            <div style="width:60px;height:60px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(22,163,74,0.30);"><span class="font-display font-bold text-white text-xl">2</span></div>
             <h4 class="font-display font-semibold mb-3" style="color:#1C1917;font-size:1rem;">Source &amp; Screen</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">We tap our network, alumni pool, and job boards — running our full 5-stage screening. Only top candidates advance.</p>
           </div>
 
           <div class="text-center">
-            <div style="width:60px;height:60px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(37,99,235,0.30);"><span class="font-display font-bold text-white text-xl">3</span></div>
+            <div style="width:60px;height:60px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(22,163,74,0.30);"><span class="font-display font-bold text-white text-xl">3</span></div>
             <h4 class="font-display font-semibold mb-3" style="color:#1C1917;font-size:1rem;">Present Shortlist</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">You receive 2–4 pre-vetted profiles within 48 hours — each with a detailed summary of technical skills and fit rationale.</p>
           </div>
 
           <div class="text-center">
-            <div style="width:60px;height:60px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(37,99,235,0.30);"><span class="font-display font-bold text-white text-xl">4</span></div>
+            <div style="width:60px;height:60px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(22,163,74,0.30);"><span class="font-display font-bold text-white text-xl">4</span></div>
             <h4 class="font-display font-semibold mb-3" style="color:#1C1917;font-size:1rem;">Deploy &amp; Support</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">We handle onboarding logistics and remain your point of contact throughout — troubleshooting any issues post-placement.</p>
           </div>
@@ -504,7 +504,7 @@
     <!-- ====================================================
          SECTION 6: WHY GIZMO TRENDZ FOR STAFFING
          ==================================================== -->
-    <section style="padding:80px 0;background:#EFF6FF;">
+    <section style="padding:80px 0;background:#F0FDF4;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <div class="section-overline" style="display:inline-flex;">Why Us</div>
@@ -513,37 +513,37 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 7v13h6v-5h4v5h6V7L11 2z" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 7v13h6v-5h4v5h6V7L11 2z" stroke="#16A34A" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">IT-Only Specialisation</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">We only staff IT roles — not general admin or finance. This focus means our network, assessments, and knowledge are all built for technical hiring.</p>
           </div>
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#2563EB" stroke-width="1.5"/><path d="M11 7v4l3 2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#16A34A" stroke-width="1.5"/><path d="M11 7v4l3 2" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">48-Hour Turnaround</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">Unlike traditional recruiters who take 2–3 weeks, we deliver matched profiles within 48 hours of receiving your requirement — without cutting corners on quality.</p>
           </div>
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M9 12l2 2 4-4M7 4H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2M9 4h4a1 1 0 010 2H9a1 1 0 010-2z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M9 12l2 2 4-4M7 4H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2M9 4h4a1 1 0 010 2H9a1 1 0 010-2z" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">90-Day Guarantee</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">If a permanent placement doesn't work out within 90 days, we replace them at no additional cost. We stand behind every hire we make.</p>
           </div>
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 17V8M8 17V5M12 17V9M16 17V3M20 17H2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 17V8M8 17V5M12 17V9M16 17V3M20 17H2" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Scalable for Any Size</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">From placing a single helpdesk engineer for a startup to building a 50-person IT team for a government project — we scale up without quality dropping.</p>
           </div>
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">HR &amp; Compliance Handled</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">For contract placements, we manage all payroll, statutory compliance, EPF, ESI, and professional tax — you get the talent, we handle the paperwork.</p>
           </div>
 
           <div class="rounded-2xl p-6 bg-white border border-neutral-200 card-hover">
-            <div style="width:46px;height:46px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h4 class="font-display font-semibold mb-2" style="color:#1C1917;">Dedicated Account Manager</h4>
             <p class="text-sm leading-relaxed" style="color:#6B7280;">One named person manages your account — no revolving-door recruiters. They know your tech stack, your culture, and your hiring preferences.</p>
           </div>
@@ -563,25 +563,25 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          <div style="border-radius:20px;padding:32px;background:#EFF6FF;border:1px solid #DBEAFE;text-decoration:none;display:block;">
+          <div style="border-radius:20px;padding:32px;background:#F0FDF4;border:1px solid #DCFCE7;text-decoration:none;display:block;">
             <div style="font-size:2rem;margin-bottom:14px;">🚀</div>
             <h3 class="font-display font-semibold text-lg mb-3" style="color:#1C1917;">Startups</h3>
             <p class="text-sm leading-relaxed mb-4" style="color:#4B5563;">Scale from 5 to 50 people with the right engineers. We understand startup speed — flexible contracts, no long-term commitment, engineers who can wear multiple hats.</p>
-            <a href="startups.html" style="font-size:0.875rem;font-weight:600;color:#2563EB;text-decoration:none;">Learn more →</a>
+            <a href="startups.html" style="font-size:0.875rem;font-weight:600;color:#16A34A;text-decoration:none;">Learn more →</a>
           </div>
 
-          <div style="border-radius:20px;padding:32px;background:#0F172A;border:1px solid rgba(37,99,235,0.20);text-decoration:none;display:block;">
+          <div style="border-radius:20px;padding:32px;background:#052E16;border:1px solid rgba(22,163,74,0.20);text-decoration:none;display:block;">
             <div style="font-size:2rem;margin-bottom:14px;">🏢</div>
             <h3 class="font-display font-semibold text-lg mb-3" style="color:white;">MNCs &amp; Enterprise</h3>
             <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.55);">Meet headcount needs without lengthy internal procurement. Contract and project-based teams for technology rollouts, transitions, and peak-demand periods.</p>
-            <a href="mnc.html" style="font-size:0.875rem;font-weight:600;color:#60A5FA;text-decoration:none;">Learn more →</a>
+            <a href="mnc.html" style="font-size:0.875rem;font-weight:600;color:#4ADE80;text-decoration:none;">Learn more →</a>
           </div>
 
-          <div style="border-radius:20px;padding:32px;background:#EFF6FF;border:1px solid #DBEAFE;text-decoration:none;display:block;">
+          <div style="border-radius:20px;padding:32px;background:#F0FDF4;border:1px solid #DCFCE7;text-decoration:none;display:block;">
             <div style="font-size:2rem;margin-bottom:14px;">🏛️</div>
             <h3 class="font-display font-semibold text-lg mb-3" style="color:#1C1917;">Government</h3>
             <p class="text-sm leading-relaxed mb-4" style="color:#4B5563;">GST-compliant invoicing, empanelled supplier capability, thorough background verification, and experience with government IT projects and procurement norms.</p>
-            <a href="government.html" style="font-size:0.875rem;font-weight:600;color:#2563EB;text-decoration:none;">Learn more →</a>
+            <a href="government.html" style="font-size:0.875rem;font-weight:600;color:#16A34A;text-decoration:none;">Learn more →</a>
           </div>
 
         </div>
@@ -591,7 +591,7 @@
     <!-- ====================================================
          SECTION 8: FAQ
          ==================================================== -->
-    <section style="padding:80px 0;background:#EFF6FF;">
+    <section style="padding:80px 0;background:#F0FDF4;">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
           <div class="section-overline" style="display:inline-flex;">FAQ</div>
@@ -599,12 +599,12 @@
           <p class="mt-3" style="color:#6B7280;font-size:0.9375rem;">Everything you need to know before working with us.</p>
         </div>
 
-        <div style="background:white;border-radius:24px;padding:8px 32px;border:1px solid #DBEAFE;box-shadow:0 4px 16px rgba(37,99,235,0.07);">
+        <div style="background:white;border-radius:24px;padding:8px 32px;border:1px solid #DCFCE7;box-shadow:0 4px 16px rgba(22,163,74,0.07);">
 
           <div class="faq-item">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">How quickly can you provide candidates after we submit a requirement?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">For most standard IT roles, we provide 2–4 shortlisted profiles within 48 hours of receiving a clear requirement. Niche or highly specialized roles (e.g., senior cybersecurity architects) may take 3–5 business days. We always communicate timelines upfront.</div>
           </div>
@@ -612,7 +612,7 @@
           <div class="faq-item">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">Do you handle payroll and compliance for contract staff?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">Yes, entirely. For contract and project-based placements, the candidates remain on our payroll. We handle salary disbursement, EPF, ESI, professional tax, and all statutory compliance. You receive a single consolidated invoice — no HR administration burden on your side.</div>
           </div>
@@ -620,7 +620,7 @@
           <div class="faq-item">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">What happens if a hired candidate doesn't work out?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">For permanent placements, we offer a 90-day free replacement guarantee. If the candidate leaves or is asked to leave within 90 days for performance reasons, we find a replacement at no additional charge. For contract staff, replacements are handled within 3–5 business days at no extra cost.</div>
           </div>
@@ -628,7 +628,7 @@
           <div class="faq-item">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">Can you staff for multiple locations simultaneously?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">Yes. We have experience staffing for multi-city requirements across Delhi NCR, Mumbai, Bengaluru, Hyderabad, and other metros. For government projects with pan-India requirements, we coordinate centrally and deploy locally through our partner network.</div>
           </div>
@@ -636,7 +636,7 @@
           <div class="faq-item">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">Do you offer staffing for very junior roles like IT support technicians?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">Absolutely. Some of our highest-volume placements are L1/L2 helpdesk staff and field service engineers. We screen these candidates just as rigorously — testing their troubleshooting skills, communication ability, and ability to work under pressure. Junior roles often have the widest talent pool, which means we can deploy faster.</div>
           </div>
@@ -644,7 +644,7 @@
           <div class="faq-item" style="border-bottom:none;">
             <button class="faq-btn" onclick="toggleFaq(this)">
               <span class="faq-q">How is your fee structured?</span>
-              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#2563EB" stroke-width="1.75" stroke-linecap="round"/></svg></div>
+              <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#16A34A" stroke-width="1.75" stroke-linecap="round"/></svg></div>
             </button>
             <div class="faq-answer">For permanent placements, we charge a one-time fee based on the CTC (typically 8–12% of annual salary, negotiated per engagement). For contract staffing, we charge a markup on the monthly cost-to-company. We are completely transparent about our fees — no hidden charges, no retainer unless specifically agreed.</div>
           </div>
@@ -656,7 +656,7 @@
     <!-- ====================================================
          SECTION 9: CTA BANNER
          ==================================================== -->
-    <section style="padding:80px 0;background:#1D4ED8;position:relative;overflow:hidden;">
+    <section style="padding:80px 0;background:#15803D;position:relative;overflow:hidden;">
       <div style="position:absolute;top:-80px;right:-80px;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,0.06);pointer-events:none;"></div>
       <div style="position:absolute;bottom:-100px;left:-50px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style="position:relative;z-index:1;">
@@ -666,10 +666,10 @@
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
           <a href="contact.html" class="btn-light">
             Submit a Staffing Requirement
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1D4ED8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#15803D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="contact.html" class="btn-light">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V13a1 1 0 01-1 1h-2C7.82 14 2 8.18 2 1V3z" stroke="#1D4ED8" stroke-width="1.5"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V13a1 1 0 01-1 1h-2C7.82 14 2 8.18 2 1V3z" stroke="#15803D" stroke-width="1.5"/></svg>
             Contact Us
           </a>
         </div>
@@ -679,18 +679,18 @@
   </main>
 
   <!-- FOOTER -->
-  <footer style="background:#0F172A;border-top:1px solid rgba(37,99,235,0.20);">
+  <footer style="background:#052E16;border-top:1px solid rgba(22,163,74,0.20);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#2563EB,#1E40AF);"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg></div>
-            <span class="font-display font-bold text-lg" style="color:#93C5FD;">Gizmo Trendz</span>
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#16A34A,#166534);"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12v2H3V4zm0 4h8v2H3V8zm0 4h10v2H3v-2z" fill="white" opacity="0.9"/></svg></div>
+            <span class="font-display font-bold text-lg" style="color:#86EFAC;">Gizmo Trendz</span>
           </div>
           <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.45);max-width:240px;">End-to-end IT solutions and staffing for startups, enterprises, and government.</p>
         </div>
         <div>
-          <h4 style="color:#BFDBFE;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Services</h4>
+          <h4 style="color:#BBF7D0;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Services</h4>
           <ul class="space-y-3">
             <li><a href="hardware.html" style="color:rgba(255,255,255,0.45);font-size:0.875rem;text-decoration:none;" class="hover:text-white">Hardware Solutions</a></li>
             <li><a href="software.html" style="color:rgba(255,255,255,0.45);font-size:0.875rem;text-decoration:none;" class="hover:text-white">Software Solutions</a></li>
@@ -700,7 +700,7 @@
           </ul>
         </div>
         <div>
-          <h4 style="color:#BFDBFE;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Industries</h4>
+          <h4 style="color:#BBF7D0;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Industries</h4>
           <ul class="space-y-3">
             <li><a href="startups.html" style="color:rgba(255,255,255,0.45);font-size:0.875rem;text-decoration:none;" class="hover:text-white">Startups</a></li>
             <li><a href="mnc.html" style="color:rgba(255,255,255,0.45);font-size:0.875rem;text-decoration:none;" class="hover:text-white">MNCs &amp; Enterprise</a></li>
@@ -708,14 +708,14 @@
           </ul>
         </div>
         <div>
-          <h4 style="color:#BFDBFE;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Contact</h4>
+          <h4 style="color:#BBF7D0;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-bottom:1.25rem;">Contact</h4>
           <ul class="space-y-3">
             <li><a href="mailto:info@gizmotrendz.co.in" style="color:rgba(255,255,255,0.45);font-size:0.875rem;text-decoration:none;" class="hover:text-white">info@gizmotrendz.co.in</a></li>
             <li><span style="color:rgba(255,255,255,0.45);font-size:0.875rem;">809, Eros Apartments, 56,<br>Nehru Place, Delhi 110019</span></li>
           </ul>
         </div>
       </div>
-      <div class="mt-12 pt-8 flex justify-between items-center" style="border-top:1px solid rgba(37,99,235,0.20);">
+      <div class="mt-12 pt-8 flex justify-between items-center" style="border-top:1px solid rgba(22,163,74,0.20);">
         <p style="color:rgba(255,255,255,0.25);font-size:0.75rem;">© 2026 Gizmo Trendz. All rights reserved.</p>
         <div class="flex gap-6">
           <a href="#" style="color:rgba(255,255,255,0.25);font-size:0.75rem;text-decoration:none;" class="hover:text-white">Privacy Policy</a>
@@ -738,15 +738,15 @@
   </script>
 
   <!-- COOKIE CONSENT BANNER -->
-  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:16px 24px;background:#ffffff;border-top:1px solid #DBEAFE;box-shadow:0 -4px 24px rgba(37,99,235,0.10);">
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:16px 24px;background:#ffffff;border-top:1px solid #DCFCE7;box-shadow:0 -4px 24px rgba(22,163,74,0.10);">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;">
       <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px;">
         <span style="font-size:1.3rem;flex-shrink:0;">🍪</span>
-        <p style="font-family:'Inter',sans-serif;font-size:0.85rem;color:#374151;margin:0;line-height:1.5;">We use cookies to improve your experience and analyse site traffic. By continuing, you agree to our <a href="#" style="color:#2563EB;text-decoration:underline;font-weight:500;">Cookie Policy</a>.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.85rem;color:#374151;margin:0;line-height:1.5;">We use cookies to improve your experience and analyse site traffic. By continuing, you agree to our <a href="#" style="color:#16A34A;text-decoration:underline;font-weight:500;">Cookie Policy</a>.</p>
       </div>
       <div style="display:flex;gap:10px;flex-shrink:0;">
         <button onclick="declineCookies()" style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:8px 18px;border-radius:9999px;border:1.5px solid #D1D5DB;background:transparent;color:#6B7280;cursor:pointer;">Decline</button>
-        <button onclick="acceptCookies()" style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:8px 20px;border-radius:9999px;border:none;background:#2563EB;color:#ffffff;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,0.30);">Accept All</button>
+        <button onclick="acceptCookies()" style="font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:8px 20px;border-radius:9999px;border:none;background:#16A34A;color:#ffffff;cursor:pointer;box-shadow:0 2px 8px rgba(22,163,74,0.30);">Accept All</button>
       </div>
     </div>
   </div>
