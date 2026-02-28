@@ -94,9 +94,9 @@
   <main class="pt-16">
 
     <!-- SECTION 1: CENTERED HERO + STATS STRIP + MARQUEE -->
-    <section style="background:linear-gradient(175deg,#0F172A 0%,#1A2744 55%,#1E293B 100%);padding-top:6rem;padding-bottom:0;position:relative;overflow:hidden;">
-      <!-- Top center glow -->
-      <div style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:800px;height:500px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(37,99,235,0.22) 0%,transparent 65%);filter:blur(90px);pointer-events:none;"></div>
+    <section id="sw-hero" style="background:linear-gradient(175deg,#0F172A 0%,#1A2744 55%,#1E293B 100%);padding-top:6rem;padding-bottom:0;position:relative;overflow:hidden;">
+      <!-- Top center glow — interactive, follows cursor -->
+      <div id="sw-blob" style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:800px;height:500px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(37,99,235,0.22) 0%,transparent 65%);filter:blur(90px);pointer-events:none;will-change:transform;"></div>
       <!-- Dot grid -->
       <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>
 
@@ -459,5 +459,56 @@
     }
   </script>
 
+  <script>
+    /* Interactive blob: slow idle drift + fast cursor follow */
+    (function () {
+      var hero = document.getElementById('sw-hero');
+      var blob = document.getElementById('sw-blob');
+      if (!hero || !blob) return;
+
+      var bx = 0, by = 0;   // current blob offset from base position
+      var tx = 0, ty = 0;   // target offset
+      var t = 0;            // time counter for idle drift
+      var mouseOver = false;
+      var mx = 0, my = 0;
+
+      hero.addEventListener('mousemove', function (e) {
+        var rect = hero.getBoundingClientRect();
+        /* Map cursor to offset from hero centre, scaled down so blob stays within section */
+        mx = (e.clientX - rect.left - rect.width  * 0.5) * 0.45;
+        my = (e.clientY - rect.top  - rect.height * 0.4) * 0.40;
+        mouseOver = true;
+      });
+
+      hero.addEventListener('mouseleave', function () {
+        mouseOver = false;
+      });
+
+      function lerp(a, b, f) { return a + (b - a) * f; }
+
+      function tick() {
+        t += 0.004; // ~26-second full idle cycle at 60 fps
+
+        if (mouseOver) {
+          /* Fast follow — lerp factor 0.14 ≈ reaches target in ~20 frames */
+          tx = mx;
+          ty = my;
+          bx = lerp(bx, tx, 0.14);
+          by = lerp(by, ty, 0.14);
+        } else {
+          /* Slow idle drift — Lissajous-style figure */
+          tx = Math.sin(t)        * 160;
+          ty = Math.cos(t * 0.65) *  80;
+          bx = lerp(bx, tx, 0.018);
+          by = lerp(by, ty, 0.018);
+        }
+
+        blob.style.transform = 'translate(calc(-50% + ' + bx.toFixed(2) + 'px), ' + by.toFixed(2) + 'px)';
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
+  </script>
 </body>
 </html>
