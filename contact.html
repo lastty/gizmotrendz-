@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     tailwind.config={theme:{extend:{colors:{brand:{950:'#052E16',900:'#14532D',800:'#166534',700:'#15803D',600:'#16A34A',500:'#22C55E',400:'#4ADE80',300:'#86EFAC',200:'#BBF7D0',100:'#DCFCE7',50:'#F0FDF4'},neutral:{900:'#111827',700:'#374151',500:'#6B7280',300:'#D1D5DB',200:'#E5E7EB',100:'#F3F4F6',50:'#F9FAFB'}},fontFamily:{display:['"Plus Jakarta Sans"','sans-serif'],body:['Inter','sans-serif']},boxShadow:{'brand-sm':'0 1px 2px rgba(22,163,74,0.06),0 1px 4px rgba(0,0,0,0.04)','brand-md':'0 4px 6px rgba(22,163,74,0.10),0 2px 8px rgba(0,0,0,0.05)','brand-lg':'0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07)','brand-xl':'0 16px 48px rgba(22,163,74,0.18),0 8px 24px rgba(0,0,0,0.08)'}}}};
   </script>
@@ -276,7 +277,15 @@
     spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
     document.head.appendChild(spinStyle);
 
-    // Contact form → Netlify Function → Airtable
+    // ─── Supabase client ────────────────────────────────────────────────────
+    // Replace these two values with your own from:
+    // Supabase dashboard → Project Settings → API
+    const SUPABASE_URL      = 'YOUR_SUPABASE_URL';       // e.g. https://abcdefgh.supabase.co
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';  // starts with "eyJ..."
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // ────────────────────────────────────────────────────────────────────────
+
+    // Contact form → Supabase
     document.getElementById('contact-form').addEventListener('submit', async function (e) {
       e.preventDefault();
 
@@ -305,27 +314,21 @@
       spinner.style.display = 'inline-block';
 
       try {
-        const res = await fetch('/.netlify/functions/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            company: document.getElementById('f-company').value.trim(),
-            email,
-            phone:   document.getElementById('f-phone').value.trim(),
-            service: document.getElementById('f-service').value,
-            message,
-          }),
+        const { error } = await db.from('contacts').insert({
+          full_name: name,
+          company:   document.getElementById('f-company').value.trim(),
+          email,
+          phone:     document.getElementById('f-phone').value.trim(),
+          service:   document.getElementById('f-service').value,
+          message,
         });
 
-        if (res.ok) {
-          // Show success, hide form
-          document.getElementById('contact-form').style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-        } else {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data.error || 'Submission failed. Please try again.');
-        }
+        if (error) throw new Error(error.message);
+
+        // Show success, hide form
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+
       } catch (err) {
         errorEl.textContent = err.message || 'Something went wrong. Please try again or email us directly.';
         errorEl.style.display = 'block';
