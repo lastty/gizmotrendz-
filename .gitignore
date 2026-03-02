@@ -3,9 +3,10 @@
 *.jpg
 *.jpeg
 
-# But keep the Logos folder tracked
+# But keep the Logos folder and site logo tracked
 !Logos/
 !Logos/*
+!logo.png
 
 # Dev tools
 serve.mjs
