@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your All-in-One IT Partner | Gizmo Trendz</title>
+  <meta name="description" content="Stop juggling multiple vendors. Gizmo Trendz handles all your IT needs — hardware, software, networking, AMC and staffing — under one roof. Book a free consultation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          brand: { 950:'#052E16', 900:'#14532D', 800:'#166534', 700:'#15803D',
+                   600:'#16A34A', 500:'#22C55E', 400:'#4ADE80', 300:'#86EFAC',
+                   200:'#BBF7D0', 100:'#DCFCE7', 50:'#F0FDF4' },
+          neutral: { 900:'#111827', 700:'#374151', 500:'#6B7280',
+                     300:'#D1D5DB', 200:'#E5E7EB', 100:'#F3F4F6', 50:'#F9FAFB' }
+        },
+        fontFamily: { display:['"Plus Jakarta Sans"','sans-serif'], body:['Inter','sans-serif'] },
+        boxShadow: {
+          'brand-sm': '0 1px 2px rgba(22,163,74,0.06),0 1px 4px rgba(0,0,0,0.04)',
+          'brand-md': '0 4px 6px rgba(22,163,74,0.10),0 2px 8px rgba(0,0,0,0.05)',
+          'brand-lg': '0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07)',
+          'brand-xl': '0 16px 48px rgba(22,163,74,0.18),0 8px 24px rgba(0,0,0,0.08)',
+        }
+      }}
+    };
+  </script>
+  <style>
+    *{box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;color:#374151;}
+    .font-display{font-family:'Plus Jakarta Sans',sans-serif;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes pulse-ring{0%{transform:scale(1);opacity:0.6}70%{transform:scale(1.18);opacity:0}100%{transform:scale(1.18);opacity:0}}
+    .animate-fade-up{animation:fadeUp 0.65s cubic-bezier(0.34,1.2,0.64,1) both;}
+    .delay-100{animation-delay:100ms;}
+    .delay-200{animation-delay:200ms;}
+    .delay-300{animation-delay:300ms;}
+    .delay-400{animation-delay:400ms;}
+    .delay-500{animation-delay:500ms;}
+
+    /* Buttons */
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:9999px;background:#16A34A;color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.9375rem;box-shadow:0 4px 14px rgba(22,163,74,0.35);transition:background-color 150ms ease,box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;cursor:pointer;border:none;}
+    .btn-primary:hover{background:#15803D;box-shadow:0 6px 20px rgba(22,163,74,0.45);transform:translateY(-2px);}
+    .btn-primary:active{transform:translateY(0);}
+    .btn-light{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:9999px;background:white;color:#16A34A;font-family:'Inter',sans-serif;font-weight:600;font-size:0.9375rem;box-shadow:0 4px 12px rgba(0,0,0,0.10);transition:box-shadow 200ms ease,transform 200ms cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;cursor:pointer;border:none;}
+    .btn-light:hover{box-shadow:0 8px 24px rgba(0,0,0,0.14);transform:translateY(-2px);}
+
+    /* Form */
+    .form-input{width:100%;padding:13px 16px;border:1.5px solid #E5E7EB;border-radius:12px;font-family:'Inter',sans-serif;font-size:0.875rem;color:#111827;background:white;transition:border-color 150ms ease,box-shadow 150ms ease;outline:none;}
+    .form-input:focus{border-color:#16A34A;box-shadow:0 0 0 3px rgba(22,163,74,0.12);}
+    .form-label{display:block;font-size:0.8125rem;font-weight:600;color:#374151;margin-bottom:6px;}
+
+    /* Cards */
+    .service-card{background:white;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px 24px;transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1),box-shadow 200ms ease,border-color 150ms ease;}
+    .service-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(22,163,74,0.14),0 4px 16px rgba(0,0,0,0.07);border-color:#BBF7D0;}
+    .trust-card{background:white;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px 24px;}
+    .testimonial-card{background:white;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px 24px;}
+
+    /* Section overline */
+    .overline{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:9999px;background:#F0FDF4;border:1px solid #DCFCE7;font-size:0.7rem;font-weight:700;color:#15803D;letter-spacing:0.09em;text-transform:uppercase;}
+
+    /* FAQ */
+    .faq-item{border:1.5px solid #E5E7EB;border-radius:16px;overflow:hidden;transition:border-color 200ms ease;}
+    .faq-item.open{border-color:#BBF7D0;}
+    .faq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:#111827;}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height 300ms ease,padding 300ms ease;}
+    .faq-body.open{max-height:300px;}
+
+    /* Gradient text */
+    .gradient-text{background:linear-gradient(135deg,#16A34A 0%,#22C55E 60%,#4ADE80 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    /* Hero blob */
+    .hero-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+
+    /* Sticky mobile CTA */
+    .sticky-cta{display:none;}
+    @media(max-width:768px){
+      .sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;padding:12px 16px 20px;background:white;border-top:1px solid #E5E7EB;box-shadow:0 -4px 24px rgba(0,0,0,0.10);}
+    }
+
+    /* Green checkmark list */
+    .check-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;color:#374151;margin-bottom:12px;}
+    .check-list li::before{content:'';flex-shrink:0;margin-top:3px;width:18px;height:18px;border-radius:50%;background:#F0FDF4;border:1.5px solid #BBF7D0;background-image:url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.8 7L9 1' stroke='%2316A34A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+
+    /* Stat number */
+    .stat-number{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.5rem;font-weight:800;color:#052E16;line-height:1;}
+  </style>
+</head>
+<body class="bg-white antialiased">
+
+  <!-- =========================================================
+       MINIMAL NAVBAR
+  ========================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-100" style="box-shadow:0 1px 3px rgba(22,163,74,0.06),0 1px 8px rgba(0,0,0,0.04);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" style="text-decoration:none;">
+        <img src="logo.png" alt="Gizmo Trendz" style="height:52px;width:auto;">
+      </a>
+      <!-- Phone — always visible -->
+      <a href="tel:+911234567890" class="flex items-center gap-2 text-brand-700 font-semibold text-sm" style="text-decoration:none;">
+        <span class="relative flex h-8 w-8 items-center justify-center rounded-full bg-brand-50 border border-brand-100">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </span>
+        <span class="hidden sm:inline">+91 98765 43210</span>
+        <span class="sm:hidden">Call Us</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section style="background:#F0FDF4;padding-top:7rem;padding-bottom:5rem;position:relative;overflow:hidden;border-bottom:1px solid #DCFCE7;">
+    <!-- blobs -->
+    <div class="hero-blob" style="width:480px;height:480px;top:-15%;right:-8%;background:radial-gradient(ellipse,rgba(22,163,74,0.10) 0%,transparent 70%);"></div>
+    <div class="hero-blob" style="width:320px;height:320px;bottom:-10%;left:-5%;background:radial-gradient(ellipse,rgba(22,163,74,0.08) 0%,transparent 70%);"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: copy -->
+        <div>
+          <div class="overline animate-fade-up mb-5">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="#16A34A"><circle cx="5" cy="5" r="5"/></svg>
+            Trusted IT Partner Since 2014
+          </div>
+          <h1 class="font-display animate-fade-up delay-100" style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#052E16;line-height:1.15;margin-bottom:20px;">
+            One place for<br>
+            <span class="gradient-text">all your IT needs.</span>
+          </h1>
+          <p class="animate-fade-up delay-200 text-base leading-relaxed" style="color:#4B5563;max-width:480px;margin-bottom:28px;">
+            Hardware, software, networking, AMC, or staffing — we've been the trusted IT backbone for 50+ companies across India. Let's take IT off your plate, so you can focus on growing your business.
+          </p>
+
+          <!-- Social proof avatars -->
+          <div class="animate-fade-up delay-300 flex items-center gap-3 mb-8">
+            <div class="flex -space-x-2">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#16A34A,#4ADE80);border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">A</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#14532D,#22C55E);border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">R</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#166534,#86EFAC);border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">S</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;border:2px solid #DCFCE7;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#16A34A;">+47</div>
+            </div>
+            <p style="font-size:0.8125rem;color:#6B7280;"><strong style="color:#111827;">50+ companies</strong> trust Gizmo Trendz for their IT</p>
+          </div>
+
+          <div class="animate-fade-up delay-400 flex flex-col sm:flex-row gap-3">
+            <a href="#book-call" class="btn-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Book a Free Consultation
+            </a>
+            <a href="#services" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:9999px;background:white;color:#374151;font-weight:600;font-size:0.9375rem;border:1.5px solid #E5E7EB;text-decoration:none;transition:border-color 150ms ease,color 150ms ease;" onmouseover="this.style.borderColor='#BBF7D0';this.style.color='#16A34A'" onmouseout="this.style.borderColor='#E5E7EB';this.style.color='#374151'">
+              See Our Services
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: stats card -->
+        <div class="animate-fade-up delay-300 hidden lg:block">
+          <div style="background:white;border:1.5px solid #E5E7EB;border-radius:24px;padding:36px;box-shadow:0 16px 48px rgba(22,163,74,0.10),0 8px 24px rgba(0,0,0,0.06);">
+            <p class="font-display font-bold text-sm uppercase tracking-widest mb-6" style="color:#16A34A;letter-spacing:0.1em;">Why companies choose us</p>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <div class="stat-number">50<span style="color:#16A34A;">+</span></div>
+                <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Happy Clients</p>
+              </div>
+              <div>
+                <div class="stat-number">10<span style="color:#16A34A;">+</span></div>
+                <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Years Experience</p>
+              </div>
+              <div>
+                <div class="stat-number">5</div>
+                <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">IT Services</p>
+              </div>
+              <div>
+                <div class="stat-number" style="font-size:1.75rem;">24/7</div>
+                <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Support Available</p>
+              </div>
+            </div>
+            <ul class="check-list" style="list-style:none;padding:0;margin:0;">
+              <li>No long-term lock-ins — flexible contracts</li>
+              <li>Dedicated account manager for your company</li>
+              <li>Nehru Place Delhi — serving Pan India</li>
+              <li>Free consultation, no obligations</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TRUST BAR
+  ========================================================= -->
+  <section style="background:white;padding:36px 0;border-bottom:1px solid #F3F4F6;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="stat-number" style="font-size:2rem;">50<span style="color:#16A34A;">+</span></div>
+          <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Companies Served</p>
+        </div>
+        <div>
+          <div class="stat-number" style="font-size:2rem;">10<span style="color:#16A34A;">+</span></div>
+          <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Years in Business</p>
+        </div>
+        <div>
+          <div class="stat-number" style="font-size:2rem;">5</div>
+          <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Core IT Services</p>
+        </div>
+        <div>
+          <div class="stat-number" style="font-size:2rem;">100<span style="color:#16A34A;">%</span></div>
+          <p style="font-size:0.8125rem;color:#6B7280;margin-top:4px;">Dedicated Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PAIN → SOLUTION
+  ========================================================= -->
+  <section style="background:#F9FAFB;padding:80px 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+        <!-- Pain side -->
+        <div>
+          <div class="overline mb-4">The Problem</div>
+          <h2 class="font-display" style="font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;color:#111827;line-height:1.2;margin-bottom:16px;">
+            IT headaches are slowing your business down.
+          </h2>
+          <p style="color:#6B7280;margin-bottom:28px;line-height:1.75;">
+            Most companies deal with too many vendors, surprise costs, slow response times and tech problems that shouldn't be their problem at all.
+          </p>
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li class="flex items-start gap-3 mb-4">
+              <span style="flex-shrink:0;margin-top:2px;width:22px;height:22px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span style="font-size:0.9375rem;color:#374151;">Juggling 4–5 different IT vendors</span>
+            </li>
+            <li class="flex items-start gap-3 mb-4">
+              <span style="flex-shrink:0;margin-top:2px;width:22px;height:22px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span style="font-size:0.9375rem;color:#374151;">Waiting days for IT support responses</span>
+            </li>
+            <li class="flex items-start gap-3 mb-4">
+              <span style="flex-shrink:0;margin-top:2px;width:22px;height:22px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span style="font-size:0.9375rem;color:#374151;">Paying premium prices for poor service</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span style="flex-shrink:0;margin-top:2px;width:22px;height:22px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span style="font-size:0.9375rem;color:#374151;">No single point of contact for IT issues</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Solution side -->
+        <div style="background:white;border:1.5px solid #DCFCE7;border-radius:24px;padding:36px;box-shadow:0 8px 24px rgba(22,163,74,0.10),0 4px 16px rgba(0,0,0,0.05);">
+          <div class="overline mb-4" style="background:#052E16;border-color:rgba(22,163,74,0.3);color:#86EFAC;">The Gizmo Trendz Way</div>
+          <h3 class="font-display" style="font-size:1.375rem;font-weight:800;color:#052E16;margin-bottom:16px;">One partner. Everything IT.</h3>
+          <p style="color:#6B7280;margin-bottom:24px;font-size:0.9375rem;line-height:1.7;">
+            We become your dedicated IT department — proactive, responsive and genuinely invested in your success.
+          </p>
+          <ul class="check-list" style="list-style:none;padding:0;margin:0;">
+            <li>Single vendor for hardware, software & networking</li>
+            <li>Dedicated account manager, always reachable</li>
+            <li>Transparent pricing — no hidden costs</li>
+            <li>Flexible AMC contracts, scale as you grow</li>
+            <li>On-demand IT staff without hiring overhead</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#book-call" class="btn-primary" style="width:100%;justify-content:center;">
+              Get Started — Book a Free Call
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICES
+  ========================================================= -->
+  <section id="services" style="background:white;padding:80px 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="overline mb-4">What We Do</div>
+        <h2 class="font-display" style="font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;color:#111827;line-height:1.2;margin-bottom:12px;">
+          Every IT service your business needs
+        </h2>
+        <p style="color:#6B7280;max-width:520px;margin:0 auto;line-height:1.75;">From setting up a new office to keeping your existing IT running — we've got it all under one roof.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Hardware -->
+        <div class="service-card">
+          <div style="width:48px;height:48px;border-radius:14px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.0625rem;">Hardware Solutions</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Laptops, desktops, servers, printers and peripherals — procured, configured and deployed. Authorised reseller for top brands.</p>
+        </div>
+
+        <!-- Software -->
+        <div class="service-card">
+          <div style="width:48px;height:48px;border-radius:14px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.0625rem;">Software & Licensing</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">OS, productivity suites, antivirus, ERP and custom software. Genuine licenses at competitive prices with full support.</p>
+        </div>
+
+        <!-- Networking -->
+        <div class="service-card">
+          <div style="width:48px;height:48px;border-radius:14px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="19" cy="16" r="2"/><circle cx="5" cy="16" r="2"/><path d="M12 6v4M5.6 14.5L10 13M18.4 14.5L14 13"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.0625rem;">Networking & Surveillance</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Wired and wireless network setup, firewall configuration, CCTV and access control systems for your office.</p>
+        </div>
+
+        <!-- AMC -->
+        <div class="service-card">
+          <div style="width:48px;height:48px;border-radius:14px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.0625rem;">Rental & AMC</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Rent equipment instead of buying it, or get an Annual Maintenance Contract for proactive care of your entire IT setup.</p>
+        </div>
+
+        <!-- Staffing -->
+        <div class="service-card">
+          <div style="width:48px;height:48px;border-radius:14px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.0625rem;">IT Staffing</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Vetted IT engineers, network admins and support technicians on-site or remote — hire the expertise you need, when you need it.</p>
+        </div>
+
+        <!-- CTA card -->
+        <div class="service-card" style="background:#052E16;border-color:#052E16;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <p class="font-display font-bold mb-3" style="color:white;font-size:1.125rem;line-height:1.3;">Not sure which service fits you?</p>
+            <p style="font-size:0.875rem;color:#86EFAC;line-height:1.65;margin-bottom:24px;">Let's have a 15-minute call. We'll understand your setup and tell you exactly what you need — no sales pressure.</p>
+          </div>
+          <a href="#book-call" class="btn-light" style="justify-content:center;">
+            Book Free 15-min Call
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY CHOOSE US
+  ========================================================= -->
+  <section style="background:#F9FAFB;padding:80px 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="overline mb-4">Why Gizmo Trendz</div>
+        <h2 class="font-display" style="font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;color:#111827;line-height:1.2;margin-bottom:12px;">
+          We treat your business like it's our own
+        </h2>
+        <p style="color:#6B7280;max-width:500px;margin:0 auto;line-height:1.75;">Our clients stay with us for years — not because they're locked in, but because the service is just that good.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">Fast Response Time</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">We pick up the phone. When you have an IT issue, you get a real person on the line within hours — not a ticket queue.</p>
+        </div>
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">Honest & Transparent</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">We'll tell you exactly what you need and what you don't. No upselling, no unnecessary upgrades — just honest advice.</p>
+        </div>
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">Dedicated Account Manager</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Every client gets a single point of contact who knows your IT setup inside-out and is always available to help.</p>
+        </div>
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">10+ Years of Experience</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">We've handled IT for startups, MNCs and government projects alike. Chances are, we've solved your exact problem before.</p>
+        </div>
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">Competitive Pricing</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">Our buying power means you get better prices on hardware and software than going direct. We save you money.</p>
+        </div>
+
+        <div class="trust-card">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F0FDF4;border:1.5px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-display font-bold mb-2" style="color:#111827;">Based in Nehru Place, Delhi</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.65;">India's largest IT market as our backyard. Fast delivery, same-day procurement and on-site visits across Delhi NCR.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TESTIMONIALS
+  ========================================================= -->
+  <section style="background:white;padding:80px 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="overline mb-4">Client Stories</div>
+        <h2 class="font-display" style="font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;color:#111827;line-height:1.2;">
+          Don't take our word for it
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="testimonial-card">
+          <div class="flex gap-0.5 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+          </div>
+          <p style="font-size:0.9375rem;color:#374151;line-height:1.75;margin-bottom:20px;">"Gizmo Trendz set up our entire office network from scratch in less than a week. Professional team, great pricing and they're always available on WhatsApp. Best IT partner we've had."</p>
+          <div class="flex items-center gap-3">
+            <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#16A34A,#4ADE80);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:14px;flex-shrink:0;">A</div>
+            <div>
+              <p style="font-weight:600;font-size:0.875rem;color:#111827;">Amit Sharma</p>
+              <p style="font-size:0.8125rem;color:#9CA3AF;">IT Head, Logistics Company</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="flex gap-0.5 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+          </div>
+          <p style="font-size:0.9375rem;color:#374151;line-height:1.75;margin-bottom:20px;">"We were managing 6 different vendors before Gizmo Trendz. Now it's just one call. They handle everything — from laptop procurement to our annual maintenance. Huge time saver."</p>
+          <div class="flex items-center gap-3">
+            <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#14532D,#22C55E);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:14px;flex-shrink:0;">R</div>
+            <div>
+              <p style="font-weight:600;font-size:0.875rem;color:#111827;">Riya Mehta</p>
+              <p style="font-size:0.8125rem;color:#9CA3AF;">Operations Manager, Startup</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="flex gap-0.5 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#16A34A"><path d="M8 1.3l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.1l-3.6 1.9.7-4L2.2 5.5l4-.6z"/></svg>
+          </div>
+          <p style="font-size:0.9375rem;color:#374151;line-height:1.75;margin-bottom:20px;">"Very responsive team. We had a server issue on a Friday evening and they had someone on-site within 2 hours. That level of commitment is rare. Highly recommend for any company."</p>
+          <div class="flex items-center gap-3">
+            <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#166534,#86EFAC);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:14px;flex-shrink:0;">S</div>
+            <div>
+              <p style="font-weight:600;font-size:0.875rem;color:#111827;">Suresh Verma</p>
+              <p style="font-size:0.8125rem;color:#9CA3AF;">Director, Manufacturing Firm</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+  ========================================================= -->
+  <section style="background:#F9FAFB;padding:80px 0;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <div class="overline mb-4">Common Questions</div>
+        <h2 class="font-display" style="font-size:clamp(1.5rem,3.5vw,2.125rem);font-weight:800;color:#111827;">You might be wondering...</h2>
+      </div>
+
+      <div id="faq" style="display:flex;flex-direction:column;gap:12px;">
+
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>What exactly happens on the free consultation call?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform 250ms ease;"><path d="M5 8l5 5 5-5" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body" style="padding:0 24px;">
+            <p style="font-size:0.9375rem;color:#6B7280;line-height:1.75;padding-bottom:20px;">It's a relaxed 15–20 minute conversation. We learn about your company, your current IT setup and any problems you're facing. From there, we'll suggest the best way we can help — with no obligation to commit to anything.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>We already have an IT team. Can you work alongside them?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform 250ms ease;"><path d="M5 8l5 5 5-5" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body" style="padding:0 24px;">
+            <p style="font-size:0.9375rem;color:#6B7280;line-height:1.75;padding-bottom:20px;">Absolutely. We often work as an extension of in-house IT teams — handling procurement, maintenance or overflow support so your team can focus on strategic work. We adapt to how you work.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Do you only serve Delhi NCR, or all of India?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform 250ms ease;"><path d="M5 8l5 5 5-5" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body" style="padding:0 24px;">
+            <p style="font-size:0.9375rem;color:#6B7280;line-height:1.75;padding-bottom:20px;">We're based in Nehru Place, Delhi — India's largest IT hub. We offer on-site services across Delhi NCR and can deliver hardware and software solutions Pan India. Remote support is available nationwide.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>How quickly can you get us set up?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform 250ms ease;"><path d="M5 8l5 5 5-5" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body" style="padding:0 24px;">
+            <p style="font-size:0.9375rem;color:#6B7280;line-height:1.75;padding-bottom:20px;">Most engagements kick off within 48–72 hours of your first call. For urgent requirements — office setups, hardware procurement or staffing — we can often turn things around same day or next day. We're built for speed.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BOOK A CALL — FORM
+  ========================================================= -->
+  <section id="book-call" style="background:#052E16;padding:80px 0;position:relative;overflow:hidden;">
+    <!-- blobs -->
+    <div style="position:absolute;top:-20%;right:-8%;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(22,163,74,0.18) 0%,transparent 70%);filter:blur(80px);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-20%;left:-8%;width:400px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(74,222,128,0.10) 0%,transparent 70%);filter:blur(80px);pointer-events:none;"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Left: pitch -->
+        <div>
+          <div class="overline mb-5" style="background:rgba(22,163,74,0.15);border-color:rgba(22,163,74,0.3);color:#86EFAC;">Free Consultation</div>
+          <h2 class="font-display" style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:white;line-height:1.2;margin-bottom:16px;">
+            Let's talk about your IT — no strings attached.
+          </h2>
+          <p style="color:#86EFAC;line-height:1.75;margin-bottom:32px;font-size:0.9375rem;">
+            Fill the form and we'll call you back within a few hours. A quick 15-minute chat is all it takes to see how we can help your business.
+          </p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+            <li class="flex items-center gap-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:rgba(22,163,74,0.20);border:1px solid rgba(22,163,74,0.30);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><path d="M1.5 5L5 8.5L11.5 1.5" stroke="#4ADE80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span style="color:#D1FAE5;font-size:0.9375rem;">Free — absolutely no cost or commitment</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:rgba(22,163,74,0.20);border:1px solid rgba(22,163,74,0.30);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><path d="M1.5 5L5 8.5L11.5 1.5" stroke="#4ADE80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span style="color:#D1FAE5;font-size:0.9375rem;">We call you back within a few hours</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:rgba(22,163,74,0.20);border:1px solid rgba(22,163,74,0.30);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><path d="M1.5 5L5 8.5L11.5 1.5" stroke="#4ADE80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span style="color:#D1FAE5;font-size:0.9375rem;">Tailored advice for your company's needs</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <div id="form-container" style="background:white;border-radius:24px;padding:36px;box-shadow:0 24px 64px rgba(0,0,0,0.25);">
+          <h3 class="font-display font-bold mb-1" style="color:#111827;font-size:1.25rem;">Book your free call</h3>
+          <p style="font-size:0.8125rem;color:#9CA3AF;margin-bottom:24px;">We'll get back to you within a few hours.</p>
+
+          <form id="consultation-form" novalidate>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="form-label" for="lp-name">Your Name *</label>
+                <input type="text" id="lp-name" class="form-input" placeholder="Rajesh Kumar" required>
+              </div>
+              <div>
+                <label class="form-label" for="lp-company">Company Name *</label>
+                <input type="text" id="lp-company" class="form-input" placeholder="Acme Pvt Ltd" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="lp-phone">Phone Number *</label>
+              <input type="tel" id="lp-phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="lp-email">Work Email</label>
+              <input type="email" id="lp-email" class="form-input" placeholder="you@company.com">
+            </div>
+            <div class="mb-6">
+              <label class="form-label" for="lp-need">What do you need help with? (optional)</label>
+              <select id="lp-need" class="form-input">
+                <option value="">Select a service...</option>
+                <option>Hardware & Devices</option>
+                <option>Software & Licensing</option>
+                <option>Networking & Surveillance</option>
+                <option>Annual Maintenance Contract (AMC)</option>
+                <option>IT Staffing</option>
+                <option>Not sure — need advice</option>
+              </select>
+            </div>
+
+            <!-- Error -->
+            <p id="form-error" style="display:none;font-size:0.8125rem;color:#EF4444;margin-bottom:12px;padding:10px 14px;background:#FEF2F2;border-radius:10px;border:1px solid #FCA5A5;"></p>
+
+            <button type="submit" class="btn-primary" id="submit-btn" style="width:100%;justify-content:center;font-size:1rem;padding:15px 28px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Book My Free Consultation
+            </button>
+            <p style="font-size:0.75rem;color:#9CA3AF;text-align:center;margin-top:12px;">No spam. We'll only contact you about your inquiry.</p>
+          </form>
+
+          <!-- Success state -->
+          <div id="form-success" style="display:none;text-align:center;padding:20px 0;">
+            <div style="width:64px;height:64px;border-radius:50%;background:#F0FDF4;border:2px solid #DCFCE7;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+              <svg width="28" height="22" viewBox="0 0 28 22" fill="none"><path d="M2 11l8 8L26 2" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="font-display font-bold mb-2" style="color:#111827;font-size:1.25rem;">We'll call you soon!</h3>
+            <p style="font-size:0.9375rem;color:#6B7280;line-height:1.65;">Thanks for reaching out. Our team will call you back within a few hours to schedule your free consultation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MINIMAL FOOTER
+  ========================================================= -->
+  <footer style="background:#052E16;border-top:1px solid rgba(22,163,74,0.20);padding:40px 0 32px;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="Gizmo Trendz" style="height:56px;width:auto;">
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-sm" style="color:#86EFAC;">
+          <a href="tel:+911234567890" style="color:#86EFAC;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#4ADE80'" onmouseout="this.style.color='#86EFAC'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +91 98765 43210
+          </a>
+          <a href="mailto:info@gizmotrendz.com" style="color:#86EFAC;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#4ADE80'" onmouseout="this.style.color='#86EFAC'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@gizmotrendz.com
+          </a>
+          <span style="display:flex;align-items:center;gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Nehru Place, New Delhi
+          </span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(22,163,74,0.15);margin-top:28px;padding-top:20px;text-align:center;">
+        <p style="font-size:0.8125rem;color:rgba(134,239,172,0.6);">© 2025 Gizmo Trendz IT Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       STICKY MOBILE CTA
+  ========================================================= -->
+  <div class="sticky-cta">
+    <a href="#book-call" class="btn-primary" style="width:100%;justify-content:center;font-size:0.9375rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Book Free Consultation
+    </a>
+  </div>
+
+  <!-- =========================================================
+       SCRIPTS
+  ========================================================= -->
+  <script>
+    // ─── FAQ toggle ───
+    function toggleFaq(btn) {
+      const item = btn.closest('[data-faq]');
+      const body = item.querySelector('.faq-body');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('[data-faq]').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-body').classList.remove('open');
+        el.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        body.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // ─── Form submit ───
+    const SUPABASE_URL      = 'https://ckkwzgacvjefqezzityc.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_6Cr-WObsi9XwMmKHATvE8g_3YwKtLb5';
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById('consultation-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('lp-name').value.trim();
+      const company = document.getElementById('lp-company').value.trim();
+      const phone   = document.getElementById('lp-phone').value.trim();
+      const email   = document.getElementById('lp-email').value.trim();
+      const need    = document.getElementById('lp-need').value;
+      const errorEl = document.getElementById('form-error');
+      const btn     = document.getElementById('submit-btn');
+
+      // Validate
+      if (!name || !company || !phone) {
+        errorEl.textContent = 'Please fill in your name, company and phone number.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      errorEl.style.display = 'none';
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-spin"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Sending...';
+
+      const { error } = await db.from('contacts').insert({
+        name:    name,
+        email:   email || null,
+        phone:   phone,
+        company: company,
+        message: need ? `Service interest: ${need}` : 'Consultation request from landing page',
+        source:  'landing'
+      });
+
+      if (error) {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Book My Free Consultation';
+        errorEl.textContent = 'Something went wrong. Please call us directly at +91 98765 43210.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Success
+      document.getElementById('consultation-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+
+    // ─── Scroll animations ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.style.opacity = '1';
+          el.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .trust-card, .testimonial-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.2,0.64,1)';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
