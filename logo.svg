@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 48">
+  <!-- Icon mark -->
+  <rect width="48" height="48" rx="11" fill="#16A34A"/>
+  <text x="24" y="34"
+    text-anchor="middle"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="25"
+    fill="white">GT</text>
+  <!-- Wordmark -->
+  <text x="62" y="30"
+    font-family="Arial, 'Helvetica Neue', Helvetica, sans-serif"
+    font-weight="700"
+    font-size="18"
+    fill="#052E16">Gizmo Trendz</text>
+  <!-- Tagline -->
+  <text x="63" y="44"
+    font-family="Arial, 'Helvetica Neue', Helvetica, sans-serif"
+    font-weight="400"
+    font-size="10"
+    fill="#16A34A"
+    letter-spacing="2">IT SOLUTIONS &amp; STAFFING</text>
+</svg>
