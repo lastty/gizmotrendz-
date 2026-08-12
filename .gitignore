@@ -18,3 +18,6 @@ temporary screenshots/
 
 # macOS
 .DS_Store
+
+# Raw customer logo source files (processed versions live in Logos/)
+Customer logo/
