@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>IT for QSR &amp; Food Chains | Gizmo Trendz</title>
+  <meta name="description" content="CCTV, networking, POS, printers, software and on-call IT support for QSR and food chains. One IT partner across every outlet. Book a free consultation with Gizmo Trendz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root{
+      --bg:#EDEDEE; --card:#FFFFFF; --ink:#0B0B0C; --ink-soft:#1C1C1F;
+      --body:#54545B; --muted:#9A9AA2; --line:#ECECEE; --line-2:#E4E4E7;
+      --soft:#F6F6F7; --accent:#16A34A; --accent-ink:#15803D;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    html,body{overflow-x:hidden;max-width:100%;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+    h1,h2,h3{color:var(--ink);letter-spacing:-0.02em;line-height:1.08;font-weight:800;}
+
+    /* Frame */
+    .frame{max-width:1340px;margin:20px auto;background:var(--card);border-radius:34px;box-shadow:0 1px 2px rgba(0,0,0,0.04),0 20px 50px -20px rgba(0,0,0,0.14);overflow:hidden;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+    @media(max-width:640px){.frame{margin:10px;border-radius:24px;}.wrap{padding:0 20px;}}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;font-weight:600;font-size:0.9rem;padding:13px 22px;cursor:pointer;border:1px solid transparent;transition:transform .18s ease,background-color .18s ease,box-shadow .18s ease,border-color .18s ease;white-space:nowrap;}
+    .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+    .btn-dark:hover{transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(0,0,0,0.4);}
+    .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line-2);}
+    .btn-ghost:hover{border-color:#C9C9CF;background:#FCFCFC;}
+    .btn-lg{padding:15px 26px;font-size:0.95rem;}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--ink);font-size:1.2rem;letter-spacing:-0.03em;}
+    .brand img{height:34px;width:auto;}
+    .nav-links{display:flex;align-items:center;gap:30px;}
+    .nav-links a{font-size:0.9rem;font-weight:500;color:#3F3F46;display:inline-flex;align-items:center;gap:6px;transition:color .15s;}
+    .nav-links a:hover{color:var(--ink);}
+    .tag-new{font-size:0.6rem;font-weight:700;letter-spacing:0.04em;color:var(--accent-ink);background:#EAF7EF;border:1px solid #CDEBD8;border-radius:6px;padding:1px 5px;}
+    .nav-cta{display:flex;align-items:center;gap:10px;}
+    .nav-phone{font-size:0.9rem;font-weight:600;color:var(--ink);padding:9px 8px;}
+    @media(max-width:900px){.nav-links{display:none;}.nav-phone{display:none;}}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:76px 0 60px;text-align:center;}
+    .rings{position:absolute;left:50%;top:330px;transform:translateX(-50%);pointer-events:none;z-index:0;}
+    .ring{position:absolute;border-radius:50%;border:1px solid #F0F0F1;left:50%;top:50%;transform:translate(-50%,-50%);}
+    .chip{position:absolute;z-index:1;width:62px;height:62px;border-radius:50%;background:#fff;border:1px solid #F0F0F1;box-shadow:0 6px 16px -6px rgba(0,0,0,0.18),0 2px 5px rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:center;}
+    .chip img{width:32px;height:32px;object-fit:contain;}
+    .chip img.wide{width:44px;height:auto;}
+    .chip svg{width:25px;height:25px;color:#3F3F46;}
+    .chip.sm{width:54px;height:54px;}
+    .hero-content{position:relative;z-index:2;}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:500;color:#52525B;margin-bottom:26px;}
+    .eyebrow .sep{width:3px;height:3px;border-radius:50%;background:#D4D4D8;}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(22,163,74,0.14);}
+    h1.hero-title{font-size:clamp(2.4rem,6vw,4.15rem);font-weight:800;color:var(--ink);}
+    .hero-sub{max-width:520px;margin:22px auto 0;font-size:1.08rem;color:#5B5B62;line-height:1.6;}
+    .hero-actions{display:flex;gap:12px;justify-content:center;margin-top:34px;flex-wrap:wrap;}
+
+    /* Hero floating card */
+    .glass-wrap{position:relative;max-width:430px;margin:52px auto 0;z-index:2;}
+    .glow{position:absolute;inset:-10% 8% -18% 8%;background:radial-gradient(ellipse at center,rgba(22,163,74,0.16),rgba(22,163,74,0) 68%);filter:blur(18px);z-index:-1;}
+    .float-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px -18px rgba(0,0,0,0.22);padding:16px 18px;text-align:left;}
+    .float-card + .float-card{margin-top:12px;}
+    .fc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+    .fc-title{font-size:0.92rem;font-weight:700;color:var(--ink);}
+    .fc-badge{font-size:0.68rem;font-weight:600;color:var(--accent-ink);background:#EAF7EF;border-radius:6px;padding:3px 8px;}
+    .fc-row{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:0.86rem;color:#3F3F46;}
+    .fc-check{width:18px;height:18px;border-radius:50%;background:#EAF7EF;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    @media(max-width:900px){.rings,.chip{display:none;}.hero{padding:52px 0 44px;}}
+
+    /* Logo strip */
+    .strip{padding:44px 0 8px;}
+    .strip-label{text-align:center;font-size:0.82rem;color:var(--muted);font-weight:500;margin-bottom:28px;}
+    .strip-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px 40px;}
+    .strip-grid img{height:30px;width:auto;object-fit:contain;filter:grayscale(1) opacity(0.55);transition:filter .2s ease;}
+    .strip-grid .badge{height:44px;}
+    .strip-grid img:hover{filter:grayscale(0) opacity(1);}
+    @media(max-width:640px){.strip-grid{gap:22px 28px;}.strip-grid img{height:24px;}.strip-grid .badge{height:36px;}}
+
+    /* Technologies row */
+    .tech-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 30px;}
+    .tech-item{display:flex;align-items:center;gap:10px;font-size:0.92rem;font-weight:600;color:#3F3F46;}
+    .tech-chip{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px -3px rgba(0,0,0,0.12);flex-shrink:0;}
+    .tech-chip img{width:24px;height:24px;object-fit:contain;}
+    .tech-chip img.wide{width:30px;height:auto;}
+    @media(max-width:640px){.tech-item{font-size:0.85rem;gap:8px;}.tech-chip{width:38px;height:38px;}}
+
+    /* Sections */
+    section{position:relative;}
+    .sec{padding:88px 0;border-top:1px solid var(--line);}
+    .sec-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+    .kicker{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;}
+    h2.sec-title{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;color:var(--ink);}
+    .sec-sub{margin-top:14px;font-size:1.02rem;color:#5B5B62;}
+
+    /* Cards grid */
+    .grid{display:grid;gap:18px;}
+    .g-3{grid-template-columns:repeat(3,1fr);}
+    .g-2{grid-template-columns:repeat(2,1fr);}
+    @media(max-width:900px){.g-3{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:600px){.g-3,.g-2{grid-template-columns:1fr;}}
+
+    .card{background:#fff;border:1px solid var(--line-2);border-radius:20px;padding:28px;transition:border-color .18s ease,box-shadow .2s ease,transform .2s ease;}
+    .card:hover{border-color:#D8D8DC;box-shadow:0 12px 30px -18px rgba(0,0,0,0.2);transform:translateY(-3px);}
+    .ic{width:46px;height:46px;border-radius:13px;background:var(--soft);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    .card h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:9px;letter-spacing:-0.01em;}
+    .card p{font-size:0.9rem;color:#63636B;line-height:1.65;}
+
+    /* dark CTA card */
+    .card-dark{background:var(--ink);border-color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;}
+    .card-dark h3{color:#fff;font-size:1.15rem;}
+    .card-dark p{color:#A1A1AA;margin-bottom:22px;}
+
+    /* Feature rows (services) */
+    .features{display:flex;flex-direction:column;}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:58px 0;}
+    .feature + .feature{border-top:1px solid var(--line);}
+    .feature.rev .feature-visual{order:-1;}
+    .fnum{display:inline-flex;align-items:center;gap:10px;font-size:0.76rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:16px;}
+    .fnum b{color:var(--muted);}
+    .feature-text h3{font-size:clamp(1.4rem,2.5vw,1.95rem);font-weight:800;color:var(--ink);margin-bottom:14px;}
+    .feature-text > p{font-size:1.02rem;color:#5B5B62;line-height:1.72;margin-bottom:24px;max-width:460px;}
+    .fpanel{position:relative;background:var(--soft);border:1px solid var(--line-2);border-radius:24px;padding:36px;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .fpanel::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,0.055) 1px, transparent 0);background-size:22px 22px;}
+    .fcard{position:relative;background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:22px;box-shadow:0 20px 44px -24px rgba(0,0,0,0.3);width:100%;max-width:350px;}
+    .fcard-top{display:flex;align-items:center;gap:13px;margin-bottom:20px;}
+    .fcard-ic{width:46px;height:46px;border-radius:13px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .fcard-ic svg{color:#fff;width:22px;height:22px;}
+    .fcard-top .t{font-size:0.96rem;font-weight:700;color:var(--ink);}
+    .fcard-top .s{font-size:0.78rem;color:var(--muted);}
+    .ftags{display:flex;flex-wrap:wrap;gap:8px;}
+    .ftag{font-size:0.78rem;font-weight:600;color:#3F3F46;background:var(--soft);border:1px solid var(--line-2);border-radius:8px;padding:6px 11px;}
+    .cta-band{margin-top:56px;background:var(--ink);border-radius:24px;padding:40px 46px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+    .cta-band h3{color:#fff;font-size:1.35rem;margin-bottom:6px;}
+    .cta-band p{color:#A1A1AA;font-size:0.95rem;max-width:520px;}
+    @media(max-width:860px){.feature{grid-template-columns:1fr;gap:26px;padding:44px 0;}.feature.rev .feature-visual{order:0;}.feature-text > p{max-width:none;}.fpanel{min-height:0;padding:26px;}.cta-band{padding:30px;}}
+
+    /* check list */
+    .checks{list-style:none;display:flex;flex-direction:column;gap:13px;}
+    .checks li{display:flex;align-items:flex-start;gap:11px;font-size:0.95rem;color:#3F3F46;}
+    .checks .fc-check{margin-top:1px;}
+
+    /* testimonials */
+    .quote{font-size:0.96rem;color:#3F3F46;line-height:1.7;margin-bottom:20px;}
+    .who{display:flex;align-items:center;gap:12px;}
+    .avatar{width:40px;height:40px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0;}
+    .who .n{font-weight:600;font-size:0.88rem;color:var(--ink);}
+    .who .r{font-size:0.8rem;color:var(--muted);}
+    .stars{display:flex;gap:2px;margin-bottom:16px;}
+
+    /* FAQ */
+    .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+    .faq-item{border:1px solid var(--line-2);border-radius:16px;overflow:hidden;background:#fff;transition:border-color .2s;}
+    .faq-item.open{border-color:#D0D0D5;}
+    .faq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;font-size:1rem;font-weight:600;color:var(--ink);}
+    .faq-icon{flex-shrink:0;transition:transform .25s ease;}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+    .faq-body.open{max-height:320px;}
+    .faq-body p{padding:0 24px 22px;font-size:0.94rem;color:#63636B;line-height:1.7;}
+
+    /* Contact */
+    .contact{background:var(--soft);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:32px;}}
+    .form-card{background:#fff;border:1px solid var(--line-2);border-radius:22px;padding:32px;box-shadow:0 20px 50px -30px rgba(0,0,0,0.25);}
+    .field{margin-bottom:16px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    @media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+    label{display:block;font-size:0.8rem;font-weight:600;color:#3F3F46;margin-bottom:7px;}
+    .inp{width:100%;padding:12px 15px;border:1px solid var(--line-2);border-radius:12px;font-family:inherit;font-size:0.9rem;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s;outline:none;}
+    .inp:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(11,11,12,0.08);}
+
+    /* Footer */
+    .footer{border-top:1px solid var(--line);padding:40px 0 34px;}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .footer a,.footer span{font-size:0.88rem;color:#63636B;display:inline-flex;align-items:center;gap:7px;}
+    .footer a:hover{color:var(--ink);}
+    .foot-links{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+    .copy{text-align:center;font-size:0.8rem;color:var(--muted);margin-top:26px;border-top:1px solid var(--line);padding-top:20px;}
+
+    /* Sticky mobile CTA */
+    .sticky-cta{display:none;}
+    @media(max-width:768px){.sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:80;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);}}
+
+    .reveal{transition:opacity .55s ease,transform .55s cubic-bezier(0.34,1.2,0.64,1);}
+    .reveal.pre{opacity:0;transform:translateY(18px);}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .spin{animation:spin .8s linear infinite;}
+
+    /* QSR hero split */
+    .hero-split{display:grid;grid-template-columns:1.04fr 0.96fr;gap:56px;align-items:center;text-align:left;padding:60px 0 68px;}
+    .hero-split h1{font-size:clamp(2.2rem,4.4vw,3.4rem);}
+    .hero-split .hero-sub{margin:20px 0 0;text-align:left;max-width:520px;}
+    .hero-split .hero-actions{justify-content:flex-start;}
+    .hero-img{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3.3;background:var(--soft);border:1px solid var(--line-2);box-shadow:0 34px 64px -34px rgba(0,0,0,0.4);}
+    .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
+    .hero-stat{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:0 12px 26px -12px rgba(0,0,0,0.34);}
+    .hero-stat .n{font-size:1.2rem;font-weight:800;color:var(--ink);line-height:1;}
+    .hero-stat .l{font-size:0.74rem;color:var(--body);margin-top:3px;}
+    @media(max-width:900px){.hero-split{grid-template-columns:1fr;gap:30px;text-align:center;padding:40px 0;}.hero-split .hero-sub{text-align:center;margin-left:auto;margin-right:auto;}.hero-split .hero-actions{justify-content:center;}.hero-split .eyebrow{justify-content:center;}}
+    /* Feature image visual */
+    .fimg{position:relative;width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:var(--soft);border:1px solid var(--line-2);box-shadow:0 26px 52px -30px rgba(0,0,0,0.34);}
+    .fimg img{width:100%;height:100%;object-fit:cover;display:block;}
+    .fimg-tag{position:absolute;left:14px;bottom:14px;background:rgba(11,11,12,0.82);color:#fff;font-size:0.75rem;font-weight:600;padding:6px 12px;border-radius:9px;backdrop-filter:blur(4px);}
+    /* Benefits band */
+    .band{background:var(--ink);border-radius:28px;padding:50px;}
+    .band .kicker{color:#86EFAC;}
+    .band h2{color:#fff;}
+    .band .bsub{color:#A1A1AA;margin-top:12px;max-width:640px;font-size:1.02rem;line-height:1.65;}
+    .bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:38px;padding-top:34px;border-top:1px solid rgba(255,255,255,0.12);}
+    .b-item .n{font-size:1.9rem;font-weight:800;color:#fff;line-height:1;}
+    .b-item p{color:#A1A1AA;font-size:0.88rem;margin-top:8px;}
+    @media(max-width:820px){.band{padding:32px;}.bgrid{grid-template-columns:repeat(2,1fr);gap:22px;}}
+  </style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand"><img src="logo.svg" alt="Gizmo Trendz"></a>
+      <nav class="nav-links">
+        <a href="#services">What we cover</a>
+        <a href="#why">Why us</a>
+        <a href="#customers">Customers</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="tel:+919810799196" class="nav-phone">+91 98107 99196</a>
+        <a href="#book-call" class="btn btn-dark">Book a call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-split">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="dot"></span> Built for QSR &amp; food chains</div>
+        <h1 class="hero-title">IT that keeps every outlet serving</h1>
+        <p class="hero-sub">CCTV, networking, POS, printers, business software and on-call IT support — one partner across every location, so your teams can focus on the food, not the tech.</p>
+        <div class="hero-actions">
+          <a href="#book-call" class="btn btn-dark btn-lg">Book a free consultation</a>
+          <a href="#services" class="btn btn-ghost btn-lg">See what we cover</a>
+        </div>
+        <p style="margin-top:22px;font-size:0.85rem;color:var(--muted);">Trusted by food, hospitality &amp; retail brands across India.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img">
+          <img src="https://images.unsplash.com/photo-1566380055434-1dfac9eb516d?w=1100&q=80&fit=crop&auto=format" alt="Quick-service restaurant interior" loading="eager">
+          <div class="hero-stat"><div class="n">&lt; 2 hrs</div><div class="l">On-site response across Delhi NCR</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMERS -->
+  <section id="customers" class="strip" style="padding-top:6px;">
+    <div class="wrap">
+      <p class="strip-label">Trusted by food, hospitality &amp; retail brands</p>
+      <div class="strip-grid">
+        <img class="badge" src="Logos/cust_burgersingh.png" alt="Burger Singh" loading="lazy">
+        <img class="badge" src="Logos/cust_burgerama.png" alt="Burgerama" loading="lazy">
+        <img src="Logos/cust_wingreens.png" alt="Wingreens World" loading="lazy">
+        <img class="badge" src="Logos/cust_raw.png" alt="RAW Pressery" loading="lazy">
+        <img class="badge" src="Logos/cust_snowworld.png" alt="Snow World" loading="lazy">
+        <img class="badge" src="Logos/cust_pvr.png" alt="PVR Cinemas" loading="lazy">
+        <img src="Logos/cust_drlal.png" alt="Dr Lal PathLabs" loading="lazy">
+        <img src="Logos/cust_edureka.png" alt="Edureka" loading="lazy">
+        <img src="Logos/cust_aftershoot.png" alt="Aftershoot" loading="lazy">
+        <img src="Logos/cust_bbcstudios.png" alt="BBC Studios" loading="lazy">
+        <img src="Logos/cust_synaptic.png" alt="Synaptic" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">What we cover</span>
+        <h2 class="sec-title">Everything your outlets run on</h2>
+        <p class="sec-sub">From the front counter to the back office — the technology that keeps a busy QSR moving, installed and supported across every location.</p>
+      </div>
+      <div class="features">
+
+        <div class="feature reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>01</b> Surveillance</span>
+            <h3>CCTV &amp; Surveillance</h3>
+            <p>See every outlet from anywhere. We install HD CCTV with remote viewing so you can keep an eye on service, safety and shrinkage across all your locations from a single phone or dashboard.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> HD cameras with DVR/NVR recording</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Live remote viewing on your phone</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Counter, kitchen &amp; entrance coverage</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1549109926-58f039549485?w=900&q=80&fit=crop&auto=format" alt="CCTV camera in a restaurant" loading="lazy"><span class="fimg-tag">CCTV &amp; remote monitoring</span></div></div>
+        </div>
+
+        <div class="feature rev reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>02</b> Connectivity</span>
+            <h3>Networking &amp; Wi-Fi</h3>
+            <p>Connectivity that never drops mid-rush. Structured cabling, business-grade Wi-Fi and internet failover keep your POS, card machines and kitchen screens online through the busiest dinner service.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Structured cabling &amp; business Wi-Fi</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Internet failover &amp; backup lines</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Separate, secure guest Wi-Fi</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1594915440248-1e419eba6611?w=900&q=80&fit=crop&auto=format" alt="Network switch and cabling" loading="lazy"><span class="fimg-tag">Networking &amp; Wi-Fi</span></div></div>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>03</b> Billing</span>
+            <h3>POS Systems</h3>
+            <p>Billing that keeps the queue moving. We supply, set up and support point-of-sale systems across your outlets, and integrate them with your existing billing so every sale is captured cleanly.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> POS setup &amp; multi-outlet rollout</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Works with your billing software</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Consolidated reporting across outlets</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1556742212-5b321f3c261b?w=900&q=80&fit=crop&auto=format" alt="Point of sale terminal at a counter" loading="lazy"><span class="fimg-tag">POS setup &amp; support</span></div></div>
+        </div>
+
+        <div class="feature rev reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>04</b> Printing</span>
+            <h3>Receipt &amp; Kitchen Printers</h3>
+            <p>Orders that print right, every time. From front-counter receipt printers to kitchen order tickets (KOT), we install and maintain the printers your service depends on — with fast supply and replacement.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Receipt &amp; KOT printers</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kitchen order-ticket setup</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Consumables &amp; quick replacement</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1647427017067-8f33ccbae493?w=900&q=80&fit=crop&auto=format" alt="Receipt printing at a POS" loading="lazy"><span class="fimg-tag">Receipt &amp; kitchen printers</span></div></div>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>05</b> Software</span>
+            <h3>Software, Email &amp; Licensing</h3>
+            <p>The tools your team runs on. Business email on your own domain, genuine software licensing and the accounting, ERP and productivity apps your outlets and head office rely on — supplied and managed.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Business email on your domain</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Genuine, audit-ready licensing</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Microsoft, Zoho, accounting &amp; ERP</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?w=900&q=80&fit=crop&auto=format" alt="Laptop with a business dashboard" loading="lazy"><span class="fimg-tag">Software, email &amp; licensing</span></div></div>
+        </div>
+
+        <div class="feature rev reveal">
+          <div class="feature-text">
+            <span class="fnum"><b>06</b> Support</span>
+            <h3>IT Staffing &amp; On-call Support</h3>
+            <p>Engineers on hand when something breaks. Get on-call and on-site IT support plus preventive maintenance visits, so a down POS or camera during service is fixed fast — without hiring a full-time IT team.</p>
+            <ul class="checks">
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> On-call &amp; on-site engineers</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Preventive AMC maintenance visits</li>
+              <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Scale support as you add outlets</li>
+            </ul>
+          </div>
+          <div class="feature-visual"><div class="fimg"><img src="https://images.unsplash.com/photo-1721637713270-5470ea1d6389?w=900&q=80&fit=crop&auto=format" alt="Restaurant team at work" loading="lazy"><span class="fimg-tag">On-call IT support &amp; staffing</span></div></div>
+        </div>
+
+      </div>
+
+      <div class="cta-band reveal">
+        <div>
+          <h3>Opening a new outlet or upgrading an old one?</h3>
+          <p>Tell us how many locations you run. We'll put together a plan to get every outlet set up and supported — on one contract.</p>
+        </div>
+        <a href="#book-call" class="btn btn-lg" style="background:#fff;color:#0B0B0C;">Book a free 15-min call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / BENEFITS -->
+  <section id="why" class="sec">
+    <div class="wrap">
+      <div class="band reveal">
+        <span class="kicker">Why chains choose Gizmo Trendz</span>
+        <h2 class="sec-title" style="color:#fff;">One partner for every outlet, every problem</h2>
+        <p class="bsub">Whether you run five outlets or fifty, you get a single team that already knows your setup — with the buying power, response times and pan-India reach a growing food business needs.</p>
+        <div class="bgrid">
+          <div class="b-item"><div class="n">50+</div><p>Businesses served since 2014</p></div>
+          <div class="b-item"><div class="n">&lt; 2 hrs</div><p>On-site response, Delhi NCR</p></div>
+          <div class="b-item"><div class="n">Pan-India</div><p>Rollout &amp; delivery</p></div>
+          <div class="b-item"><div class="n">1 partner</div><p>For all your IT needs</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Common questions</span>
+        <h2 class="sec-title">QSR owners often ask</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Can you roll this out across all our outlets?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#9A9AA2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="faq-body"><p>Yes. We handle multi-outlet rollouts — standardising CCTV, networking, POS and printers across locations so every outlet works the same way, on a single contract and a single point of contact.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Will this work with our existing POS and billing software?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#9A9AA2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="faq-body"><p>In most cases, yes. We work around the billing and POS software you already use, and supply the hardware, printers and network it needs to run reliably. If you're starting fresh, we'll recommend what fits your menu and volume.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>How fast do you respond if something goes down during service?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#9A9AA2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="faq-body"><p>A down POS or camera during a rush is an emergency, and we treat it that way. Across Delhi NCR we aim to have someone on-site within a couple of hours, with remote support available immediately and nationwide.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Do you cover outlets outside Delhi NCR?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#9A9AA2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="faq-body"><p>We're based in Nehru Place, Delhi, with same-day on-site service across Delhi NCR. For outlets elsewhere in India we handle hardware supply, remote setup and support, and coordinate on-site work as needed.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="book-call" class="sec contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="kicker">Free consultation</span>
+          <h2 class="sec-title" style="text-align:left;">Let's get your outlets sorted.</h2>
+          <p class="sec-sub" style="text-align:left;max-width:420px;">Tell us a little about your business and we'll call you back within a few hours with a plan for your outlets. No cost, no commitment.</p>
+          <ul class="checks" style="margin-top:30px;">
+            <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> One partner for CCTV, network, POS, printers &amp; support</li>
+            <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Multi-outlet rollouts on a single contract</li>
+            <li><span class="fc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span> We call you back within a few hours</li>
+          </ul>
+        </div>
+
+        <div class="form-card" id="form-container">
+          <h3 style="font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Book your free call</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:22px;">We'll get back to you within a few hours.</p>
+          <form id="consultation-form" novalidate>
+            <div class="form-row field">
+              <div><label for="lp-name">Your Name *</label><input type="text" id="lp-name" class="inp" placeholder="Rajesh Kumar" required></div>
+              <div><label for="lp-company">Brand / Company *</label><input type="text" id="lp-company" class="inp" placeholder="Acme Foods Pvt Ltd" required></div>
+            </div>
+            <div class="form-row field">
+              <div><label for="lp-phone">Phone Number *</label><input type="tel" id="lp-phone" class="inp" placeholder="+91 98107 99196" required></div>
+              <div><label for="lp-outlets">No. of outlets</label>
+                <select id="lp-outlets" class="inp">
+                  <option value="">Select...</option>
+                  <option>1 outlet</option>
+                  <option>2–5 outlets</option>
+                  <option>6–15 outlets</option>
+                  <option>16+ outlets</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="lp-email">Work Email</label><input type="email" id="lp-email" class="inp" placeholder="you@company.com"></div>
+            <div class="field"><label for="lp-need">What do you need help with?</label>
+              <select id="lp-need" class="inp">
+                <option value="">Select a service...</option>
+                <option>CCTV &amp; Surveillance</option>
+                <option>Networking &amp; Wi-Fi</option>
+                <option>POS Systems</option>
+                <option>Receipt &amp; Kitchen Printers</option>
+                <option>Software, Email &amp; Licensing</option>
+                <option>IT Staffing &amp; Support</option>
+                <option>New outlet setup (everything)</option>
+                <option>Not sure, need some advice</option>
+              </select>
+            </div>
+            <p id="form-error" style="display:none;font-size:0.8rem;color:#DC2626;margin-bottom:12px;padding:10px 14px;background:#FEF2F2;border-radius:10px;border:1px solid #FECACA;"></p>
+            <button type="submit" class="btn btn-dark btn-lg" id="submit-btn" style="width:100%;">Book my free consultation</button>
+            <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px;">No spam. We'll only contact you about your inquiry.</p>
+          </form>
+          <div id="form-success" style="display:none;text-align:center;padding:20px 0;">
+            <div style="width:60px;height:60px;border-radius:50%;background:#EAF7EF;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+              <svg width="26" height="20" viewBox="0 0 28 22" fill="none"><path d="M2 11l8 8L26 2" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:8px;">We'll call you soon!</h3>
+            <p style="font-size:0.9rem;color:#63636B;line-height:1.6;">Thanks for reaching out. Our team will call you back within a few hours to plan your outlets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <a href="index.html" class="brand" style="font-size:1.05rem;"><img src="logo.svg" alt="Gizmo Trendz" style="height:30px;"></a>
+        <div class="foot-links">
+          <a href="tel:+919810799196"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +91 98107 99196</a>
+          <a href="mailto:info@gizmotrendz.co.in"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@gizmotrendz.co.in</a>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Nehru Place, New Delhi</span>
+        </div>
+      </div>
+      <p class="copy">© 2025 Gizmo Trendz IT Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div><!-- /frame -->
+
+<div class="sticky-cta">
+  <a href="#book-call" class="btn btn-dark" style="width:100%;">Book a free consultation</a>
+</div>
+
+<script>
+  function toggleFaq(btn){
+    const item=btn.closest('[data-faq]');
+    const body=item.querySelector('.faq-body');
+    const icon=btn.querySelector('.faq-icon');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('[data-faq]').forEach(el=>{
+      el.classList.remove('open');
+      el.querySelector('.faq-body').classList.remove('open');
+      el.querySelector('.faq-icon').style.transform='rotate(0deg)';
+    });
+    if(!isOpen){item.classList.add('open');body.classList.add('open');icon.style.transform='rotate(180deg)';}
+  }
+
+  const SUPABASE_URL='https://ckkwzgacvjefqezzityc.supabase.co';
+  const SUPABASE_ANON_KEY='sb_publishable_6Cr-WObsi9XwMmKHATvE8g_3YwKtLb5';
+  const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+  document.getElementById('consultation-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const name=document.getElementById('lp-name').value.trim();
+    const company=document.getElementById('lp-company').value.trim();
+    const phone=document.getElementById('lp-phone').value.trim();
+    const email=document.getElementById('lp-email').value.trim();
+    const need=document.getElementById('lp-need').value;
+    const outlets=document.getElementById('lp-outlets').value;
+    const errorEl=document.getElementById('form-error');
+    const btn=document.getElementById('submit-btn');
+    if(!name||!company||!phone){
+      errorEl.textContent='Please fill in your name, company and phone number.';
+      errorEl.style.display='block';return;
+    }
+    errorEl.style.display='none';
+    btn.disabled=true;
+    btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Sending...';
+    const parts=[];
+    if(need) parts.push('Service: '+need);
+    if(outlets) parts.push('Outlets: '+outlets);
+    const message=parts.length?parts.join(' | '):'QSR consultation request from landing page';
+    const {error}=await db.from('contacts').insert({
+      name:name,email:email||null,phone:phone,company:company,
+      message:message,source:'qsr-landing'
+    });
+    if(error){
+      btn.disabled=false;
+      btn.textContent='Book my free consultation';
+      errorEl.textContent='Something went wrong. Please call us directly at +91 98107 99196.';
+      errorEl.style.display='block';return;
+    }
+    document.getElementById('consultation-form').style.display='none';
+    document.getElementById('form-success').style.display='block';
+  });
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');observer.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('pre');observer.observe(el);});
+</script>
+
+</body>
+</html>
