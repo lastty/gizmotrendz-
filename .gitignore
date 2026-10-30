@@ -8,6 +8,9 @@
 !Logos/*
 !logo.png
 
+# Page images and brand logos used by the site
+!assets/**
+
 # Dev tools
 serve.mjs
 screenshot.mjs
